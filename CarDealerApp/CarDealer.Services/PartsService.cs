@@ -41,5 +41,38 @@ namespace CarDealer.Services
             IEnumerable<AllPartsVm> vms = Mapper.Map<IEnumerable<Part>, IEnumerable<AllPartsVm>>(parts);
             return vms;
         }
+
+        public DeletePartVm GetDeleteVm(int id)
+        {
+            Part part = Data.Data.Context.Parts.Find(id);
+            return Mapper.Map<Part, DeletePartVm>(part);
+        }
+
+        public void DeletePart(DeletePartBm bind)
+        {
+            Part part = Data.Data.Context.Parts.Find(bind.PartId);
+            Data.Data.Context.Parts.Remove(part);
+            Data.Data.Context.SaveChanges();
+        }
+
+        public EditPartVm GetEditVm(int id)
+        {
+            Part part = Data.Data.Context.Parts.Find(id);
+            return Mapper.Map<Part, EditPartVm>(part);
+        }
+
+        public void EditPart(EditPartBm bind)
+        {
+            Part part = Data.Data.Context.Parts.Find(bind.Id);
+            if (part == null)
+            {
+                throw new ArgumentException("Cannot find such part!");
+            }
+
+            part.Name = bind.Name;
+            part.Price = bind.Price;
+            part.Quantity = bind.Quantity;
+            Data.Data.Context.SaveChanges();
+        }
     }
 }

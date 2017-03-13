@@ -40,6 +40,9 @@ namespace CarDealer.Services
 
                     expression.CreateMap<AddPartBm, Part>();
                     expression.CreateMap<Part, AllPartsVm>();
+                    expression.CreateMap<Part, DeletePartVm>();
+                    expression.CreateMap<Part, EditPartVm>();
+                    expression.CreateMap<EditPartBm, Part>();
                 });
         }
     }
