@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarDealer.Models.ViewModels
+﻿namespace CarDealer.Models.ViewModels
 {
-    class SaleVm
-    {
+    public class SaleVm
+    {       
+        public CarVm Car { get; set; }
+        public AllCustomerVm Customer { get; set; }
+        public double Discount { get; set; }
+        public double Price { get; set; }
+
     }
 }

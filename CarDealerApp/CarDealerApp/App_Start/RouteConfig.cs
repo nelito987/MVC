@@ -13,17 +13,19 @@ namespace CarDealerApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",
             //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             //);
 
-            routes.MapRoute(
-                name: "All customers ordered",
-                url: "customers/all/{order}",
-                defaults: new { controller = "Customers", action = "All", order = "ascending" },
-                constraints: new {order = @"ascending|descending"});
+            //routes.MapRoute(
+            //    name: "All customers ordered",
+            //    url: "customers/all/{order}",
+            //    defaults: new { controller = "Customers", action = "All", order = "ascending" },
+            //    constraints: new {order = @"ascending|descending"});
 
             routes.MapRoute(
                 name: "All cars from make",
@@ -34,6 +36,12 @@ namespace CarDealerApp
                name: "Filter suppliers",
                url: "suppliers/{filter}",
                defaults: new { controller = "Suppliers", action = "All" });
+
+            //routes.MapRoute(
+            //  name: "About car",
+            //  url: "cars/{id}/parts/",
+            //  defaults: new { controller = "Cars", action = "About" },
+            //  constraints: new { id = @"\d+"});
         }
     }
 }

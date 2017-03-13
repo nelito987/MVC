@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CarDealer.Models.ViewModels
 {
-    class AboutCarVm
+    public class AboutCarVm
     {
+        public CarVm Car { get; set; }
+
+        public IEnumerable<PartVm> Parts { get; set; }
     }
 }

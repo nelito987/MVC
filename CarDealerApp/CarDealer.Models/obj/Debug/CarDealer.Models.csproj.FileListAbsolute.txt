@@ -2,3 +2,8 @@ C:\Users\Neli\Desktop\SoftUni\MVC ASP\2. CSharp-Frameworks-ASPNET-Essentials-Exe
 C:\Users\Neli\Desktop\SoftUni\MVC ASP\2. CSharp-Frameworks-ASPNET-Essentials-Exercises\CarDealerApp-Skeleton\CarDealer.Models\bin\Debug\CarDealer.Models.pdb
 C:\Users\Neli\Desktop\SoftUni\MVC ASP\2. CSharp-Frameworks-ASPNET-Essentials-Exercises\CarDealerApp-Skeleton\CarDealer.Models\obj\Debug\CarDealer.Models.dll
 C:\Users\Neli\Desktop\SoftUni\MVC ASP\2. CSharp-Frameworks-ASPNET-Essentials-Exercises\CarDealerApp-Skeleton\CarDealer.Models\obj\Debug\CarDealer.Models.pdb
+C:\Users\neli\Documents\GitHub\MVC\CarDealerApp\CarDealer.Models\bin\Debug\CarDealer.Models.dll
+C:\Users\neli\Documents\GitHub\MVC\CarDealerApp\CarDealer.Models\bin\Debug\CarDealer.Models.pdb
+C:\Users\neli\Documents\GitHub\MVC\CarDealerApp\CarDealer.Models\obj\Debug\CarDealer.Models.dll
+C:\Users\neli\Documents\GitHub\MVC\CarDealerApp\CarDealer.Models\obj\Debug\CarDealer.Models.pdb
+C:\Users\neli\Documents\GitHub\MVC\CarDealerApp\CarDealer.Models\obj\Debug\CarDealer.Models.csprojResolveAssemblyReference.cache

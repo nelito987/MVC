@@ -21,5 +21,13 @@ namespace CarDealerApp.Controllers
             IEnumerable<CarVm> viewModels = this.service.GetAllCarsByMake(make);
             return this.View(viewModels);
         }
+
+        [HttpGet]
+        [Route("cars/{id}/parts/")]
+        public ActionResult About(int id)
+        {
+            AboutCarVm viewModels = this.service.GetCarWithParts(id);
+            return this.View(viewModels);
+        }
     }
 }

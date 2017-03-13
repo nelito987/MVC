@@ -17,15 +17,29 @@ namespace CarDealer.Services
                 .Cars
                 .Where(c => c.Make.Contains(make))
                 .OrderBy(c => c.Model)
-                .ThenByDescending(c => c.TravelledDistance);
-
-            //IEnumerable<AllCustomerVm> viewModels =
-            //    Mapper.Instance.Map<IEnumerable<Customer>, IEnumerable<AllCustomerVm>>(customers);
+                .ThenByDescending(c => c.TravelledDistance);            
 
             IEnumerable<CarVm> viewModels = 
                 Mapper.Instance.Map<IEnumerable<Car>, IEnumerable<CarVm>>(cars);
 
             return viewModels;
+        }
+
+        public AboutCarVm GetCarWithParts(int id)
+        {
+            var car = Data.Data.Context.Cars.Find(id);
+            IEnumerable<Part> partsOfCar = car.Parts;
+
+            CarVm carVm = Mapper.Map<Car, CarVm>(car);
+            IEnumerable<PartVm> partsVm = Mapper.Map<IEnumerable<Part>, IEnumerable<PartVm>>(partsOfCar);
+
+            var viewmodel = new AboutCarVm()
+            {
+                Car = carVm,
+                Parts = partsVm
+            };
+
+            return viewmodel;
         }
     }
 }
