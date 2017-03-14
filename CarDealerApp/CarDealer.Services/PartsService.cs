@@ -58,7 +58,8 @@ namespace CarDealer.Services
         public EditPartVm GetEditVm(int id)
         {
             Part part = Data.Data.Context.Parts.Find(id);
-            return Mapper.Map<Part, EditPartVm>(part);
+            var vm = Mapper.Map<Part, EditPartVm>(part);
+            return vm;
         }
 
         public void EditPart(EditPartBm bind)

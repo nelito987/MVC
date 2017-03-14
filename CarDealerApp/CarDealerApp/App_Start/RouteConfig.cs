@@ -15,11 +15,11 @@ namespace CarDealerApp
 
             routes.MapMvcAttributeRoutes();
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{filter}",
+                defaults: new { controller = "suppliers", action = "All", filter = "local" } //id = UrlParameter.Optional }
+            );
 
             //routes.MapRoute(
             //    name: "All customers ordered",
@@ -27,15 +27,15 @@ namespace CarDealerApp
             //    defaults: new { controller = "Customers", action = "All", order = "ascending" },
             //    constraints: new {order = @"ascending|descending"});
 
-            routes.MapRoute(
-                name: "All cars from make",
-                url: "cars/{make}",
-                defaults: new { controller = "Cars", action = "All" });
+            //routes.MapRoute(
+            //    name: "All cars from make",
+            //    url: "cars/{make}",
+            //    defaults: new { controller = "Cars", action = "All" });
 
             routes.MapRoute(
                name: "Filter suppliers",
                url: "suppliers/{filter}",
-               defaults: new { controller = "Suppliers", action = "All" });
+               defaults: new { controller = "Suppliers", action = "All", filter="local"});
 
             //routes.MapRoute(
             //  name: "About car",

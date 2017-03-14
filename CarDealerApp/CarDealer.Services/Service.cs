@@ -21,28 +21,39 @@ namespace CarDealer.Services
             Mapper.Initialize(
                 expression =>
                 {
+                    //customer
                     expression.CreateMap<Customer, AllCustomerVm>();
                     expression.CreateMap<Customer, AboutCustomerVm>();
+                    expression.CreateMap<AddCustomerBm, Customer>();
+                    expression.CreateMap<Customer, EditCustomerVm>();
+
+                    //cars
                     expression.CreateMap<Car, CarVm>();
+                    expression.CreateMap<AddCarBm, Car>()
+                    .ForMember(c => c.Parts,
+                        configurationExpression =>
+                        configurationExpression.Ignore());
+
+                    //supplier
                     expression.CreateMap<Supplier, SupplierVm>()
                     .ForMember(vm => vm.PartsCount,
                         configurationExpression =>
                             configurationExpression.MapFrom(supplier => supplier.Parts.Count));
-                    expression.CreateMap<Part, PartVm>();
+                   
+                    //sales
                     expression.CreateMap<Sale, SaleVm>()
                         .ForMember(vm => vm.Price,
                         configurationExpression =>
                         configurationExpression.MapFrom(sale =>
-                            sale.Car.Parts.Sum(part => part.Price)));
+                            sale.Car.Parts.Sum(part => part.Price)));                   
 
-                    expression.CreateMap<AddCustomerBm, Customer>();
-                    expression.CreateMap<Customer, EditCustomerVm>();
-
+                    //parts
                     expression.CreateMap<AddPartBm, Part>();
                     expression.CreateMap<Part, AllPartsVm>();
                     expression.CreateMap<Part, DeletePartVm>();
                     expression.CreateMap<Part, EditPartVm>();
                     expression.CreateMap<EditPartBm, Part>();
+                    expression.CreateMap<Part, PartVm>();
                 });
         }
     }
