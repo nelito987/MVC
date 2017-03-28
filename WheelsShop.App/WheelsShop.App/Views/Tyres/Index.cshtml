@@ -3,5 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Tyres Index</h2>
+<div class="col-md-4">
+    @using (Html.BeginForm("AllTyres", "Tyres", FormMethod.Get))
+    {
+        <button id="homeBtn">
+            <img id="homePageImage" src="../../Content/Images/tyre.jpg" />
+            <br />
+            <span>All tyres</span>
+        </button>
+    }
+</div>
 

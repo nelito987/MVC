@@ -1,3 +1,6 @@
+using WheelsShop.App.Services;
+using WheelsShop.App.Services.Contracts;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WheelsShop.App.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WheelsShop.App.App_Start.NinjectWebCommon), "Stop")]
 
@@ -64,6 +67,7 @@ namespace WheelsShop.App.App_Start
         {
             kernel.Bind<IWheelsShopData>().To<WheelsShopData>()
                 .WithConstructorArgument("context", new WheelsShopData());
+            kernel.Bind<ITyreService>().To<TyresService>();
         }        
     }
 }

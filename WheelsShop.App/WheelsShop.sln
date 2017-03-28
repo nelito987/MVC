@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheelsShop.Data", "WheelsSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheelsShop.Models", "WheelsShop.Models\WheelsShop.Models.csproj", "{16FEA009-A0EB-4000-BDD8-E4722FC4CBA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheelsShop.Services", "WheelsShop.Services\WheelsShop.Services.csproj", "{8C365CB5-D44F-42EE-9E5C-D1371F69DCD2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{16FEA009-A0EB-4000-BDD8-E4722FC4CBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16FEA009-A0EB-4000-BDD8-E4722FC4CBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16FEA009-A0EB-4000-BDD8-E4722FC4CBA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C365CB5-D44F-42EE-9E5C-D1371F69DCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C365CB5-D44F-42EE-9E5C-D1371F69DCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C365CB5-D44F-42EE-9E5C-D1371F69DCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C365CB5-D44F-42EE-9E5C-D1371F69DCD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,14 @@
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\WheelsShop.Models.dll.config
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\WheelsShop.Models.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\WheelsShop.Models.pdb
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\EntityFramework.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\EntityFramework.xml
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.csprojResolveAssemblyReference.cache
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.pdb

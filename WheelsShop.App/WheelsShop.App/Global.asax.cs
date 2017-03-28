@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WheelsShop.App.App_Start;
 using WheelsShop.Data;
 using WheelsShop.Data.Migrations;
 
@@ -11,7 +12,10 @@ namespace WheelsShop.App
     {
         protected void Application_Start()
         {
+           
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<WheelsShopContext, Configuration>());
+
+            MapperConfig.ConfigureMappings();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,0 +1,3 @@
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\obj\Debug\WheelsShop.App.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\obj\Debug\WheelsShop.App.Tests.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\obj\Debug\WheelsShop.App.Tests.pdb

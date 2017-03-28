@@ -1,0 +1,10 @@
+﻿@model WheelsShop.App.Models.ViewModels.AllTyresViewModel
+
+@{
+    ViewBag.Title = "AllTyres";
+}
+
+@foreach (var tyreVm in Model.TyresVM)
+{
+    <div>@tyreVm.Brand @tyreVm.Model</div>
+}
