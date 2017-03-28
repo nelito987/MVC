@@ -37,15 +37,15 @@ namespace WheelsShop.Data.UnitOfWork
             get { return this.GetRepository<Product>(); }
         }
 
-        //public IRepository<Wheel> Wheels
-        //{
-        //    get { return this.GetRepository<Wheel>(); }
-        //}
+        public IRepository<Wheel> Wheels
+        {
+            get { return this.GetRepository<Wheel>(); }
+        }
 
-        //public IRepository<Tyre> Tyres
-        //{
-        //    get { return this.GetRepository<Tyre>(); }
-        //}
+        public IRepository<Tyre> Tyres
+        {
+            get { return this.GetRepository<Tyre>(); }
+        }
 
         public IRepository<Sale> Sales
         {

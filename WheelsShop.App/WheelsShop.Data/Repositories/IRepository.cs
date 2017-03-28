@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace WheelsShop.Data.Repositories
 {
@@ -15,6 +18,8 @@ namespace WheelsShop.Data.Repositories
         void Remove(T entity);
 
         T Remove(object id);
+
+        IEnumerable<T> Where(Expression<Func<T, bool>> predicate);
 
         void SaveChanges();
     }

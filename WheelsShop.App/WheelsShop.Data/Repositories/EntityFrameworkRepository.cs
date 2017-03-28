@@ -2,7 +2,10 @@
 
 namespace WheelsShop.Data.Repositories
 {
+    using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq.Expressions;
 
     public class EntityFrameworkRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
@@ -28,6 +31,11 @@ namespace WheelsShop.Data.Repositories
         public TEntity Find(object id)
         {
             return this.entitySet.Find(id);
+        }
+
+        public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        {
+            return this.entitySet.Where(predicate);
         }
 
         public TEntity Add(TEntity entity)

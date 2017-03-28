@@ -58,7 +58,7 @@ namespace WheelsShop.App
                 RequiredLength = 3,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = true,
-                RequireLowercase = true,
+                RequireLowercase = false,
                 RequireUppercase = false,
             };
 
