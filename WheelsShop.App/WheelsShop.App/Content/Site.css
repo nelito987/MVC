@@ -26,3 +26,25 @@
     border: 1px solid gray;
     font-weight: bold;
 }
+
+#tyreForm{
+    display: flex;
+    background-color: white;
+    border: 2px solid #ffc266;    
+    margin: 20px;
+    border-radius: 6px;
+}
+
+#allTyrePic{
+    width: 150px;
+    height: 150px;
+}
+
+.btn-default{
+    background-color: #ffc266;
+    border: 2px solid orange;
+}
+
+.dropdown{
+    display: inline-grid;
+}

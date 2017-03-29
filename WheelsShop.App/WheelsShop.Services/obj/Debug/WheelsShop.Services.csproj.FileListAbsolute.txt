@@ -1,1 +1,0 @@
-C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\obj\Debug\WheelsShop.Services.csprojResolveAssemblyReference.cache
