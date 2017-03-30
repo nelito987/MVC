@@ -42,31 +42,31 @@ namespace WheelsShop.App.Controllers
             var seasons = new SelectList(seasonsDistinct);
             var brands = new SelectList(tyreBrands);
 
-            ViewBag.Sizes = sizes.Select(t => new SelectListItem()
-            {
-                Text = t.Text,
-                Value = t.Value
-            });
-            ViewBag.Width = width.Select(t => new SelectListItem()
-            {
-                Text = t.Text,
-                Value = t.Value
-            });
-            ViewBag.Height = heights.Select(t => new SelectListItem()
-            {
-                Text = t.Text,
-                Value = t.Value
-            });
-            ViewBag.Seasons = seasons.Select(t => new SelectListItem()
-            {
-                Text = t.Text,
-                Value = t.Value
-            });
-            ViewBag.Brands = brands.Select(t => new SelectListItem()
-            {
-                Text = t.Text,
-                Value = t.Value
-            });
+            //ViewBag.Sizes = sizes.Select(t => new SelectListItem()
+            //{
+            //    Text = t.Text,
+            //    Value = t.Value
+            //});
+            //ViewBag.Width = width.Select(t => new SelectListItem()
+            //{
+            //    Text = t.Text,
+            //    Value = t.Value
+            //});
+            //ViewBag.Height = heights.Select(t => new SelectListItem()
+            //{
+            //    Text = t.Text,
+            //    Value = t.Value
+            //});
+            //ViewBag.Seasons = seasons.Select(t => new SelectListItem()
+            //{
+            //    Text = t.Text,
+            //    Value = t.Value
+            //});
+            //ViewBag.Brands = brands.Select(t => new SelectListItem()
+            //{
+            //    Text = t.Text,
+            //    Value = t.Value
+            //});
 
             var vm = new SearchTyreViewModel()
             {

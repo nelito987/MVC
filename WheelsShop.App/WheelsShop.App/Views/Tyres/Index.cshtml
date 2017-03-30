@@ -17,7 +17,16 @@
 
 @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-        <div class="dropdown">
+    @Html.DropDownListFor(model => model.Widths, Model.Widths,"--Width--", new { placeholder = "Width" })
+    @Html.DropDownListFor(model => model.Height, Model.Height, "--Height--", new { placeholder = "Height" })
+    @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "--Size--", new { @class = "form-control floatLabel ", placeholder = "Size" })
+    @Html.DropDownListFor(model => model.Seasons, Model.Seasons, "--Season--", new { @class = "form-control floatLabel ", placeholder = "Season" })
+    @Html.DropDownListFor(model => model.Brands, Model.Brands, "--Brand--", new { @class = "form-control floatLabel ", placeholder = "Brand" })
+
+
+
+
+        @*<div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                Width <span class="caret"></span>
             </button>
@@ -85,6 +94,6 @@
                     <li><a href="#">@item.Text</a></li>
                 }
             </ul>
-        </div>
+        </div>*@
 }
 
