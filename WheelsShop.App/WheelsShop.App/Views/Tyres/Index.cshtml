@@ -4,96 +4,46 @@
     ViewBag.Title = "Index";
 }
 
-<div class="col-md-4">
-    @using (Html.BeginForm("AllTyres", "Tyres", FormMethod.Get))
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("AllTyres", "Tyres", FormMethod.Get))
+        {
+            <button id="homeBtn">
+                <img id="homePageImage" src="../../Content/Images/tyre.jpg" />
+                <br />
+                <span>All tyres</span>
+            </button>
+        }
+    </div>
+    </br>
+    @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Post, new { @class = "form-horizontal" }))
     {
-        <button id="homeBtn">
-            <img id="homePageImage" src="../../Content/Images/tyre.jpg" />
-            <br />
-            <span>All tyres</span>
-        </button>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("Width: ")
+                @Html.DropDownListFor(model => model.Widths, Model.Widths, "", new { @class = "form-control", placeholder = "Width" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Height: ")
+                @Html.DropDownListFor(model => model.Height, Model.Height, "", new { @class = "form-control", placeholder = "Height" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Size: ")
+                @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "", new { @class = "form-control", placeholder = "Size" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Season: ")
+                @Html.DropDownListFor(model => model.Seasons, Model.Seasons, "", new { @class = "form-control", placeholder = "Season" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Brand: ")
+                @Html.DropDownListFor(model => model.Brands, Model.Brands, "", new { @class = "form-control", placeholder = "Brand" })
+            </div>
+            <div class="col-md-2">                
+                <input type="submit" class="btn btn-default" value="Search" />
+            </div>
+        </div>
     }
 </div>
 
-@using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.DropDownListFor(model => model.Widths, Model.Widths,"--Width--", new { placeholder = "Width" })
-    @Html.DropDownListFor(model => model.Height, Model.Height, "--Height--", new { placeholder = "Height" })
-    @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "--Size--", new { @class = "form-control floatLabel ", placeholder = "Size" })
-    @Html.DropDownListFor(model => model.Seasons, Model.Seasons, "--Season--", new { @class = "form-control floatLabel ", placeholder = "Season" })
-    @Html.DropDownListFor(model => model.Brands, Model.Brands, "--Brand--", new { @class = "form-control floatLabel ", placeholder = "Brand" })
-
-
-
-
-        @*<div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-               Width <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-
-            @foreach (var item in Model.Widths)
-            {
-                @:
-                <li><a href="#">@item.Text</a></li>
-            }
-            </ul>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                Height <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-
-                @foreach (var item in Model.Height)
-                {
-                    @:
-                    <li><a href="#">@item.Text</a></li>
-                }
-            </ul>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                Sizes <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-
-                @foreach (var item in Model.Sizes)
-                {
-                    @:
-                    <li><a href="#">@item.Text</a></li>
-                }
-            </ul>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                Season <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-
-                @foreach (var item in Model.Seasons)
-                {
-                    @:
-                    <li><a href="#">@item.Text</a></li>
-                }
-            </ul>
-        </div>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                Brands <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-
-                @foreach (var item in Model.Brands)
-                {
-                    @:
-                    <li><a href="#">@item.Text</a></li>
-                }
-            </ul>
-        </div>*@
-}
 

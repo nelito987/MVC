@@ -17,6 +17,7 @@
     font-size: 2em;
     font-weight: bold;
     font-style: italic;
+    margin: 30px 0;
 }
 
 /*Bootstrap overwriting*/
@@ -36,8 +37,8 @@
 }
 
 #allTyrePic{
-    width: 150px;
-    height: 150px;
+    width: 80%;
+    height: 80%;
 }
 
 .btn-default{

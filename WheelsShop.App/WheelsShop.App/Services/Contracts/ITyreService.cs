@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WheelsShop.App.Models.BindingModels;
 using WheelsShop.App.Models.ViewModels;
 using WheelsShop.Models.EntityModels;
 
@@ -9,5 +10,7 @@ namespace WheelsShop.App.Services.Contracts
         IEnumerable<TyreViewModel> GetAllTyres();
 
         IEnumerable<Tyre> GetSearchTyreInfo();
+        SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres);
+        AllTyresViewModel GetSearchTyreInfo(SearchTyreBindingModel model);
     }
 }
