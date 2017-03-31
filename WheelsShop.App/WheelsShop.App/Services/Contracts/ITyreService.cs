@@ -7,9 +7,9 @@ namespace WheelsShop.App.Services.Contracts
 {
     public interface ITyreService
     {
-        IEnumerable<TyreViewModel> GetAllTyres();
+       // IEnumerable<TyreViewModel> GetAllTyres();
 
-        IEnumerable<Tyre> GetSearchTyreInfo();
+        IEnumerable<Tyre> GetAllTyres();
         SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres);
         AllTyresViewModel GetSearchTyreInfo(SearchTyreBindingModel model);
     }

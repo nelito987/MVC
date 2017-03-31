@@ -4,6 +4,16 @@
     ViewBag.Title = "Search tyres";
 }
 
+@{ Html.RenderAction("Search");}
+
+<div>Подреди по цена </div>
+<div class="col-md-3">
+    @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Get))
+            {
+                <input type="button" value="Order by brand"/>
+            }
+</div>
+
 <div class="row">
     @*@Html.Partial("~/Views/Shared/_Messages.cshtml")*@
     @if (Model.TyresVM.Count() == 0)

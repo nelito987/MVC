@@ -24,29 +24,36 @@ namespace WheelsShop.App.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Tyres Index";
-            var tyres = this.service.GetSearchTyreInfo();
-            var vm = this.service.LoadDataToViewBag(tyres);     
-            return View(vm);
-        }       
+            //var tyres = this.service.GetAllTyres();
+            //var vm = this.service.LoadDataToViewBag(tyres);     
+            return View();
+        }
+
+        public PartialViewResult Search()
+        {
+            var tyres = this.service.GetAllTyres();
+            var vm = this.service.LoadDataToViewBag(tyres);
+            return PartialView("TyresDropDown", vm);
+        }
 
         
-        public ActionResult AllTyres()
-        {
-            IEnumerable<TyreViewModel> tyres = this.service.GetAllTyres();
-            //todo: move to service
-            var model = new AllTyresViewModel()
-            {
-                TyresVM = tyres
-            };
-            return View(model);
-        }       
+        //public ActionResult AllTyres()
+        //{
+        //    IEnumerable<TyreViewModel> tyres = this.service.GetAllTyres();
+        //    //todo: move to service
+        //    var model = new AllTyresViewModel()
+        //    {
+        //        TyresVM = tyres
+        //    };
+        //    return View(model);
+        //}       
         
         public ActionResult SearchTyre(SearchTyreBindingModel model)
         {  
-            if(model == null)
-            {
-                return RedirectToAction("AllTyres");
-            }
+            //if(model == null)
+            //{
+            //    return RedirectToAction("AllTyres");
+            //}
             var result = this.service.GetSearchTyreInfo(model);            
             return View(result);
         }

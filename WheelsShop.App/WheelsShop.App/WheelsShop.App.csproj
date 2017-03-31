@@ -322,6 +322,7 @@
     <Content Include="Views\Tyres\Index.cshtml" />
     <Content Include="Views\Tyres\AllTyres.cshtml" />
     <Content Include="Views\Tyres\SearchTyre.cshtml" />
+    <Content Include="Views\Tyres\TyresDropDown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

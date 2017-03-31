@@ -18,38 +18,22 @@ namespace WheelsShop.App.Services
         {
         }
 
-        public IEnumerable<TyreViewModel> GetAllTyres()
+        //public IEnumerable<TyreViewModel> GetAllTyres()
+        //{
+        //    var tyres = this.Data.Products.Where(p => p is Tyre).ToList();
+        //    var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);
+        //    return tyresVm;
+        //}
+
+        public IEnumerable<Tyre> GetAllTyres()
         {
-            var tyres = this.Data.Products.Where(p => p is Tyre).ToList();
-            var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);
-            return tyresVm;
-        }
-
-        public IEnumerable<Tyre> GetSearchTyreInfo()
-        {
-            //var tyres = this.Data.Products.Where(p => p is Tyre).ToList();
-            //var tyres = this.Data.Products.All().OfType<Tyre>().ToList();
-            //IEnumerable<int> widthDistinct = tyres.Select(t => t.Width).Distinct();
-            //IEnumerable<int> heightDistinct = tyres.Select(t => t.Height).Distinct();
-            //IEnumerable<int> sizeDistinct = tyres.Select(t => t.Size).Distinct();
-            //IEnumerable<string> tyreBrands = tyres.Select(t => t.Brand).Distinct();
-
-            //var model = new SearchTyreViewModel()
-            //{
-            //    Widths = widthDistinct,
-            //    Height = heightDistinct,
-            //    Sizes = sizeDistinct,
-            //    Brands = tyreBrands
-            //};          
-
-            //return model;
-
             return this.Data.Products.All().OfType<Tyre>().ToList();
         }
 
         public AllTyresViewModel GetSearchTyreInfo(SearchTyreBindingModel model)
         {
             var tyres = this.Data.Products.All().OfType<Tyre>();
+
             if(model.Brands != null)
             {
                 tyres = tyres.Where(p => p.Brand == model.Brands);
@@ -71,13 +55,19 @@ namespace WheelsShop.App.Services
                 tyres = tyres.Where(p => p.Height == model.Height);
             }
 
-
-            //var tyres = this.Data.Products.All().OfType<Tyre>()
-            //     .Where(p => (p.Brand == model.Brands || model.Brands == null) &&
-            //            (p.Season.ToString() == model.Seasons || model.Seasons == null) &&
-            //            (p.Width == model.Widths || p.Width == 0) &&
-            //            (p.Height == model.Height || p.Height == 0) &&
-            //            (p.Size == model.Sizes || p.Size == 0));
+            //if (model.Order == "" || model.Order == "Price")
+            //{
+            //    tyres = tyres.OrderBy(t => t.Price);
+            //}
+            //else if(model.Order == "Brand")
+            //{
+            //    tyres = tyres.OrderBy(t => t.Brand);
+            //}
+            //else if (model.Order == "Size")
+            //{
+            //    tyres = tyres.OrderBy(t => t.Size);
+            //}
+           
 
             var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);
             var searchedTyresVm = new AllTyresViewModel()
@@ -94,12 +84,15 @@ namespace WheelsShop.App.Services
             IEnumerable<int> heightDistinct = tyres.Select(t => t.Height).Distinct();
             IEnumerable<string> seasonsDistinct = tyres.Select(t => t.Season.ToString()).Distinct();
             IEnumerable<string> tyreBrands = tyres.Select(t => t.Brand).Distinct();
-
+            List<string> orders = new List<string>() {"Price", "Brand", "Size"};
+           
             var sizes = new SelectList(sizeDistinct);
             var width = new SelectList(widthDistinct);
             var heights = new SelectList(heightDistinct);
             var seasons = new SelectList(seasonsDistinct);
             var brands = new SelectList(tyreBrands);
+            var order = new SelectList(orders);
+            
 
             var vm = new SearchTyreViewModel()
             {
@@ -107,7 +100,8 @@ namespace WheelsShop.App.Services
                 Widths = width,
                 Height = heights,
                 Seasons = seasons,
-                Brands = brands
+                Brands = brands//,
+                //Order = order
             };
 
             return vm;

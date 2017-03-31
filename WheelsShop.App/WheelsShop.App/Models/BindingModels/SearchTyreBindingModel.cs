@@ -14,5 +14,7 @@ namespace WheelsShop.App.Models.BindingModels
         public string Brands { get; set; }
 
         public string Seasons { get; set; }
+
+        //public string Order { get; set; }
     }
 }
