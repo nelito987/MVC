@@ -1,5 +1,5 @@
-using WheelsShop.App.Services;
-using WheelsShop.App.Services.Contracts;
+using WheelsShop.Services;
+using WheelsShop.Services.Contracts;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WheelsShop.App.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WheelsShop.App.App_Start.NinjectWebCommon), "Stop")]

@@ -1,22 +1,9 @@
-﻿@model WheelsShop.App.Models.ViewModels.AllTyresViewModel
+﻿@model WheelsShop.Models.ViewModels.AllTyresViewModel
 
 @{
     ViewBag.Title = "AllTyres";
 }
 
-<div class="row">
+@Html.Partial("_Tyres")   
 
-    @foreach (var tyreVm in Model.TyresVM)
-    {
-        <div class="row col-md-5" id="tyreForm">
-            <div id="leftSide" class="col-md-6"><img id="allTyrePic" src="../../Content/Images/tyre.jpg" /></div>
-            <div id="rightSide" class="col-md-6">
-                <p><h3>@tyreVm.Brand</h3></p>
-                <p>@tyreVm.Model</p>
-                <p>Size: @tyreVm.Width/@tyreVm.Height R @tyreVm.Size</p>
-                <p>Season: @tyreVm.Season</p>
-                <p><h3>Price: @tyreVm.Price</h3></p>
-            </div>
-        </div>
-    }
-</div>
+

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using WheelsShop.Models.BindingModels;
+using WheelsShop.Models.EntityModels;
+using WheelsShop.Models.ViewModels;
 
 namespace WheelsShop.Services.Contracts
 {
-    interface ITyreService
+    public interface ITyreService
     {
+        IEnumerable<TyreViewModel> GetAllTyresVM();
+        IEnumerable<Tyre> GetAllTyres();
+        SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres);
+        AllTyresViewModel GetSearchTyreInfo(SearchTyreBindingModel model);
     }
 }

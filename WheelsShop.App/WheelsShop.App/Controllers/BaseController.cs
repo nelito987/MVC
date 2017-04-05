@@ -5,8 +5,8 @@ namespace WheelsShop.App.Controllers
 {
     public abstract class BaseController : Controller
     {
-        // GET: Base
-        private IWheelsShopData data;
+        // GET: Base //TODO:
+        //private IWheelsShopData data;
 
         protected BaseController(IWheelsShopData data)
         {

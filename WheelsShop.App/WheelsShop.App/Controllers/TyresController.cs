@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using WheelsShop.App.Models.BindingModels;
-using WheelsShop.App.Models.ViewModels;
-using WheelsShop.App.Services.Contracts;
 using WheelsShop.Data.UnitOfWork;
-using WheelsShop.Models.EntityModels;
+using WheelsShop.Models.BindingModels;
+using WheelsShop.Models.ViewModels;
+using WheelsShop.Services.Contracts;
 
 namespace WheelsShop.App.Controllers
 {
@@ -33,21 +29,21 @@ namespace WheelsShop.App.Controllers
         {
             var tyres = this.service.GetAllTyres();
             var vm = this.service.LoadDataToViewBag(tyres);
-            return PartialView("TyresDropDown", vm);
+            return PartialView("_TyresDropDown", vm);
         }
 
-        
-        //public ActionResult AllTyres()
-        //{
-        //    IEnumerable<TyreViewModel> tyres = this.service.GetAllTyres();
-        //    //todo: move to service
-        //    var model = new AllTyresViewModel()
-        //    {
-        //        TyresVM = tyres
-        //    };
-        //    return View(model);
-        //}       
-        
+
+        public ActionResult AllTyres()
+        {
+            IEnumerable<TyreViewModel> tyres = this.service.GetAllTyresVM();
+            //todo: move to service
+            var model = new AllTyresViewModel()
+            {
+                TyresVM = tyres
+            };
+            return View(model);
+        }
+
         public ActionResult SearchTyre(SearchTyreBindingModel model)
         {  
             //if(model == null)

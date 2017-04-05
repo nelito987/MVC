@@ -86,6 +86,15 @@ namespace WheelsShop.Data.Migrations
                 manager.Create(role);
             }
 
+            if (!context.Roles.Any(r => r.Name == "Customer"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole("Customer");
+
+                manager.Create(role);
+            }
+
             if (!context.Users.Any(u => u.UserName == "admin"))
             {
                 var store = new UserStore<User>(context);
@@ -96,10 +105,23 @@ namespace WheelsShop.Data.Migrations
                 manager.AddToRole(user.Id, "Admin");
 
                 user = new User { UserName = "someUser", Email = "someUser@gmail.com" };
-                manager.Create(user, "someUserPass123");
+                manager.Create(user, "someUserPass123");               
+                
 
                 user = new User() { UserName = "Mika", Email = "mika@gmail.com" };
                 manager.Create(user, "Mika123");
+                manager.AddToRole(user.Id, "Admin");
+            }
+
+            if (!context.Users.Any(u => u.UserName == "Customer"))
+            {
+                var store = new UserStore<User>(context);
+                var manager = new UserManager<User>(store);
+                var user = new User() { UserName = "customer", Email = "customer@gmail.com" };
+
+                manager.Create(user, "customer1");
+                manager.AddToRole(user.Id, "Customer");              
+               
             }
         }
 

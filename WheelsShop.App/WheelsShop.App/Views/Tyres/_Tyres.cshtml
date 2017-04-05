@@ -1,0 +1,30 @@
+﻿@model WheelsShop.Models.ViewModels.AllTyresViewModel
+
+
+    <div class="row">
+        @foreach (var tyreVm in Model.TyresVM)
+        {
+            <div class="row col-md-5" id="tyreForm">
+                <div id="leftSide" class="col-md-6"><img id="allTyrePic" src="../../Content/Images/tyre.jpg" /></div>
+                <div id="rightSide" class="col-md-6">
+                    <p><h3>@tyreVm.Brand</h3></p>
+                    <p>@tyreVm.Model</p>
+                    <p>Size: @tyreVm.Width/@tyreVm.Height R @tyreVm.Size</p>
+                    <p>Season: @tyreVm.Season</p>
+                    <p><h3>Price: @tyreVm.Price</h3></p>
+
+                    @using (Html.BeginForm("BuyTyres", "Shop", new { id = tyreVm.Id }))
+                    {
+                        <div class="form-group">
+                            <div>
+                                <input type="submit" value="Buy" class="btn btn-default" />
+                                @*@Html.ActionLink("Buy", "Buy", "Shop", new { id = tyreVm.Id, @class = "btn btn-default" })*@
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+        }
+    </div>
+

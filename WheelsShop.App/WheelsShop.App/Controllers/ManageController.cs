@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using WheelsShop.App.Models;
+using WheelsShop.Models.ViewModels;
 
 namespace WheelsShop.App.Controllers
 {

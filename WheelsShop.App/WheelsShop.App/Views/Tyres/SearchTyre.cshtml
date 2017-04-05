@@ -1,4 +1,4 @@
-﻿@model WheelsShop.App.Models.ViewModels.AllTyresViewModel
+﻿@model WheelsShop.Models.ViewModels.AllTyresViewModel
 
 @{
     ViewBag.Title = "Search tyres";
@@ -6,34 +6,25 @@
 
 @{ Html.RenderAction("Search");}
 
-<div>Подреди по цена </div>
-<div class="col-md-3">
-    @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Get))
+<div class="row">
+    <div>Подреди по цена </div>
+    <div class="col-md-3">
+        @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Get))
             {
-                <input type="button" value="Order by brand"/>
-            }
+            <input type="button" value="Order by brand" />
+        }
+    </div>
 </div>
 
-<div class="row">
-    @*@Html.Partial("~/Views/Shared/_Messages.cshtml")*@
+<div class="row">   
     @if (Model.TyresVM.Count() == 0)
     {
         <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>
     }
-
-    @foreach (var tyreVm in Model.TyresVM)
+    else
     {
-        <div class="row col-md-5" id="tyreForm">
-            <div id="leftSide" class="col-md-6"><img id="allTyrePic" src="../../Content/Images/tyre.jpg" /></div>
-            <div id="rightSide" class="col-md-6">
-                <p><h3>@tyreVm.Brand</h3></p>
-                <p>@tyreVm.Model</p>
-                <p>Size: @tyreVm.Width/@tyreVm.Height R @tyreVm.Size</p>
-                <p>Season: @tyreVm.Season</p>
-                <p><h3>Price: @tyreVm.Price</h3></p>
-            </div>
-        </div>
-    }
+        @Html.Partial("_Tyres")
+    }   
 </div>
 
 

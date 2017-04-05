@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using WheelsShop.App.Models.ViewModels;
+using WheelsShop.Models.ViewModels;
 using WheelsShop.Models.EntityModels;
 
 namespace WheelsShop.App.App_Start

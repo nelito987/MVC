@@ -70,6 +70,7 @@ C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Microsoft.Owin.Security.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Owin.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\WheelsShop.Data.dll
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\WheelsShop.Services.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\AutoMapper.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Ninject.Web.Common.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Ninject.dll
@@ -92,6 +93,7 @@ C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\WheelsShop.Data.pdb
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\WheelsShop.Services.pdb
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\AutoMapper.xml
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Ninject.Web.Common.xml
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App.Tests\bin\Debug\Ninject.xml
