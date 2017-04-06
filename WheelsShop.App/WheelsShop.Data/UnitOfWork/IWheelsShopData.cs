@@ -10,7 +10,7 @@ namespace WheelsShop.Data.UnitOfWork
 
         //IRepository<Wheel> Wheels { get; }
         //IRepository<Tyre> Tyres { get; }
-        IRepository<Sale> Sales { get; }
+        IRepository<Order> Sales { get; }
 
         void SaveChanges();
 

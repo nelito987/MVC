@@ -1,0 +1,46 @@
+﻿@model WheelsShop.Models.ViewModels.TyreViewModel
+
+@{
+    ViewBag.Title = "Buy";
+}
+
+<div class="row buyTyre">
+    <div class="col-md-4">
+        <img id="allTyrePic" class="tyreImage" src="@Model.ImageUrl" />
+    </div>
+    <div class="col-md-4">
+        <span>
+            @Html.DisplayFor(m => @Model.Brand)
+        </span>
+        <span>
+            @Html.DisplayFor(m => @Model.Model)
+        </span>
+        <span>
+            @Html.DisplayFor(m => @Model.Width)/@Html.DisplayFor(m => @Model.Height) R @Html.DisplayFor(m => @Model.Size)
+        </span>
+        <p>
+            @Html.DisplayFor(m => @Model.Season)
+        </p>
+        <p><h2>
+            @Html.DisplayFor(m => @Model.Price)
+            </h2>
+        </p>
+        <p>
+            Available on stock: @Html.DisplayFor(m => @Model.Stock)
+        </p>
+        @using (Html.BeginForm("ViewCart", "Shop", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div>
+                    <input type="number" name="productId" value="@Model.Id" hidden />
+                    <p>
+                        @Html.TextBox("Quantity to buy:", null, new { @class = "form-control"})  
+                       
+                    </p>
+                    <input type="submit" value="Confirm" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

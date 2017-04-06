@@ -11,6 +11,7 @@ namespace WheelsShop.App.App_Start
             Mapper.Initialize(expression =>
             {
                 expression.CreateMap<Tyre, TyreViewModel>();
+                expression.CreateMap<TyreViewModel, Tyre>();
             });
         }
     }

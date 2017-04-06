@@ -47,9 +47,9 @@ namespace WheelsShop.Data.UnitOfWork
             get { return this.GetRepository<Tyre>(); }
         }
 
-        public IRepository<Sale> Sales
+        public IRepository<Order> Sales
         {
-            get { return this.GetRepository<Sale>(); }
+            get { return this.GetRepository<Order>(); }
         }
 
         public IUserStore<User> UserStore

@@ -8,7 +8,7 @@ namespace WheelsShop.Models.EntityModels
     {
         public Product()
         {
-            this.ProductSales = new HashSet<Sale>();
+            this.ProductSales = new HashSet<Order>();
         }
 
         [Key]
@@ -22,9 +22,9 @@ namespace WheelsShop.Models.EntityModels
         [Required]
         public decimal Price { get; set; }
         [Required]
-        public int Stock;
+        public int Stock { get; set; }
         public string ImageUrl { get; set; }
 
-        public virtual ICollection<Sale> ProductSales { get; set; }
+        public virtual ICollection<Order> ProductSales { get; set; }
     }
 }

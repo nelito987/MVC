@@ -19,8 +19,8 @@ namespace WheelsShop.Data.Migrations
 
         protected override void Seed(WheelsShopContext context)
         {
-            SeedRolesAndUsers(context);
-            //SeedTyres(context);
+            //SeedRolesAndUsers(context);
+            SeedTyres(context);
             //SeedWheels(context);
         }
 
@@ -60,12 +60,12 @@ namespace WheelsShop.Data.Migrations
         {
             var tyres = new List<Tyre>()
             {
-                new Tyre() {Brand = "Michelin", Width = 195, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "http://www.tyrereviews.co.uk/public/tyres/Michelin-Pilot-Sport-4-PS4.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 205, Height = 55, Size = 16, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "http://www.auto-data.net/images/tires4/img5133.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 225, Height = 55, Size = 17, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "http://www.auto-data.net/images/tires4/img5133.jpg"},
-                  new Tyre() {Brand = "Michelin", Width = 185, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "http://www.tyrereviews.co.uk/public/tyres/Michelin-Pilot-Sport-4-PS4.jpg"},
-                new Tyre() {Brand = "Kormoran", Width = 205, Height = 55, Size = 16, Model = "Runpro", Price = 105, Season = Season.Winter, Stock = 120, ImageUrl = "http://www.auto-data.net/images/tires4/img5133.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 195, Height = 65, Size = 15, Model = "G-Force", Price = 115, Season = Season.Summer, Stock = 120, ImageUrl = "http://www.auto-data.net/images/tires4/img5133.jpg"}
+                new Tyre() {Brand = "Michelin", Width = 195, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
+                new Tyre() {Brand = "BF Goodrich", Width = 205, Height = 55, Size = 16, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+                new Tyre() {Brand = "BF Goodrich", Width = 225, Height = 55, Size = 17, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+                  new Tyre() {Brand = "Michelin", Width = 185, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
+                new Tyre() {Brand = "Kormoran", Width = 205, Height = 55, Size = 16, Model = "Runpro", Price = 105, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+                new Tyre() {Brand = "BF Goodrich", Width = 195, Height = 65, Size = 15, Model = "G-Force", Price = 115, Season = Season.Summer, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"}
             };
 
             foreach (var tyre in tyres)
@@ -74,6 +74,7 @@ namespace WheelsShop.Data.Migrations
             }
             context.SaveChanges();
         }
+
 
         private static void SeedRolesAndUsers(WheelsShopContext context)
         {
@@ -105,8 +106,8 @@ namespace WheelsShop.Data.Migrations
                 manager.AddToRole(user.Id, "Admin");
 
                 user = new User { UserName = "someUser", Email = "someUser@gmail.com" };
-                manager.Create(user, "someUserPass123");               
-                
+                manager.Create(user, "someUserPass123");
+
 
                 user = new User() { UserName = "Mika", Email = "mika@gmail.com" };
                 manager.Create(user, "Mika123");
@@ -120,8 +121,8 @@ namespace WheelsShop.Data.Migrations
                 var user = new User() { UserName = "customer", Email = "customer@gmail.com" };
 
                 manager.Create(user, "customer1");
-                manager.AddToRole(user.Id, "Customer");              
-               
+                manager.AddToRole(user.Id, "Customer");
+
             }
         }
 

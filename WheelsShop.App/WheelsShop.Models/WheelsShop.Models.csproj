@@ -109,7 +109,7 @@
     <Compile Include="EntityModels\Enums\Season.cs" />
     <Compile Include="EntityModels\Enums\Status.cs" />
     <Compile Include="EntityModels\Product.cs" />
-    <Compile Include="EntityModels\Sale.cs" />
+    <Compile Include="EntityModels\Order.cs" />
     <Compile Include="EntityModels\Tyre.cs" />
     <Compile Include="EntityModels\User.cs" />
     <Compile Include="EntityModels\Wheel.cs" />

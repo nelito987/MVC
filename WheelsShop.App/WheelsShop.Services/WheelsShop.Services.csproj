@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="Contracts\IShopService.cs" />
     <Compile Include="Contracts\ITyreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopService.cs" />
     <Compile Include="TyresService.cs" />
   </ItemGroup>
   <ItemGroup>

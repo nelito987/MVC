@@ -11,10 +11,10 @@ namespace WheelsShop.Models.EntityModels
     {
         public User()
         {
-            this.ProductsBought = new HashSet<Sale>();
+            this.ProductsBought = new HashSet<Order>();
         }
 
-        public virtual ICollection<Sale> ProductsBought { get; set; }
+        public virtual ICollection<Order> ProductsBought { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

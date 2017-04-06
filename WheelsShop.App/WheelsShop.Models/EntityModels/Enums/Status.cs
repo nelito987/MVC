@@ -4,6 +4,7 @@
     {
         Delivered,
         Send,
-        Processing
+        Processing,
+        Cart
     }
 }

@@ -222,6 +222,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\TyresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -314,6 +315,7 @@
     <Content Include="Views\Tyres\SearchTyre.cshtml" />
     <Content Include="Views\Tyres\_TyresDropDown.cshtml" />
     <Content Include="Views\Tyres\_Tyres.cshtml" />
+    <Content Include="Views\Shop\BuyTyres.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

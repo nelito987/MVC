@@ -17,7 +17,7 @@ namespace WheelsShop.Data
         }
 
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Order> Sales { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
