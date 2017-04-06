@@ -22,5 +22,20 @@ namespace WheelsShop.App.Controllers
             var tyre = this.service.ViewProduct(productId);
             return this.View(tyre);
         }
+
+        [HttpPost]
+        public ActionResult AddToCart(int productId, int quantity)
+        {
+            var userId = User.Identity.GetUserId();
+            this.service.AddToCart(productId, userId, quantity);
+            return RedirectToAction("ViewCart");
+        }
+
+        public ActionResult ViewCart()
+        {
+            var userId = User.Identity.GetUserId();
+            var orders = this.service.GetOrdersInCart(userId);
+            return this.View(orders);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using WheelsShop.Models.ViewModels;
 using WheelsShop.Models.EntityModels;
 
@@ -12,6 +13,7 @@ namespace WheelsShop.App.App_Start
             {
                 expression.CreateMap<Tyre, TyreViewModel>();
                 expression.CreateMap<TyreViewModel, Tyre>();
+                expression.CreateMap<IEnumerable<Order>, CartViewModel>();
             });
         }
     }

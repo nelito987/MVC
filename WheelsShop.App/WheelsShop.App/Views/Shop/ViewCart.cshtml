@@ -1,0 +1,23 @@
+﻿@model WheelsShop.Models.ViewModels.CartViewModel
+
+@{
+    ViewBag.Title = "ViewCart";
+}
+
+<h2>ViewCart</h2>
+
+<div>
+    <h4>CartViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+    
+    @foreach (var product in @Model.OrdersVM)
+    {
+        <div>@product.Model @product.Brand</div>
+    }
+</p>

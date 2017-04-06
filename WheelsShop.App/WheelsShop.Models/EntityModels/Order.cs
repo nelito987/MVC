@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WheelsShop.Models.EntityModels.Enums;
 
 namespace WheelsShop.Models.EntityModels
@@ -8,14 +9,17 @@ namespace WheelsShop.Models.EntityModels
         [Key]
         public int Id { get; set; }
 
+        [ForeignKey("Product")]
+        public int ProductId { get; set; }
+
         [Required]
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
         [Required]
         public int Quantity { get; set; }
 
         [Required]
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         [Required]
         public Status Status { get; set; }

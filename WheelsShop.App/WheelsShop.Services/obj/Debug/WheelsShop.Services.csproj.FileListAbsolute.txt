@@ -31,3 +31,6 @@ C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\bin\Debug\
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\obj\Debug\WheelsShop.Services.csprojResolveAssemblyReference.cache
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\obj\Debug\WheelsShop.Services.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\obj\Debug\WheelsShop.Services.pdb
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\bin\Debug\WheelsShop.Services.dll.config
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Services\bin\Debug\EntityFramework.SqlServer.xml

@@ -28,16 +28,15 @@
         <p>
             Available on stock: @Html.DisplayFor(m => @Model.Stock)
         </p>
-        @using (Html.BeginForm("ViewCart", "Shop", FormMethod.Post))
+        @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
             <div class="form-group">
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />
                     <p>
-                        @Html.TextBox("Quantity to buy:", null, new { @class = "form-control"})  
-                       
+                        Quantity you want to buy: @Html.TextBox("Quantity", null, new { @class = "form-control"})  
                     </p>
-                    <input type="submit" value="Confirm" class="btn btn-default" />
+                    <input type="submit" value="Add to cart" class="btn btn-default" />
                 </div>
             </div>
         }
