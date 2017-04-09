@@ -1,23 +1,73 @@
-﻿@model WheelsShop.Models.ViewModels.CartViewModel
+﻿@model IEnumerable<WheelsShop.Models.ViewModels.OrderViewModel>
 
 @{
     ViewBag.Title = "ViewCart";
 }
 
-<h2>ViewCart</h2>
 
-<div>
-    <h4>CartViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
     
-    @foreach (var product in @Model.OrdersVM)
+    @using (Html.BeginForm("ConfirmOrders", "Shop", FormMethod.Post))
     {
-        <div>@product.Model @product.Brand</div>
+        <div class="form-group">
+            <div class="row col-md-12">
+                <table>
+                    <tr>
+                        <th class="col-md-1">Order ID</th>
+                        <th class="col-md-1">Order Date</th>
+                        <th class="col-md-1">Product ID</th>
+                        <th class="col-md-1">Brand</th>
+                        <th class="col-md-1">Model</th>
+                        <th class="col-md-1">Size</th>
+                        <th class="col-md-1">Ordered Quantity</th>
+                        <th class="col-md-1">Price per piece</th>
+                        <th class="col-md-1">Total price</th>
+                        <th class="col-md-1">Order status</th>
+                        <th class="col-md-1">Image</th>
+                    </tr>
+                    <tbody>
+                    @{
+                        decimal totalSum = 0;
+                    }
+                    @foreach (var order in @Model)
+                    {
+                        decimal totalPrice = @order.Quantity*@order.Product.Price;
+                        totalSum += totalPrice;
+                        <tr>
+                            <input type="number" name="orderIds" value="@order.Id" hidden/>
+                            <td class="col-md-1">@order.Id</td>
+                            <td class="col-md-1">@order.OrderDate</td>
+                            <td class="col-md-1">@order.Product.Id</td>
+                            <td class="col-md-1">@order.Product.Brand</td>
+                            <td class="col-md-1">@order.Product.Model</td>
+                            <td class="col-md-1">
+                                @if (@order.Product.PCD != null)
+                                {
+                                    <span>@order.Product.Size</span>
+                                    <span>@order.Product.PCD</span>
+                                }
+                                else
+                                {
+                                    <span>@order.Product.Width /</span>
+                                    <span>@order.Product.Height R</span>
+                                    <span>@order.Product.Size</span>
+                                }
+
+                            </td>
+                            <td class="col-md-1">@order.Quantity</td>
+                            <td class="col-md-1">@order.Product.Price BGN</td>
+                            <td class="col-md-1">@totalPrice BGN</td>
+                            <td class="col-md-1">@order.Status</td>
+                            <td class="col-md-1"><img class="img-small" src="@order.Product.ImageUrl"/></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+                <tr>
+                    <h2>Total: @totalSum BGN</h2></tr>
+
+                <input type="submit" value="Confirm" class="btn btn-default"/>
+
+            </div>
+
+        </div>
     }
-</p>

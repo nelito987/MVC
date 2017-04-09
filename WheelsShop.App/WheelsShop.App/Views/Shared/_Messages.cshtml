@@ -2,5 +2,9 @@
 {
     <div class="alert alert-success">@TempData["message"]</div>
 }
+@if (TempData.ContainsKey("confirmedOrder"))
+{
+    <div class="alert alert-success">@TempData["confirmedOrder"]</div>
+}
 
 

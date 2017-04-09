@@ -7,6 +7,8 @@ namespace WheelsShop.Services.Contracts
     {
         TyreViewModel ViewProduct(int productId);
         void AddToCart(int productId, string userId, int quantity);
-        CartViewModel GetOrdersInCart(string userId);
+        IEnumerable<OrderViewModel> GetOrdersInCart(string userId);
+        void ChangeOrderStatusToProcessing(int[] orderIds);
+        IEnumerable<OrderViewModel> GetAllOrdersForUser(string userId);
     }
 }

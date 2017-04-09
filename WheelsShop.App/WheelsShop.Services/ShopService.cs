@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using AutoMapper;
 using WheelsShop.Data.UnitOfWork;
@@ -34,20 +36,59 @@ namespace WheelsShop.Services
                 ProductId = productId,
                 Product = product,
                 Quantity = quantity,
-                Status = Status.Cart
+                Status = Status.Cart,
+                OrderDate = DateTime.Now
             };
             this.Data.Sales.Add(newOrder);
-            product.Stock -= quantity;
             user.ProductsBought.Add(newOrder);
             this.Data.SaveChanges();
         }
 
-        public CartViewModel GetOrdersInCart(string userId)
+        public IEnumerable<OrderViewModel> GetOrdersInCart(string userId)
         {
             var user = this.Data.Users.Find(userId);
-            //var ordersU = this.Data.Sales.Where(s => s.User == user && s.Status == Status.Cart).AsEnumerable();
-            var orders = user.ProductsBought.Where(o => o.Status == Status.Cart);
-            var ordersVm = Mapper.Map<CartViewModel>(orders);
+            var orders = user.ProductsBought.Where(o => o.Status == Status.Cart).ToList();
+            var ordersVm = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(orders);
+            
+            return ordersVm;
+        }
+
+        public void ChangeOrderStatusToProcessing(int[] orderIds)
+        {
+            //TODO validate if ordersId is null
+
+            foreach (var orderId in orderIds)
+            {
+                var curOrder = this.Data.Sales.Find(orderId);
+                //this.Data.Sales.Update(curOrder).Status = Status.Processing;
+                curOrder.Status = Status.Processing;
+                Product product = this.Data.Products.Find(curOrder.ProductId);
+                curOrder.User = this.Data.Users.Find(curOrder.User.Id);
+
+                //TODO validate if the quantity is enough
+                product.Stock -= curOrder.Quantity;
+                this.Data.Sales.Update(curOrder);
+
+            }
+
+            try
+            {
+                this.Data.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string errorMessages = string.Join("; ", ex.EntityValidationErrors.SelectMany(x => x.ValidationErrors).Select(x => x.PropertyName + ": " + x.ErrorMessage));
+                throw new DbEntityValidationException(errorMessages);
+            }
+        }
+
+        public IEnumerable<OrderViewModel> GetAllOrdersForUser(string userId)
+        {
+            var orders = this.Data.Sales
+                .Where(u => u.User.Id == userId)
+                .OrderByDescending(s => s.OrderDate)
+                .ToList();
+            var ordersVm = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(orders);
             return ordersVm;
         }
     }

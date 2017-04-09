@@ -15,12 +15,13 @@ namespace WheelsShop.Data.Migrations
         {
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;
+            
         }
 
         protected override void Seed(WheelsShopContext context)
         {
             //SeedRolesAndUsers(context);
-            SeedTyres(context);
+            //SeedTyres(context);
             //SeedWheels(context);
         }
 

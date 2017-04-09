@@ -34,7 +34,8 @@
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />
                     <p>
-                        Quantity you want to buy: @Html.TextBox("Quantity", null, new { @class = "form-control"})  
+                        @*//TODO validate if quantity is number*@
+                        Quantity you want to buy: @Html.TextBox("Quantity", null, new {@class = "form-control"})
                     </p>
                     <input type="submit" value="Add to cart" class="btn btn-default" />
                 </div>
