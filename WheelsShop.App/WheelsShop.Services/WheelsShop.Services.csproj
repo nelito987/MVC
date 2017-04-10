@@ -92,9 +92,11 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Contracts\IShopService.cs" />
     <Compile Include="Contracts\ITyreService.cs" />
+    <Compile Include="Contracts\IUsefullInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopService.cs" />
     <Compile Include="TyresService.cs" />
+    <Compile Include="UsefullInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WheelsShop.Data\WheelsShop.Data.csproj">

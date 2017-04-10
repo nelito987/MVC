@@ -53,5 +53,12 @@ namespace WheelsShop.App.Controllers
             IEnumerable<OrderViewModel> ordersVm = this.service.GetAllOrdersForUser(userId);
             return this.View(ordersVm);
         }
+
+        public ActionResult DeleteProductFromCart(int orderId)
+        {
+            var userId = User.Identity.GetUserId();
+            this.service.RemoveItemFromCart(userId, orderId);
+            return this.RedirectToAction("ViewCart");
+        }
     }
 }

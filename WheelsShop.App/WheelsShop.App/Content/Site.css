@@ -26,6 +26,8 @@
     color: dimgray;
     border: 1px solid gray;
     font-weight: bold;
+    padding:8px;
+    border-radius: 8px;
 }
 
 #tyreForm{
@@ -44,6 +46,7 @@
 .btn-default{
     background-color: #ffc266;
     border: 2px solid orange;
+    margin: 10px 0px;
 }
 
 .dropdown{
@@ -78,3 +81,9 @@ td {
     text-align: center;
     font-weight: bold;
 }
+
+.message{
+    padding:10px;
+    margin-bottom:50px;
+}
+

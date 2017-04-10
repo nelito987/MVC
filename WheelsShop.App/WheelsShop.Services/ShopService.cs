@@ -91,6 +91,15 @@ namespace WheelsShop.Services
             var ordersVm = Mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(orders);
             return ordersVm;
         }
+
+        public void RemoveItemFromCart(string userId, int orderId)
+        {
+            var currentUser = this.Data.Users.Find(userId);
+            var orderToBeRemoved = this.Data.Sales.Find(orderId);
+            //currentUser.ProductsBought.Remove(orderToBeRemoved);
+            this.Data.Sales.Remove(orderToBeRemoved);
+            this.Data.SaveChanges();
+        }
     }
 }
 

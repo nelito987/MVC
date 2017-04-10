@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\TyresController.cs" />
+    <Compile Include="Controllers\UsefullInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -319,6 +320,7 @@
     <Content Include="Views\Shop\ViewCart.cshtml" />
     <Content Include="Views\Shop\_ConfirmedOrder.cshtml" />
     <Content Include="Views\Shop\ViewAllOrders.cshtml" />
+    <Content Include="Views\UsefullInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

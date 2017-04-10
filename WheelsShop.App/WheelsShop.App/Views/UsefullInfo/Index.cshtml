@@ -1,0 +1,23 @@
+﻿@model WheelsShop.Models.ViewModels.CalculatorViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-2">
+        @Html.Label("Width: ")
+        @Html.DropDownListFor(model => model.Widths, Model.Widths, "", new { @class = "form-control", placeholder = "" })
+    </div>
+    <div class="col-md-2">
+        @Html.Label("Height: ")
+        @Html.DropDownListFor(model => model.Height, Model.Height, "", new { @class = "form-control", placeholder = "Height" })
+    </div>
+    <div class="col-md-2">
+        @Html.Label("Size: ")
+        @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "", new { @class = "form-control", placeholder = "Size" })
+    </div>   
+   
+</div>
+
+<h2>Calculator</h2>
+

@@ -69,6 +69,7 @@ namespace WheelsShop.App.App_Start
                 .WithConstructorArgument("context", new WheelsShopData());
             kernel.Bind<ITyreService>().To<TyresService>();
             kernel.Bind<IShopService>().To<ShopService>();
+            kernel.Bind<IUsefullInfoService>().To<UsefullInfoService>();
         }        
     }
 }
