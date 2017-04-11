@@ -1,11 +1,14 @@
-﻿namespace WheelsShop.Models.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WheelsShop.Models.ViewModels
 {
     public class ProductViewModel
     {
         public int Id { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:F2} BGN")]
         public decimal Price { get; set; }
         public int Stock { get; set; }
 

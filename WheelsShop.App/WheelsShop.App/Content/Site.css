@@ -38,11 +38,6 @@
     border-radius: 6px;
 }
 
-#allTyrePic{
-    width: 80%;
-    height: 80%;
-}
-
 .btn-default{
     background-color: #ffc266;
     border: 2px solid orange;
@@ -85,5 +80,12 @@ td {
 .message{
     padding:10px;
     margin-bottom:50px;
+}
+
+.cartImage{    
+    width: 30px;
+    height: 30px;
+    margin-top:15px;
+    float: left;
 }
 

@@ -4,15 +4,7 @@
     ViewBag.Title = "ViewAllOrders";
 }
 
-@*@Html.Partial("_Messages")*@
-
-<h2>ViewAllOrders</h2>
-
-<div>
-    <h4>OrderViewModel</h4>
-    @* TODO: Extract in partial view *@
-    @* TODO: use displaynamefor (example order id - order number) *@
-    <hr />
+  
     <div class="row">
         <table>
             <tr>
@@ -35,35 +27,10 @@
                     decimal totalPrice = @order.Quantity * @order.Product.Price;
                     <input type="number" name="orderIds" value="@order.Id" hidden />
                     <tr>
-                        <td class="col-md-1">@order.Id</td>
-                        <td class="col-md-1">@Html.DisplayFor(m => order.OrderDate)</td>
-                        <td class="col-md-1">@order.Product.Id</td>
-                        <td class="col-md-1">@order.Product.Brand</td>
-                        <td class="col-md-1">@order.Product.Model</td>
-                        <td class="col-md-1">
-                            @if (@order.Product.PCD != null)
-                            {
-                                <span>@order.Product.Size</span>
-                                    <span>@order.Product.PCD</span>
-                            }
-                            else
-                            {
-                                <span>@order.Product.Width</span>
-                                <span>/</span>
-                                <span>@order.Product.Height</span>
-                                <span>R</span>
-                                    <span>@order.Product.Size</span>
-                            }
-
-                        </td>
-                        <td class="col-md-1">@order.Quantity</td>
-                        <td class="col-md-1">@order.Product.Price BGN</td>
-                        <td class="col-md-1">@totalPrice BGN</td>
-                        <td class="col-md-1">@order.Status</td>
-                        <td class="col-md-1"><img class="img-small" src="@order.Product.ImageUrl" /></td>
+                        @Html.Partial("_OrderRow", order)                       
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-</div>
+

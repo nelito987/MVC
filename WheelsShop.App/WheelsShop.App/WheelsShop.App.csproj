@@ -237,6 +237,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\botticelli.jpg" />
+    <Content Include="Content\Images\cart.png" />
     <Content Include="Content\Images\home.jpg" />
     <Content Include="Content\Images\ps4.jpg" />
     <Content Include="Content\Images\tyre.jpg" />
@@ -321,6 +322,7 @@
     <Content Include="Views\Shop\_ConfirmedOrder.cshtml" />
     <Content Include="Views\Shop\ViewAllOrders.cshtml" />
     <Content Include="Views\UsefullInfo\Index.cshtml" />
+    <Content Include="Views\Shop\_OrderRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

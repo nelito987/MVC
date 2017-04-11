@@ -23,10 +23,29 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Tyres", "Index", "Tyres")</li>
                     <li>@Html.ActionLink("Wheels", "Index", "Wheels")</li>
                     <li>@Html.ActionLink("Useful info", "Index", "UsefullInfo")</li>
+                    <li>@Html.ActionLink("My Cart", "ViewCart", "Shop")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Admin
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("add tyre", "AddNewTyre", "Admin")</li>
+                                <li>@Html.ActionLink("Add Product", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("Change Order Status", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("Delete Product", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("Edit Product", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("Set admin rights", "AddNewProduct", "Admin")</li>
+                            </ul>
+                        </li>
+                        
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

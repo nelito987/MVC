@@ -33,6 +33,7 @@ namespace WheelsShop.App.Controllers
             return RedirectToAction("ViewCart");
         }
 
+        [Route("ViewCart")]
         public ActionResult ViewCart()
         {
             var userId = User.Identity.GetUserId();
@@ -40,6 +41,7 @@ namespace WheelsShop.App.Controllers
             return this.View(orders);
         }
 
+        //[Route("ConfirmOrders")]
         public ActionResult ConfirmOrders(int[] orderIds)
         {
             this.service.ChangeOrderStatusToProcessing(orderIds);
@@ -54,6 +56,8 @@ namespace WheelsShop.App.Controllers
             return this.View(ordersVm);
         }
 
+        ////[HttpPost]
+        //[Route("DeleteProductFromCart/orderId")]
         public ActionResult DeleteProductFromCart(int orderId)
         {
             var userId = User.Identity.GetUserId();

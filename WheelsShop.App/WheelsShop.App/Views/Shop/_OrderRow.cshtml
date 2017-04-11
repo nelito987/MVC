@@ -1,0 +1,28 @@
+﻿@model WheelsShop.Models.ViewModels.OrderViewModel
+
+<td class="col-md-1">@Model.Id</td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.OrderDate)</td>
+<td class="col-md-1">@Model.Product.Id</td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.Product.Brand)  </td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.Product.Model) </td>
+<td class="col-md-1">
+    @if (@Model.Product.PCD != null)
+    {
+        <span>@Html.DisplayFor(vm => @Model.Product.Size)</span>
+                                <span>@Html.DisplayFor(vm => @Model.Product.PCD)</span>
+    }
+    else
+    {
+        <span>@Html.DisplayFor(vm => @Model.Product.Width)</span>
+                                <span>/</span>
+                                <span>@Html.DisplayFor(vm => @Model.Product.Height)</span>
+                                <span>R</span>
+                                <span>@Html.DisplayFor(vm => @Model.Product.Size)</span>
+    }
+
+</td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.Quantity)</td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.Product.Price)</td>
+<td class="col-md-1">@(@Model.Quantity * @Model.Product.Price) BGN</td>
+<td class="col-md-1">@Html.DisplayFor(vm => @Model.Status)</td>
+<td class="col-md-1"><img class="img-small" src="@Model.Product.ImageUrl" /></td>

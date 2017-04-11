@@ -3,87 +3,60 @@
 @{
     ViewBag.Title = "ViewCart";
 }
-
-
-
 @if (Model.Any())
 {
-    <div class="form-group">
-        <div class="row col-md-12">
-            <table>
-                <tr>
-                    <th class="col-md-1">Order ID</th>
-                    <th class="col-md-1">Order Date</th>
-                    <th class="col-md-1">Product ID</th>
-                    <th class="col-md-1">Brand</th>
-                    <th class="col-md-1">Model</th>
-                    <th class="col-md-1">Size</th>
-                    <th class="col-md-1">Ordered Quantity</th>
-                    <th class="col-md-1">Price per piece</th>
-                    <th class="col-md-1">Total price</th>
-                    <th class="col-md-1">Order status</th>
-                    <th class="col-md-1">Image</th>
-                </tr>
-                <tbody>
+        <div class="form-group">
+            <div class="row col-md-12">
+                <table>
+                    <tr>
+                        <th class="col-md-1">Order ID</th>
+                        <th class="col-md-1">Order Date</th>
+                        <th class="col-md-1">Product ID</th>
+                        <th class="col-md-1">Brand</th>
+                        <th class="col-md-1">Model</th>
+                        <th class="col-md-1">Size</th>
+                        <th class="col-md-1">Ordered Quantity</th>
+                        <th class="col-md-1">Price per piece</th>
+                        <th class="col-md-1">Total price</th>
+                        <th class="col-md-1">Order status</th>
+                        <th class="col-md-1">Image</th>
+                    </tr>
+                    <tbody>
                     @{
                         decimal totalSum = 0;
                     }
                     @foreach (var order in @Model)
                     {
-                        decimal totalPrice = @order.Quantity * @order.Product.Price;
+                        decimal totalPrice = @order.Quantity*@order.Product.Price;
                         totalSum += totalPrice;
-                        <tr>
-                            <input type="number" name="orderIds" value="@order.Id" hidden />
-                            <td class="col-md-1">@order.Id</td>
-                            <td class="col-md-1">@order.OrderDate</td>
-                            <td class="col-md-1">@order.Product.Id</td>
-                            <td class="col-md-1">@order.Product.Brand</td>
-                            <td class="col-md-1">@order.Product.Model</td>
-                            <td class="col-md-1">
-                                @if (@order.Product.PCD != null)
-                                {
-                                    <span>@order.Product.Size</span>
-                                    <span>@order.Product.PCD</span>
-                                }
-                                else
-                                {
-                                    <span>@order.Product.Width /</span>
-                                    <span>@order.Product.Height R</span>
-                                    <span>@order.Product.Size</span>
-                                }
-
-                            </td>
-                            <td class="col-md-1">@order.Quantity</td>
-                            <td class="col-md-1">@order.Product.Price BGN</td>
-                            <td class="col-md-1">@totalPrice BGN</td>
-                            <td class="col-md-1">@order.Status</td>
-                            <td class="col-md-1"><img class="img-small" src="@order.Product.ImageUrl" /></td>
+                        <tr>                          
+                            @Html.Partial("_OrderRow", order)
                             <td>
-                                @using (Html.BeginForm("DeleteProductFromCart", "Shop", FormMethod.Post))
+                                @using (Html.BeginForm("DeleteProductFromCart", "Shop", FormMethod.Post, new { orderId = @order.Id}))
                                 {
                                     <input type="number" name="orderId" value="@order.Id" hidden />
                                     <input type="submit" value="Remove from cart" class="btn btn-default" />
-                                }
+                                }                               
                             </td>
-
                         </tr>
                     }
-                </tbody>
-            </table>
-            <div>
-                <h2>Total: @totalSum BGN</h2>
-            </div>
-
-            <div class="col-md-4">
+                    </tbody>
+                </table>
+                <tr>
+                    <h2>Total: @totalSum BGN</h2>
+                </tr>
                 @using (Html.BeginForm("ConfirmOrders", "Shop", FormMethod.Post))
                 {
-                    <input type="submit" value="Confirm" class="btn btn-default" />
+                    foreach (var order in Model)
+                    {
+                        <input type="number" name="orderIds" value="@order.Id" hidden />
+                    }
+
+                    <input type="submit" value="test" class="btn btn-default" />
                 }
             </div>
-            
 
         </div>
-    </div>
                         }
                         else
                         {
@@ -91,8 +64,7 @@
                                 Your cart is empty!!!
                             </div>
                         }
-  
-    <div class="col-sm-12">
-        <input type="button" class="btn btn-default" value="Continue shopping" onclick="location.href='@Url.Action("Index", "Home")'" />
-    </div>
 
+<div class="col-sm-12">
+    <input type="button" class="btn btn-default" value="Continue shopping" onclick="location.href='@Url.Action("Index", "Home")'" />
+</div>
