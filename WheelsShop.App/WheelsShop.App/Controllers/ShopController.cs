@@ -4,9 +4,10 @@ using System.Web.Mvc;
 using WheelsShop.Data.UnitOfWork;
 using WheelsShop.Models.ViewModels;
 using WheelsShop.Services.Contracts;
+using WheelsShop.App.Attributes;
 
 namespace WheelsShop.App.Controllers
-{
+{    
     [RoutePrefix("shop")]
     public class ShopController : BaseController
     {

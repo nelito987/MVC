@@ -89,7 +89,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="Contracts\IAdminService.cs" />
     <Compile Include="Contracts\IShopService.cs" />
     <Compile Include="Contracts\ITyreService.cs" />
     <Compile Include="Contracts\IUsefullInfoService.cs" />
