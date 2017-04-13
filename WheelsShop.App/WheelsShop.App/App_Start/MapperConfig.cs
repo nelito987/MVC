@@ -2,6 +2,7 @@
 using AutoMapper;
 using WheelsShop.Models.ViewModels;
 using WheelsShop.Models.EntityModels;
+using WheelsShop.Models.BindingModels;
 
 namespace WheelsShop.App.App_Start
 {
@@ -25,6 +26,8 @@ namespace WheelsShop.App.App_Start
                     .ForMember(pvm => pvm.PCD, p => p.MapFrom(w => w.PCD));
 
                 expression.CreateMap<Order, OrderViewModel>();
+
+                expression.CreateMap<NewTyreBindingModel, Tyre>();
             });
         }
     }

@@ -105,6 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\NewTyreBindingModel.cs" />
     <Compile Include="BindingModels\SearchTyreBindingModel.cs" />
     <Compile Include="EntityModels\Enums\Season.cs" />
     <Compile Include="EntityModels\Enums\Status.cs" />

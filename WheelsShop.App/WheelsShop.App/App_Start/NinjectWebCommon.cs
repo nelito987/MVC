@@ -70,6 +70,7 @@ namespace WheelsShop.App.App_Start
             kernel.Bind<ITyreService>().To<TyresService>();
             kernel.Bind<IShopService>().To<ShopService>();
             kernel.Bind<IUsefullInfoService>().To<UsefullInfoService>();
+            kernel.Bind<IAdminService>().To<AdminService>();
         }        
     }
 }

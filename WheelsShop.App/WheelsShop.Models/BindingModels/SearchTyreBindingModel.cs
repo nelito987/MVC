@@ -2,6 +2,7 @@
 {
     public class SearchTyreBindingModel
     {       
+        //TODO: only tyres on stock to be in the drop down
         public int Widths { get; set; }
 
         public int Height { get; set; }
@@ -10,6 +11,6 @@
 
         public string Seasons { get; set; }
 
-        //public string Order { get; set; }
+        //TODO: public string Order { get; set; }
     }
 }
