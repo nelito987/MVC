@@ -1,0 +1,72 @@
+﻿@model WheelsShop.Models.BindingModels.NewWheelBindingModel
+@{
+    ViewBag.Title = "AddNewTyre";
+    Layout = null;
+}
+
+@*@Html.Partial("_Messages")*@
+
+@using (Html.BeginForm("AddNewWheel", "Admin", FormMethod.Post, new { @class = "col-md-12" }))
+{
+    <h2 class="col-md-offset-2">Add wheel</h2>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    //TODO validate all numbers and fields
+
+    <div class="row productChosen col-md-offset-1 col-md-10">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Brand, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.Brand, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.Brand, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Size, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.Size, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.Size, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Stock, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.Stock, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.Stock, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Model, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.Model, new { @class = "form-control", placeholder = " " })
+                @Html.ValidationMessageFor(x => Model.Model, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.PCD, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.PCD, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.PCD, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Price, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(x => Model.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.Price, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.ImageUrl, new { @class = "control-label" })
+                <input type="file" name="ImageUrl" class="form-control-file" />
+            </div>
+
+
+        </div>
+        <br />
+        <input type="submit" name="name" value="Add Wheel" class="col-md-offset-2 btn btn-lg btn-default" />
+       
+    </div>
+    
+}
+
+

@@ -1,33 +1,41 @@
 ﻿@model WheelsShop.Models.ViewModels.AllTyresViewModel
 
 
-    <div class="row">
+    <div class="row col-md-12">
         @foreach (var tyreVm in Model.TyresVM)
         {
-            <div class="row col-md-5" id="tyreForm">
+            <div class="col-md-5" id="tyreForm">
                 <div id="leftSide" class="col-md-6"><img id="allTyrePic" src="@tyreVm.ImageUrl" /></div>
                 <div id="rightSide" class="col-md-6">
-                    <p><h3>@tyreVm.Brand</h3></p>
+                    <p><h4>@tyreVm.Brand</h4></p>
                     <p>@tyreVm.Model</p>
                     <p>Size: @tyreVm.Width/@tyreVm.Height R @tyreVm.Size</p>
 
 
                     <p>
-                    @Html.DisplayNameFor(t => tyreVm.Season)
-                    Season: @tyreVm.Season</p>
+                        @Html.DisplayNameFor(t => tyreVm.Season)
+                        @tyreVm.Season</p>
                     <p><h3>@Html.DisplayNameFor(t => tyreVm.Price): @tyreVm.Price</h3></p>
-
-                    @using (Html.BeginForm("BuyTyres", "Shop"))
-                    {
-                        <div class="form-group">
-                            <div>
-                                <input type="number" name="productId" value="@tyreVm.Id" hidden />
-                                <input type="submit" value="Buy" class="btn btn-default" />                               
-                            </div>
-                        </div>
-                    }
-                    
                 </div>
+                <div id="buttons">
+                    <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyTyres", "Shop", new { productId = @tyreVm.Id, name="productId", @class="btn btn-default" })'">Buy</button>
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <div>
+                                    <input type="number" name="Id" value="@tyreVm.Id" hidden />
+                                    <input type="submit" value="Delete" class="btn btn-danger" />
+
+                                </div>
+                            </div>
+                        }
+                        <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {id = @tyreVm.Id, @class = "btn btn-default"})'">Edit</button>
+                    }
+                </div>
+
             </div>
         }
     </div>

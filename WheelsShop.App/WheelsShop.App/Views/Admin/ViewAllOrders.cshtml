@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WheelsShop.Models.ViewModels.OrderViewModel>
+
+   <h2>All Orders</h2>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="col-md-1">Order Number</th>
+                    <th class="col-md-1">Order Date</th>
+                    <th class="col-md-1">Product ID</th>
+                    <th class="col-md-1">Brand</th>
+                    <th class="col-md-1">Model</th>
+                    <th class="col-md-1">Size</th>
+                    <th class="col-md-1">Ordered Quantity</th>
+                    <th class="col-md-1">Price per piece</th>
+                    <th class="col-md-1">Total price</th>
+                    <th class="col-md-1">Order status</th>
+                    <th class="col-md-1">Image</th>
+                </tr>
+            </thead>
+            @foreach (var order in @Model)
+            {
+                <tr>
+                    @Html.Partial("~/Views/Shop/_OrderRow.cshtml", order)
+                    <td>
+                        @using (Html.BeginForm("ChangeOrderStatus", "Admin", FormMethod.Get, new { orderId = @order.Id }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="number" name="orderId" value="@order.Id" hidden />
+                            <input type="submit" value="Change status" class="btn btn-default" />
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+
+

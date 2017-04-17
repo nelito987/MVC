@@ -13,7 +13,7 @@ namespace WheelsShop.Models.ViewModels
         public ProductViewModel Product { get; set; }
         public int Quantity { get; set; }
         
-        public string UserId { get; set; }
+        public User User { get; set; }
         public Status Status { get; set; }
 
         [DisplayFormat(DataFormatString = "{0: MM/dd/yyyy}")]

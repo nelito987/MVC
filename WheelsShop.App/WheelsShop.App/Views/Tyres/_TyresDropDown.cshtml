@@ -6,23 +6,23 @@
     <div class="row">
         <div class="col-md-2">
             @Html.Label("Width: ")
-            @Html.DropDownListFor(model => model.Widths, Model.Widths, "", new { @class = "form-control", placeholder = "" })
+            @Html.DropDownListFor(model => model.Widths, Model.Widths, "---Width---", new { @class = "form-control", placeholder = "" })
         </div>
         <div class="col-md-2">
             @Html.Label("Height: ")
-            @Html.DropDownListFor(model => model.Height, Model.Height, "", new { @class = "form-control", placeholder = "Height" })
+            @Html.DropDownListFor(model => model.Height, Model.Height, "---Height---", new { @class = "form-control", placeholder = "Height" })
         </div>
         <div class="col-md-2">
             @Html.Label("Size: ")
-            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "", new { @class = "form-control", placeholder = "Size" })
+            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "---Size---", new { @class = "form-control", placeholder = "Size" })
         </div>
         <div class="col-md-2">
             @Html.Label("Season: ")
-            @Html.DropDownListFor(model => model.Seasons, Model.Seasons, "", new { @class = "form-control", placeholder = "Season" })
+            @Html.DropDownListFor(model => model.Seasons, Model.Seasons, "---Season---", new { @class = "form-control", placeholder = "Season" })
         </div>
         <div class="col-md-2">
             @Html.Label("Brand: ")
-            @Html.DropDownListFor(model => model.Brands, Model.Brands, "", new { @class = "form-control", placeholder = "Brand" })
+            @Html.DropDownListFor(model => model.Brands, Model.Brands, "---Brand---", new { @class = "form-control", placeholder = "Brand" })
         </div>
         @*<div class="col-md-2">
             @Html.Label("Order by: ")
@@ -34,3 +34,13 @@
     </div>
 }
 </div>
+
+
+@*//TODO:
+- Calculator
+- order by for tyres
+- wheels
+- updates in the database - delivery address, sth else for wheels?!
+- validation
+    - carousel
+- tests*@

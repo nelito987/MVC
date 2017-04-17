@@ -24,8 +24,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("Tyres", "Index", "Tyres")</li>
-                    <li>@Html.ActionLink("Wheels", "Index", "Wheels")</li>
+                    <li>@Html.ActionLink("Tyres", "SearchTyre", "Tyres")</li>
+                    <li>@Html.ActionLink("Wheels", "SearchWheels", "Wheels")</li>
                     <li>@Html.ActionLink("Useful info", "Index", "UsefullInfo")</li>
                     <li>@Html.ActionLink("My Cart", "ViewCart", "Shop")</li>
                     @if (User.IsInRole("Admin"))
@@ -36,12 +36,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("add new tyre", "AddNewTyre", "Admin")</li>
-                                <li>@Html.ActionLink("Add Product", "AddNewProduct", "Admin")</li>
-                                <li>@Html.ActionLink("Change Order Status", "AddNewProduct", "Admin")</li>
-                                <li>@Html.ActionLink("Delete Product", "AddNewProduct", "Admin")</li>
-                                <li>@Html.ActionLink("Edit Product", "AddNewProduct", "Admin")</li>
-                                <li>@Html.ActionLink("Set admin rights", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("Add New Product", "AddNewProduct", "Admin")</li>
+                                <li>@Html.ActionLink("View All Orders/Change order status", "ViewAllOrders", "Admin")</li>
+                                <li>@Html.ActionLink("Delete/Edit Product", "Index", "Home")</li>
                             </ul>
                         </li>
                         

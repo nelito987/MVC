@@ -13,7 +13,7 @@ namespace WheelsShop.App.App_Start
             Mapper.Initialize(expression =>
             {
                 expression.CreateMap<Tyre, TyreViewModel>();
-                expression.CreateMap<TyreViewModel, Tyre>();
+                expression.CreateMap<TyreViewModel, Tyre>();//TODO <- delete
                 //expression.CreateMap<Product, ProductViewModel>()
                 //    .ForMember<Tyre>(pvm => pvm.Size, p => p.MapFrom(t => t.))
 
@@ -25,9 +25,11 @@ namespace WheelsShop.App.App_Start
                     .ForMember(pvm => pvm.Size, p => p.MapFrom(t => t.Size))
                     .ForMember(pvm => pvm.PCD, p => p.MapFrom(w => w.PCD));
 
+                expression.CreateMap<EditProductBindingModel, Product>();
                 expression.CreateMap<Order, OrderViewModel>();
-
                 expression.CreateMap<NewTyreBindingModel, Tyre>();
+                expression.CreateMap<NewWheelBindingModel, Wheel>();
+                expression.CreateMap<User, UserViewModel>();
             });
         }
     }

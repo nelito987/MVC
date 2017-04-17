@@ -23,6 +23,8 @@ namespace WheelsShop.Models.EntityModels
         public decimal Price { get; set; }
         [Required]
         public int Stock { get; set; }
+
+        //TODO correct file format byte[] or...
         public string ImageUrl { get; set; }
 
         public virtual ICollection<Order> ProductSales { get; set; }

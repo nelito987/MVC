@@ -105,7 +105,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\EditProductBindingModel.cs" />
     <Compile Include="BindingModels\NewTyreBindingModel.cs" />
+    <Compile Include="BindingModels\NewWheelBindingModel.cs" />
+    <Compile Include="BindingModels\OrderBindingModel.cs" />
     <Compile Include="BindingModels\SearchTyreBindingModel.cs" />
     <Compile Include="EntityModels\Enums\Season.cs" />
     <Compile Include="EntityModels\Enums\Status.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SearchTyreViewModel.cs" />
     <Compile Include="ViewModels\TyreViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

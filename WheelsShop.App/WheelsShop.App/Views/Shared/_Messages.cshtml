@@ -7,4 +7,22 @@
     <div class="alert alert-success">@TempData["confirmedOrder"]</div>
 }
 
+@if (TempData.ContainsKey("TyreAdded"))
+{
+    <div class="alert alert-success">@TempData["TyreAdded"]</div>
+}
+
+
+@if (TempData.ContainsKey("WheelAdded"))
+{
+    <div class="alert alert-success">@TempData["WheelAdded"]</div>
+}
+
+@if (TempData.ContainsKey("ProductDeleted"))
+{
+    <div class="alert alert-success">@TempData["ProductDeleted"]</div>
+}
+
+
+
 

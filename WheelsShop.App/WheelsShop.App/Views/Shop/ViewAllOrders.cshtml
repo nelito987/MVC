@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "ViewAllOrders";
 }
-
-  @Html.Partial("_Messages") @*TODO: check if messages work correctly*@
+@Html.AntiForgeryToken()
+  @*TODO: check if messages work correctly*@
     <div class="row">
         <table>
             <tr>
@@ -24,7 +24,6 @@
                
                 @foreach (var order in @Model)
                 {
-                    decimal totalPrice = @order.Quantity * @order.Product.Price;
                     <input type="number" name="orderIds" value="@order.Id" hidden />
                     <tr>
                         @Html.Partial("_OrderRow", order)                       
