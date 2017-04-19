@@ -27,53 +27,53 @@ namespace WheelsShop.Data.Migrations
 
         private void SeedWheels(WheelsShopContext context)
         {
-            var wheels = new List<Wheel>()
-            {
-                new Wheel()
-                {
-                    Brand = "OZ",
-                    ImageUrl = "../../Context/Images/botticelli.jpg",
-                    Model = "Botticelli",
-                    PCD = "5X112",
-                    Price = 404,
-                    Size = 17,
-                    Stock = 32
-                },
-                new Wheel()
-                {
-                    Brand = "OZ",
-                    ImageUrl = "../../Context/Images/botticelli.jpg",
-                    Model = "Ultralleggera",
-                    PCD = "5X114",
-                    Price = 436,
-                    Size = 16,
-                    Stock = 22
-                }
-            };
-            foreach (var wheel in wheels)
-            {
-                context.Products.Add(wheel);
-            }
-            context.SaveChanges();
+            //var wheels = new List<Wheel>()
+            //{
+            //    new Wheel()
+            //    {
+            //        Brand = "OZ",
+            //        ImageUrl = "../../Context/Images/botticelli.jpg",
+            //        Model = "Botticelli",
+            //        PCD = "5X112",
+            //        Price = 404,
+            //        Size = 17,
+            //        Stock = 32
+            //    },
+            //    new Wheel()
+            //    {
+            //        Brand = "OZ",
+            //        ImageUrl = "../../Context/Images/botticelli.jpg",
+            //        Model = "Ultralleggera",
+            //        PCD = "5X114",
+            //        Price = 436,
+            //        Size = 16,
+            //        Stock = 22
+            //    }
+            //};
+            //foreach (var wheel in wheels)
+            //{
+            //    context.Products.Add(wheel);
+            //}
+            //context.SaveChanges();
         }
 
         private void SeedTyres(WheelsShopContext context)
         {
-            var tyres = new List<Tyre>()
-            {
-                new Tyre() {Brand = "Michelin", Width = 195, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 205, Height = 55, Size = 16, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 225, Height = 55, Size = 17, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
-                  new Tyre() {Brand = "Michelin", Width = 185, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
-                new Tyre() {Brand = "Kormoran", Width = 205, Height = 55, Size = 16, Model = "Runpro", Price = 105, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
-                new Tyre() {Brand = "BF Goodrich", Width = 195, Height = 65, Size = 15, Model = "G-Force", Price = 115, Season = Season.Summer, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"}
-            };
+            //var tyres = new List<Tyre>()
+            //{
+            //    new Tyre() {Brand = "Michelin", Width = 195, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
+            //    new Tyre() {Brand = "BF Goodrich", Width = 205, Height = 55, Size = 16, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+            //    new Tyre() {Brand = "BF Goodrich", Width = 225, Height = 55, Size = 17, Model = "Winter G-Force", Price = 175, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+            //      new Tyre() {Brand = "Michelin", Width = 185, Height = 65, Size = 15, Model = "Pilot Sport 4", Price = 165, Season = Season.Summer, Stock = 100, ImageUrl = "../../Context/Images/ps4.jpg"},
+            //    new Tyre() {Brand = "Kormoran", Width = 205, Height = 55, Size = 16, Model = "Runpro", Price = 105, Season = Season.Winter, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"},
+            //    new Tyre() {Brand = "BF Goodrich", Width = 195, Height = 65, Size = 15, Model = "G-Force", Price = 115, Season = Season.Summer, Stock = 120, ImageUrl = "../../Context/Images/ps4.jpg"}
+            //};
 
-            foreach (var tyre in tyres)
-            {
-                context.Products.Add(tyre);
-            }
-            context.SaveChanges();
+            //foreach (var tyre in tyres)
+            //{
+            //    context.Products.Add(tyre);
+            //}
+            //context.SaveChanges();
         }
 
 

@@ -25,6 +25,13 @@ namespace WheelsShop.Services
             return productVm;
         }
 
+        public WheelViewModel ViewWheel(int productId)
+        {
+            Wheel product = this.Data.Products.Find(productId) as Wheel;
+            var productVm = Mapper.Map<WheelViewModel>(product);
+            return productVm;
+        }
+
         public void AddToCart(int productId, string userId, int quantity)
         {
             var user = this.Data.Users.Find(userId);

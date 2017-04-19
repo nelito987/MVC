@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web;
 using WheelsShop.Models.EntityModels.Enums;
 
 namespace WheelsShop.Models.BindingModels
@@ -20,6 +21,9 @@ namespace WheelsShop.Models.BindingModels
         public int Height { get; set; }
 
         public string PCD { get; set; }
-        public string ImageUrl { get; set; }
+
+        [Display(Name = "Image")]
+        [DataType(DataType.ImageUrl)]
+        public HttpPostedFileBase ImageUrl { get; set; }
     }
 }

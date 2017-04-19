@@ -8,7 +8,7 @@
         public decimal Price { get; set; }
 
         public int Stock;
-        public string ImageUrl { get; set; }
+        public byte[] ImageUrl { get; set; }
 
         public string Season { get; set; }
 

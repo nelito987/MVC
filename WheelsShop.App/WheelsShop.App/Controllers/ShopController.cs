@@ -26,6 +26,13 @@ namespace WheelsShop.App.Controllers
             return this.View(tyre);
         }
 
+        public ActionResult BuyWheels(int productId)
+        {
+            //var userId = User.Identity.GetUserId();
+            WheelViewModel wheel = this.service.ViewWheel(productId);
+            return this.View(wheel);
+        }
+
         [HttpPost]
         public ActionResult AddToCart(int productId, int quantity)
         {

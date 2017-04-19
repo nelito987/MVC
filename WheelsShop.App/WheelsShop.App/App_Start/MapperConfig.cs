@@ -3,6 +3,7 @@ using AutoMapper;
 using WheelsShop.Models.ViewModels;
 using WheelsShop.Models.EntityModels;
 using WheelsShop.Models.BindingModels;
+using System.Web;
 
 namespace WheelsShop.App.App_Start
 {
@@ -11,9 +12,10 @@ namespace WheelsShop.App.App_Start
         public static void ConfigureMappings()
         {
             Mapper.Initialize(expression =>
-            {
+            {                
                 expression.CreateMap<Tyre, TyreViewModel>();
-                expression.CreateMap<TyreViewModel, Tyre>();//TODO <- delete
+                expression.CreateMap<Wheel, WheelViewModel>();
+                //expression.CreateMap<TyreViewModel, Tyre>();//TODO <- delete
                 //expression.CreateMap<Product, ProductViewModel>()
                 //    .ForMember<Tyre>(pvm => pvm.Size, p => p.MapFrom(t => t.))
 
@@ -27,8 +29,8 @@ namespace WheelsShop.App.App_Start
 
                 expression.CreateMap<EditProductBindingModel, Product>();
                 expression.CreateMap<Order, OrderViewModel>();
-                expression.CreateMap<NewTyreBindingModel, Tyre>();
-                expression.CreateMap<NewWheelBindingModel, Wheel>();
+                expression.CreateMap<NewTyreBindingModel, Tyre>().ForMember(t => t.ImageUrl, tv => tv.Ignore());                    
+                expression.CreateMap<NewWheelBindingModel, Wheel>().ForMember(t => t.ImageUrl, tv => tv.Ignore());
                 expression.CreateMap<User, UserViewModel>();
             });
         }

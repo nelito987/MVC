@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Web;
 
 namespace WheelsShop.Models.EntityModels
 {
@@ -23,9 +24,8 @@ namespace WheelsShop.Models.EntityModels
         public decimal Price { get; set; }
         [Required]
         public int Stock { get; set; }
-
-        //TODO correct file format byte[] or...
-        public string ImageUrl { get; set; }
+        
+        public byte[] ImageUrl { get; set; }
 
         public virtual ICollection<Order> ProductSales { get; set; }
     }

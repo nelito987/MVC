@@ -5,7 +5,10 @@
         @foreach (var tyreVm in Model.TyresVM)
         {
             <div class="col-md-5" id="tyreForm">
-                <div id="leftSide" class="col-md-6"><img id="allTyrePic" src="@tyreVm.ImageUrl" /></div>
+                <div id="leftSide" class="col-md-6">
+                @*<img id="allTyrePic" src="@tyreVm.ImageUrl" />*@
+                    <img src="data:image;base64,@System.Convert.ToBase64String(tyreVm.ImageUrl)" id="allTyrePic" /> 
+                </div>
                 <div id="rightSide" class="col-md-6">
                     <p><h4>@tyreVm.Brand</h4></p>
                     <p>@tyreVm.Model</p>

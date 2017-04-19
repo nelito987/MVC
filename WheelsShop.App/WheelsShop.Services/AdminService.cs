@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
+using System.Web;
 using WheelsShop.Data.UnitOfWork;
 using WheelsShop.Models.BindingModels;
 using WheelsShop.Models.EntityModels;
@@ -22,14 +24,38 @@ namespace WheelsShop.Services
 
         public void AddNewTyre(NewTyreBindingModel tyre)
         {
+            byte[] file = this.FileUpload(tyre.ImageUrl);
             var newTyre = Mapper.Map<Tyre>(tyre);
+            newTyre.ImageUrl = file;
             this.Data.Products.Add(newTyre);
             this.Data.SaveChanges();            
         }
 
+        private byte[] FileUpload(HttpPostedFileBase file)
+        {
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(HttpContext.Current.Server.MapPath("~/Content/Images"), pic);
+                // file is uploaded
+                file.SaveAs(path);
+                MemoryStream ms = new MemoryStream();
+                file.InputStream.CopyTo(ms);
+                byte[] array = ms.GetBuffer();
+               
+                return ms.ToArray();
+
+            }
+
+            return null;
+            
+        }
+
         public void AddNewWheel(NewWheelBindingModel wheel)
         {
+            byte[] file = this.FileUpload(wheel.ImageUrl);  
             var newWheel = Mapper.Map<Wheel>(wheel);
+            newWheel.ImageUrl = file;
             this.Data.Products.Add(newWheel);
             this.Data.SaveChanges();
         }
@@ -87,12 +113,13 @@ namespace WheelsShop.Services
         {
             Tyre tyre = null;
             Wheel wheel = null;
-            var curProduct = this.Data.Products.Find(product.Id);
+            var curProduct = this.Data.Products.Find(product.Id);            
             
             if (curProduct.GetType().BaseType.Name == "Tyre")
             {
                 //updatedProduct = Mapper.Map<Tyre>(product);
                 tyre = (Tyre)curProduct;
+                tyre.Brand = product.Brand;
                 tyre.Model = product.Model;
                 tyre.Price = product.Price;
                 tyre.Stock = product.Stock;
@@ -101,16 +128,29 @@ namespace WheelsShop.Services
                 tyre.Width = product.Width;
                 tyre.Size = product.Size;
 
+                if(product.ImageUrl != null)
+                {
+                    byte[] file = this.FileUpload(product.ImageUrl);
+                    tyre.ImageUrl = file;
+                }
+
                 this.Data.Products.Update(tyre);
             }
             else if(curProduct.GetType().BaseType.Name == "Wheel")
             {
                 wheel = curProduct as Wheel;
+                wheel.Brand = product.Brand;
                 wheel.Model = product.Model;
                 wheel.Price = product.Price;
                 wheel.Stock = product.Stock;
                 wheel.PCD = product.PCD;
                 wheel.Size = product.Size;
+
+                if (product.ImageUrl != null)
+                {
+                    byte[] file = this.FileUpload(product.ImageUrl);
+                    wheel.ImageUrl = file;
+                }
 
                 this.Data.Products.Update(wheel);
             }

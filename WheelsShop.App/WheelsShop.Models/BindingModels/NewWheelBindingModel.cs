@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web;
 using WheelsShop.Models.EntityModels.Enums;
 
 namespace WheelsShop.Models.BindingModels
@@ -29,6 +30,6 @@ namespace WheelsShop.Models.BindingModels
 
         [Display(Name = "Image")]
         [DataType(DataType.ImageUrl)]
-        public string ImageUrl { get; set; }
+        public HttpPostedFileBase ImageUrl { get; set; }
     }
 }

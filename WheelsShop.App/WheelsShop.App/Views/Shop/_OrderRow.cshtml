@@ -25,4 +25,4 @@
 <td >@Html.DisplayFor(vm => @Model.Product.Price)</td>
 <td >@(@Model.Quantity * @Model.Product.Price) BGN</td>
 <td >@Html.DisplayFor(vm => @Model.Status)</td>
-<td ><img class="img-small" src="@Model.Product.ImageUrl" /></td>
+<td ><img class="img-small" src="data:image;base64,@System.Convert.ToBase64String(Model.Product.ImageUrl)" /></td>

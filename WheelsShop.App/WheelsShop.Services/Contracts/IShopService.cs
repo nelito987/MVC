@@ -11,5 +11,6 @@ namespace WheelsShop.Services.Contracts
         void ChangeOrderStatusToProcessing(int[] orderIds);
         IEnumerable<OrderViewModel> GetAllOrdersForUser(string userId);
         void RemoveItemFromCart(string userId, int orderId);
+        WheelViewModel ViewWheel(int productId);
     }
 }

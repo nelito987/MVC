@@ -1,0 +1,115 @@
+﻿@model WheelsShop.Models.ViewModels.WheelViewModel
+
+@{
+    ViewBag.Title = "BuyWheels";
+}
+
+<h2>BuyWheels</h2>
+@*TODO: check css classes and refactor razor*@
+<div class="row buyTyre">
+    <div class="col-md-4">
+        <img id="allTyrePic" class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
+    </div>
+    <div class="col-md-4">
+        <span>
+            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayFor(m => @Model.Brand)
+        </span>
+        <span>
+            @Html.DisplayNameFor(model => model.Model)
+            @Html.DisplayFor(m => @Model.Model)
+        </span>
+        <span>
+            @Html.DisplayNameFor(model => model.Size)
+            @Html.DisplayFor(m => @Model.Size)
+        </span>
+        <p>
+            @Html.DisplayNameFor(model => model.PCD)
+            @Html.DisplayFor(m => @Model.PCD)
+        </p>
+        <p>
+            <h2>
+                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayFor(m => @Model.Price)
+            </h2>
+        </p>
+        <p>
+            Available on stock: @Html.DisplayFor(m => @Model.Stock)
+        </p>
+        @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div>
+                    <input type="number" name="productId" value="@Model.Id" hidden />
+                    <p>
+                        @*//TODO validate if quantity is number*@
+                        Quantity you want to buy: @Html.TextBox("Quantity", null, new { @class = "form-control" })
+                    </p>
+                    <input type="submit" value="Add to cart" class="btn btn-default" />
+                </div>
+            </div>
+        }
+        <div class="col-sm-12">
+            <input type="button" class="btn btn-default" value="Back" onclick="location.href='@Url.Action("SearchWheel", "Wheels")'" />
+        </div>
+    </div>
+</div>
+
+
+@*<div>
+    <h4>WheelViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+    </dl>
+</div>
+<p>    
+    @Html.ActionLink("SearchWheel", "Wheels")
+</p>*@

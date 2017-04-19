@@ -20,8 +20,6 @@ namespace WheelsShop.App.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Tyres Index";
-            //var tyres = this.service.GetAllTyres();
-            //var vm = this.service.LoadDataToViewBag(tyres);     
             return View();
         }
 

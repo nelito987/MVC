@@ -35,6 +35,8 @@ namespace WheelsShop.Data
             //base.OnModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<WheelsShop.Models.ViewModels.WheelViewModel> WheelViewModels { get; set; }
     }
 
 }

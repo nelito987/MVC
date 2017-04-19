@@ -20,6 +20,6 @@ namespace WheelsShop.Models.ViewModels
         public int? Height { get; set; }
 
         public string PCD { get; set; }
-        public string ImageUrl { get; set; }
+        public byte[] ImageUrl { get; set; }
     }
 }

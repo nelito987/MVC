@@ -24,6 +24,7 @@ namespace WheelsShop.App.Controllers
             this.service = service;
         }
 
+        //TODO : child attr
         [Route("AddNewTyre")]
         public ActionResult AddNewTyre()
         {
@@ -39,7 +40,7 @@ namespace WheelsShop.App.Controllers
                 this.service.AddNewTyre(tyre);
                 this.TempData["TyreAdded"] = "New tyre has been added successfully!!!";
             }
-            ModelState.Clear();
+            //ModelState.Clear();
             return this.View();
         }
 
@@ -59,7 +60,7 @@ namespace WheelsShop.App.Controllers
                 this.TempData["WheelAdded"] = "New wheel has been added successfully!!!";
             }
             ModelState.Clear();
-            return this.View();
+            return RedirectToAction("SearchWheel", "Wheels");
         }
 
         [Route("AddNewProduct")]
