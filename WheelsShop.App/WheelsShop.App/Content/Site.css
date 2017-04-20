@@ -108,3 +108,19 @@ td {
     border-radius: 5px;
 }
 
+.calcInfo{
+    background: white;
+    border: 1px solid #ffc266;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 10px;
+    color: gray;
+}
+
+.marginAdd{
+    margin: 15px 30px;
+}
+#calculatorspeed, #calculatordifference, #calculatordiameter2, #calculatordiameter1{
+    color:#ffc266;
+    font-weight: bold;
+}

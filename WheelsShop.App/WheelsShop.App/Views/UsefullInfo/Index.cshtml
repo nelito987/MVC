@@ -3,38 +3,141 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="row">
-    <div>
-        <div class="col-md-2">
-            @Html.Label("Width: ")
-            @Html.DropDownListFor(model => model.Widths, Model.Widths, "", new { @class = "form-control", placeholder = "" })
-        </div>
-        <div class="col-md-2">
-            @Html.Label("Height: ")
-            @Html.DropDownListFor(model => model.Height, Model.Height, "", new { @class = "form-control", placeholder = "Height" })
-        </div>
-        <div class="col-md-2">
-            @Html.Label("Size: ")
-            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "", new { @class = "form-control", placeholder = "Size" })
-        </div>   
-    </div>
-
-    <div>
-        <div class="col-md-2">
-            @Html.Label("Width: ")
-            @Html.DropDownListFor(model => model.Widths, Model.Widths, "", new { @class = "form-control", placeholder = "" })
-        </div>
-        <div class="col-md-2">
-            @Html.Label("Height: ")
-            @Html.DropDownListFor(model => model.Height, Model.Height, "", new { @class = "form-control", placeholder = "Height" })
-        </div>
-        <div class="col-md-2">
-            @Html.Label("Size: ")
-            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "", new { @class = "form-control", placeholder = "Size" })
-        </div>
-    </div>   
-   
-</div>
 
 <h2>Calculator</h2>
 
+<div class="row calcInfo">
+    <div class="col-md-12">
+        <div class="col-md-2">
+            @Html.Label("Width: ")
+            @Html.DropDownListFor(model => model.Widths, Model.Widths, "---width---",
+           new { @class = "form-control", placeholder = "", name="firstWidth", id="firstWidth",
+               onchange = "Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)"
+           })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Height: ")
+            @Html.DropDownListFor(model => model.Height, Model.Height, "---height---",
+           new { @class = "form-control", placeholder = "Height", name = "firstHeight", id = "firstHeight",
+               onchange = "Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)"
+           })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Size: ")
+            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "---size---",
+           new { @class = "form-control", placeholder = "Size", name = "firstSize", id = "firstSize" ,
+               onchange = "Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)"
+           })
+        </div> 
+        <div class="col-md-5 calcInfo">
+            <p>Diameter of first tyre: <span id="calculatordiameter1"></span> </p>
+        </div>
+          
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-2">
+            @Html.Label("Width: ")
+            @Html.DropDownListFor(model => model.Widths, Model.Widths, "---width---",
+           new { @class = "form-control", placeholder = "", name = "secondWidth", id = "secondWidth",
+               onchange ="Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)" })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Height: ")
+            @Html.DropDownListFor(model => model.Height, Model.Height, "---height---",
+           new { @class = "form-control", placeholder = "Height", name = "secondHeight", id = "secondHeight",
+               onchange = "Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)"
+           })
+        </div>
+        <div class="col-md-2">
+            @Html.Label("Size: ")
+            @Html.DropDownListFor(model => model.Sizes, Model.Sizes, "---size---",
+           new { @class = "form-control", placeholder = "Size", name = "secondSize", id = "secondSize",
+               onchange = "Calculator(firstWidth, secondWidth, firstHeight, secondHeight, firstSize, secondSize)"
+           })
+        </div>
+
+        <div class="col-md-5 calcInfo">
+            <p>Diameter of second tyre: <span id="calculatordiameter2"></span> </p>
+        </div>
+    </div>   
+   
+    <div class="col-md-11 calcInfo marginAdd">
+        <div class="col-md-11">
+            <p>Difference of diameters: <span id="calculatordifference"></span> </p>
+        </div>
+        <div class="col-md-11">
+            <p>Difference in speedmeter if the vehhicle is driving with 100km/h: <span id="calculatorspeed"></span> </p>
+        </div>
+    </div>
+    
+</div>
+
+
+
+@section scripts{
+    <script>
+        function Calculator(a1, a2, c1, c2, b1, b2) {
+            var Rezultat1, Rezultat2, ostatyk, Razlika, Razlika2, znak, Procent, S1, Cl1, Vs1, S2, Cl2, Vs2;
+            S1 = a1.value;
+            S2 = a2.value;
+            Cl1 = b1.value;
+            Cl2 = b2.value;
+            Vs1 = c1.value;
+            Vs2 = c2.value;
+            Rezultat1 = Cl1 * 25.4 + 2 * (Vs1 * (S1 / 100));
+            Rezultat2 = Cl2 * 25.4 + 2 * (Vs2 * (S2 / 100));
+
+            ostatyk = (Rezultat2 - Rezultat1);
+            if (Rezultat1 == null && Rezultat1 == null) {
+                Razlika = 0 + "mm";
+                Razlika2 = 0 + "km";
+            }
+            else {
+                if (ostatyk > 0) {
+                    znak = "+";
+                }
+                else {
+                    znak = "";
+                }
+                Razlika = ostatyk;
+                Procent = (ostatyk * 100) / Rezultat1;
+                Razlika2 = (100 - Procent);
+            }
+
+            var diameter1 = '<!-- -->' + Math.round(Rezultat1) + ' мм';
+            var diameter2 = '<!-- -->' + Math.round(Rezultat2) + ' мм';
+            var difference = '';
+            if (Math.round(Razlika) == 0) {
+                difference += '<!-- -->' + znak + String(Math.round(Razlika)) + ' мм';
+            }
+            else if (Math.round(Razlika) < -15 || Math.round(Razlika) > 15) {
+                difference += '<!-- --><span style="color:#B30000;">' + znak + String(Math.round(Razlika)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(разликата е извън допустимите граници)</span>';
+            }
+            else {
+                difference += '<!-- --><span style="color:#ffc266;">' + znak + String(Math.round(Razlika)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#ffc266;">(разликата е в допустимите граници)</span>';
+            }
+            var speed = '<!-- --><br />' + Math.round(Razlika2) + ' км/ч';
+
+            var div1 = document.getElementById('calculatordiameter1');
+            if (div1) {
+                div1.innerHTML = diameter1;
+            }
+
+            var div2 = document.getElementById('calculatordiameter2');
+            if (div2) {
+                div2.innerHTML = diameter2;
+            }
+
+            var div3 = document.getElementById('calculatordifference');
+            if (div3) {
+                div3.innerHTML = difference;
+            }
+
+            var div4 = document.getElementById('calculatorspeed');
+            if (div4) {
+                div4.innerHTML = speed;
+            }
+        }
+    </script>
+    }

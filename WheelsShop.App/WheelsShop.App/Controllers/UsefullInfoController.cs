@@ -18,9 +18,9 @@ namespace WheelsShop.App.Controllers
 
         public ActionResult Index()
         {
-            var sizeDistinct = new List<int>() { 13, 14, 15 };
-            IEnumerable<int> widthDistinct = new List<int>() { 13, 14, 15, 16, 17 };
-            IEnumerable<int> heightDistinct = new List<int>() { 13, 14, 15, 18, 19};
+            var sizeDistinct = new List<int>() { 13, 14, 15, 16, 17, 18, 19, 21, 22, 23 };
+            IEnumerable<int> widthDistinct = new List<int>() { 155, 165, 175, 185, 195, 205, 215, 225, 235, 245, 255, 265, 275, 285, 295, 305, 315, 325};
+            IEnumerable<int> heightDistinct = new List<int>() { 20, 25, 30, 35, 40, 45, 55, 60, 65, 70, 75 };
 
             var sizes = new SelectList(sizeDistinct);
             var width = new SelectList(widthDistinct);
