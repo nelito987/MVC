@@ -49,7 +49,7 @@ namespace WheelsShop.App.Controllers
             return this.View(orders);
         }
 
-        //[Route("ConfirmOrders")]
+        [Route("ConfirmOrders")]
         public ActionResult ConfirmOrders(int[] orderIds)
         {
             this.service.ChangeOrderStatusToProcessing(orderIds);

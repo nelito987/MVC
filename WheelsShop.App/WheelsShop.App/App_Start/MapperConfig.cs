@@ -15,9 +15,6 @@ namespace WheelsShop.App.App_Start
             {                
                 expression.CreateMap<Tyre, TyreViewModel>();
                 expression.CreateMap<Wheel, WheelViewModel>();
-                //expression.CreateMap<TyreViewModel, Tyre>();//TODO <- delete
-                //expression.CreateMap<Product, ProductViewModel>()
-                //    .ForMember<Tyre>(pvm => pvm.Size, p => p.MapFrom(t => t.))
 
                 expression.CreateMap<Tyre, ProductViewModel>()
                     .ForMember(pvm => pvm.Size, p => p.MapFrom(t => t.Size))

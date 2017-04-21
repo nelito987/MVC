@@ -320,7 +320,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Messages.cshtml" />
-    <Content Include="Views\Tyres\AllTyres.cshtml" />
     <Content Include="Views\Tyres\SearchTyre.cshtml" />
     <Content Include="Views\Tyres\_TyresDropDown.cshtml" />
     <Content Include="Views\Tyres\_Tyres.cshtml" />

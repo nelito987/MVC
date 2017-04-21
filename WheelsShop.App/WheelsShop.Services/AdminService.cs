@@ -116,8 +116,7 @@ namespace WheelsShop.Services
             var curProduct = this.Data.Products.Find(product.Id);            
             
             if (curProduct.GetType().BaseType.Name == "Tyre")
-            {
-                //updatedProduct = Mapper.Map<Tyre>(product);
+            {               
                 tyre = (Tyre)curProduct;
                 tyre.Brand = product.Brand;
                 tyre.Model = product.Model;

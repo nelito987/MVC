@@ -4,10 +4,7 @@ using WheelsShop.Data.UnitOfWork;
 namespace WheelsShop.App.Controllers
 {
     public abstract class BaseController : Controller
-    {
-        // GET: Base //TODO:
-        //private IWheelsShopData data;
-
+    {       
         protected BaseController(IWheelsShopData data)
         {
             this.Data = data;

@@ -11,8 +11,7 @@ using WheelsShop.Services.Contracts;
 
 namespace WheelsShop.App.Controllers
 {
-    [WheelsShopAuthorize(Roles = "Admin")]
-    //[ValidateAntiForgeryToken]
+    [WheelsShopAuthorize(Roles = "Admin")]  
 
     public class AdminController : BaseController
     {
@@ -33,6 +32,7 @@ namespace WheelsShop.App.Controllers
 
         [HttpPost]
         [Route("AddNewTyre")]
+        [ValidateAntiForgeryToken]
         public ActionResult AddNewTyre(NewTyreBindingModel tyre)
         {
             if (ModelState.IsValid)
@@ -52,6 +52,7 @@ namespace WheelsShop.App.Controllers
 
         [HttpPost]
         [Route("AddNewWheel")]
+        [ValidateAntiForgeryToken]
         public ActionResult AddNewWheel(NewWheelBindingModel wheel)
         {
             if (ModelState.IsValid)
@@ -97,7 +98,9 @@ namespace WheelsShop.App.Controllers
             return this.View(orders);
         }
 
+        [HttpPost]
         [Route("DeleteProduct")]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteProduct(int id)
         {
             this.service.DeleteProduct(id);
@@ -116,6 +119,7 @@ namespace WheelsShop.App.Controllers
 
         [Route("EditProduct/{id}")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditProduct(EditProductBindingModel product)
         {
             this.service.UpdateProduct(product);

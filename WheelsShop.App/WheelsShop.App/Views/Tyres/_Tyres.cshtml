@@ -1,8 +1,7 @@
-﻿@model WheelsShop.Models.ViewModels.AllTyresViewModel
-
+﻿@model IEnumerable<WheelsShop.Models.ViewModels.TyreViewModel>
 
     <div class="row col-md-12">
-        @foreach (var tyreVm in Model.TyresVM)
+        @foreach (var tyreVm in @Model)
         {
             <div class="col-md-5" id="tyreForm">
                 <div id="leftSide" class="col-md-6">
@@ -16,9 +15,9 @@
 
 
                     <p>
-                        @Html.DisplayNameFor(t => tyreVm.Season)
+                        @Html.DisplayNameFor(m => m.Season)
                         @tyreVm.Season</p>
-                    <p><h3>@Html.DisplayNameFor(t => tyreVm.Price): @tyreVm.Price</h3></p>
+                    <p><h3>@Html.DisplayNameFor(m => m.Price): @tyreVm.Price</h3></p>
                 </div>
                 <div id="buttons">
                     <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyTyres", "Shop", new { productId = @tyreVm.Id, name="productId", @class="btn btn-default" })'">Buy</button>

@@ -29,7 +29,7 @@ namespace WheelsShop.Services
             return this.Data.Products.All().OfType<Tyre>().ToList();
         }
 
-        public AllTyresViewModel GetSearchTyreInfo(SearchTyreBindingModel model)
+        public IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model)
         {
             var tyres = this.Data.Products.All().OfType<Tyre>();
 
@@ -52,28 +52,11 @@ namespace WheelsShop.Services
             if (model.Height != 0)
             {
                 tyres = tyres.Where(p => p.Height == model.Height);
-            }
-
-            //if (model.Order == "" || model.Order == "Price")
-            //{
-            //    tyres = tyres.OrderBy(t => t.Price);
-            //}
-            //else if(model.Order == "Brand")
-            //{
-            //    tyres = tyres.OrderBy(t => t.Brand);
-            //}
-            //else if (model.Order == "Size")
-            //{
-            //    tyres = tyres.OrderBy(t => t.Size);
-            //}
+            }         
            
 
-            var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);
-            var searchedTyresVm = new AllTyresViewModel()
-            {
-                TyresVM = tyresVm
-            };
-            return searchedTyresVm;
+            var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);           
+            return tyresVm;
         }
 
         public SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres)

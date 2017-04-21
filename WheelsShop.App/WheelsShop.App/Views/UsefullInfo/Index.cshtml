@@ -78,46 +78,46 @@
 @section scripts{
     <script>
         function Calculator(a1, a2, c1, c2, b1, b2) {
-            var Rezultat1, Rezultat2, ostatyk, Razlika, Razlika2, znak, Procent, S1, Cl1, Vs1, S2, Cl2, Vs2;
-            S1 = a1.value;
-            S2 = a2.value;
-            Cl1 = b1.value;
-            Cl2 = b2.value;
-            Vs1 = c1.value;
-            Vs2 = c2.value;
-            Rezultat1 = Cl1 * 25.4 + 2 * (Vs1 * (S1 / 100));
-            Rezultat2 = Cl2 * 25.4 + 2 * (Vs2 * (S2 / 100));
+            var firstDiameter, secondDiameter, difference, diff1, diff2, sign, Percent, firstWidth, firstSize, firstHeight, secondWidth, secondSize, secondHeight;
+            firstWidth = a1.value;
+            secondWidth = a2.value;
+            firstSize = b1.value;
+            secondSize = b2.value;
+            firstHeight = c1.value;
+            secondHeight = c2.value;
+            firstDiameter = firstSize * 25.4 + 2 * (firstHeight * (firstWidth / 100));
+            secondDiameter = secondSize * 25.4 + 2 * (secondHeight * (secondWidth / 100));
 
-            ostatyk = (Rezultat2 - Rezultat1);
-            if (Rezultat1 == null && Rezultat1 == null) {
-                Razlika = 0 + "mm";
-                Razlika2 = 0 + "km";
+            difference = (secondDiameter - firstDiameter);
+            if (firstDiameter == null && firstDiameter == null) {
+                diff1 = 0 + "mm";
+                diff2 = 0 + "km";
             }
             else {
-                if (ostatyk > 0) {
-                    znak = "+";
+                if (difference > 0) {
+                    sign = "+";
                 }
                 else {
-                    znak = "";
+                    sign = "";
                 }
-                Razlika = ostatyk;
-                Procent = (ostatyk * 100) / Rezultat1;
-                Razlika2 = (100 - Procent);
+                diff1 = difference;
+                Percent = (difference * 100) / firstDiameter;
+                diff2 = (100 - Percent);
             }
 
-            var diameter1 = '<!-- -->' + Math.round(Rezultat1) + ' мм';
-            var diameter2 = '<!-- -->' + Math.round(Rezultat2) + ' мм';
+            var diameter1 = '<!-- -->' + Math.round(firstDiameter) + ' мм';
+            var diameter2 = '<!-- -->' + Math.round(secondDiameter) + ' мм';
             var difference = '';
-            if (Math.round(Razlika) == 0) {
-                difference += '<!-- -->' + znak + String(Math.round(Razlika)) + ' мм';
+            if (Math.round(diff1) == 0) {
+                difference += '<!-- -->' + sign + String(Math.round(diff1)) + ' мм';
             }
-            else if (Math.round(Razlika) < -15 || Math.round(Razlika) > 15) {
-                difference += '<!-- --><span style="color:#B30000;">' + znak + String(Math.round(Razlika)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(разликата е извън допустимите граници)</span>';
+            else if (Math.round(diff1) < -15 || Math.round(diff1) > 15) {
+                difference += '<!-- --><span style="color:#B30000;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(разликата е извън допустимите граници)</span>';
             }
             else {
-                difference += '<!-- --><span style="color:#ffc266;">' + znak + String(Math.round(Razlika)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#ffc266;">(разликата е в допустимите граници)</span>';
+                difference += '<!-- --><span style="color:#ffc266;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#ffc266;">(разликата е в допустимите граници)</span>';
             }
-            var speed = '<!-- --><br />' + Math.round(Razlika2) + ' км/ч';
+            var speed = '<!-- --><br />' + Math.round(diff2) + ' км/ч';
 
             var div1 = document.getElementById('calculatordiameter1');
             if (div1) {

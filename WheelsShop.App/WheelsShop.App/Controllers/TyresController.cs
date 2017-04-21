@@ -26,30 +26,23 @@ namespace WheelsShop.App.Controllers
         public PartialViewResult Search()
         {
             var tyres = this.service.GetAllTyres();
-            var vm = this.service.LoadDataToViewBag(tyres);
-            return PartialView("_TyresDropDown", vm);
-        }
-
-
-        public ActionResult AllTyres()
-        {
-            IEnumerable<TyreViewModel> tyres = this.service.GetAllTyresVM();
-            //todo: move to service
-            var model = new AllTyresViewModel()
+            SearchTyreViewModel vm = null;
+            if(tyres != null)
             {
-                TyresVM = tyres
-            };
-            return View(model);
-        }
+                vm = this.service.LoadDataToViewBag(tyres);
+            }            
+            return PartialView("_TyresDropDown", vm);
+        }       
 
         public ActionResult SearchTyre(SearchTyreBindingModel model)
-        {  
-            //if(model == null)
-            //{
-            //    return RedirectToAction("AllTyres");
-            //}
-            var result = this.service.GetSearchTyreInfo(model);            
-            return View(result);
-        }
+        {
+            if (model != null && this.ModelState.IsValid)
+            {
+                var result = this.service.GetSearchTyreInfo(model);
+                return View(result);
+            }
+
+            return this.View();
+        }        
     }
 }
