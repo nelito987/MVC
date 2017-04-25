@@ -6,6 +6,18 @@
 
 <h2>Calculator</h2>
 
+
+<style>
+body {
+        background-image: url('../Content/Images/oz_racing_ultraleggera_hlt_5h_matt_black_chevrolet_corvette.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+
 <div class="row calcInfo">
     <div class="col-md-12">
         <div class="col-md-2">
@@ -115,7 +127,7 @@
                 difference += '<!-- --><span style="color:#B30000;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(разликата е извън допустимите граници)</span>';
             }
             else {
-                difference += '<!-- --><span style="color:#ffc266;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#ffc266;">(разликата е в допустимите граници)</span>';
+                difference += '<!-- --><span style="color:#ffc266;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:orange;">(разликата е в допустимите граници)</span>';
             }
             var speed = '<!-- --><br />' + Math.round(diff2) + ' км/ч';
 

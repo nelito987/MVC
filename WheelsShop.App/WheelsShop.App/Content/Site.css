@@ -3,21 +3,27 @@
     padding-bottom: 20px;
     margin: 30px auto;
     background-color: #696969;
-    color: orange;
+    color: #ff8000;
 }
 #homePageImage {
     width: 300px;
     height: 300px;
+    margin: 10px;
+    
+    
 }
 
 #homeBtn {
     border: 2px solid darkgray;
+    border-radius: 10px;
     background: white;
-    color: orange;
+    color: ;
     font-size: 2em;
     font-weight: bold;
     font-style: italic;
     margin: 30px 0;
+    padding: 15px;
+    font-size: 2.5em;
 }
 
 /*Bootstrap overwriting*/

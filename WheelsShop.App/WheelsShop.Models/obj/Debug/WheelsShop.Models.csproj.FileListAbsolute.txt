@@ -68,3 +68,4 @@ C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\bin\Debug\System.Web.Ra
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\bin\Debug\System.Web.WebPages.xml
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.csprojResolveAssemblyReference.cache
