@@ -7,10 +7,10 @@
     <span class="col-md-offset-2">Choose type of product:</span>
     <div class="form-group col-md-offset-2" onclick="update()" id="productRButton">
         @Html.Label("Tyre")
-        @Html.RadioButton("Product", "Tyre", new {@id = "tyre", onclick = "update()"})
+        @Html.RadioButton("Product", "Tyre", new { area = "Administration" , @id = "tyre", onclick = "update()"})
 
         @Html.Label("Wheel")
-        @Html.RadioButton("Product", "Wheel", new {@id = "wheel", onclick = "update()"})
+        @Html.RadioButton("Product", "Wheel", new { area = "Administration" , @id = "wheel", onclick = "update()"})
     </div>
     <div id="productChosen">
 
@@ -22,9 +22,9 @@
         function update() {
             var test = $("#productRButton input[type='radio']:checked").val();
             if (test == "Tyre") {
-                $("#productChosen").load("/admin/addnewtyre");
+                $("#productChosen").load("admin/addnewtyre");
             } else {
-                $("#productChosen").load("/admin/addnewwheel");
+                $("#productChosen").load("admin/addnewwheel");
             }
         }
     </script>

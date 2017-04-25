@@ -33,7 +33,6 @@ C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\Sy
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.dll
 C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.pdb
-C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.csprojResolveAssemblyReference.cache
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.dll
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\obj\Debug\WheelsShop.Models.pdb
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.Models\bin\Debug\WheelsShop.Models.dll.config

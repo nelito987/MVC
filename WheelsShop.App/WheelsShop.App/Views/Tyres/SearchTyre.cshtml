@@ -20,11 +20,11 @@
     @if (Model == null || Model.Count() == 0)
     {
         <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>
-        @Html.Action("SearchTyre");
+        //@Html.Action("SearchTyre");
     }
     else
     {
-        @{ Html.RenderAction("Search");}
+        { Html.RenderAction("Search");}
         @Html.Partial("_Tyres")
     }   
 </div>

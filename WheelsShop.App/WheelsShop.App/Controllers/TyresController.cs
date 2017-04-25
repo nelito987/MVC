@@ -36,13 +36,13 @@ namespace WheelsShop.App.Controllers
 
         public ActionResult SearchTyre(SearchTyreBindingModel model)
         {
-            if (model != null && this.ModelState.IsValid)
-            {
+            //if (model != null && this.ModelState.IsValid)
+            //{
                 var result = this.service.GetSearchTyreInfo(model);
                 return View(result);
-            }
+            //}
 
-            return this.View();
+            //return this.View();
         }        
     }
 }
