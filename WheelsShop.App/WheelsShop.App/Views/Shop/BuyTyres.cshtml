@@ -4,6 +4,8 @@
     ViewBag.Title = "Buy";
 }
 
+
+
 <div class="row buyTyre">
     <div class="col-md-4">      
         <img id="allTyrePic" class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
@@ -30,11 +32,12 @@
         </p>
         @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
+
             <div class="form-group">
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />
-                    <p>
-                        @*//TODO validate if quantity is number*@
+                    <p>                        
                         Quantity you want to buy: @Html.TextBox("Quantity", null, new {@class = "form-control"})
                     </p>
                     <input type="submit" value="Add to cart" class="btn btn-default" />

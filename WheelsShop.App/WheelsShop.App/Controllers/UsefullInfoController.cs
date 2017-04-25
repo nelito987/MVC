@@ -6,6 +6,7 @@ using WheelsShop.Services.Contracts;
 
 namespace WheelsShop.App.Controllers
 {
+    [RoutePrefix("UsefullInfo")]
     public class UsefullInfoController : BaseController
     {
         private readonly IUsefullInfoService service;
@@ -16,6 +17,7 @@ namespace WheelsShop.App.Controllers
             this.service = service;
         }
 
+        [Route("Index")]
         public ActionResult Index()
         {
             var sizeDistinct = new List<int>() { 13, 14, 15, 16, 17, 18, 19, 21, 22, 23 };

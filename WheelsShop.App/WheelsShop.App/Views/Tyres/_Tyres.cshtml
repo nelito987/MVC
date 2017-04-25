@@ -26,6 +26,7 @@
 
                         using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
                         {
+                            @Html.AntiForgeryToken()
                             <div class="form-group">
                                 <div>
                                     <input type="number" name="Id" value="@tyreVm.Id" hidden />

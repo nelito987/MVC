@@ -23,6 +23,8 @@
     <div class="alert alert-success">@TempData["ProductDeleted"]</div>
 }
 
-
-
+@if (TempData.ContainsKey("noOrdersFound"))
+{
+    <div class="alert alert-success">@TempData["noOrdersFound"]</div>
+}
 

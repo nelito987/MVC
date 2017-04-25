@@ -7,6 +7,7 @@ using WheelsShop.Services.Contracts;
 
 namespace WheelsShop.App.Controllers
 {
+    [RoutePrefix("Tyres")]
     public class TyresController : BaseController
     {
         private readonly ITyreService service;
@@ -17,12 +18,13 @@ namespace WheelsShop.App.Controllers
             this.service = service;
         }
 
-        public ActionResult Index()
-        {
-            ViewBag.Message = "Tyres Index";
-            return View();
-        }
-
+        //[ActionName("Index")]
+        //public ActionResult Index()
+        //{
+        //    ViewBag.Message = "Tyres Index";
+        //    return View();
+        //}
+       
         public PartialViewResult Search()
         {
             var tyres = this.service.GetAllTyres();
@@ -32,17 +34,13 @@ namespace WheelsShop.App.Controllers
                 vm = this.service.LoadDataToViewBag(tyres);
             }            
             return PartialView("_TyresDropDown", vm);
-        }       
+        }
 
+        [Route("SearchTyre")]
         public ActionResult SearchTyre(SearchTyreBindingModel model)
         {
-            //if (model != null && this.ModelState.IsValid)
-            //{
-                var result = this.service.GetSearchTyreInfo(model);
-                return View(result);
-            //}
-
-            //return this.View();
+             var result = this.service.GetSearchTyreInfo(model);
+             return View(result);
         }        
     }
 }

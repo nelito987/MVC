@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using WheelsShop.App.Attributes;
 using WheelsShop.App.Controllers;
@@ -13,7 +10,7 @@ using WheelsShop.Services.Contracts;
 namespace WheelsShop.App.Areas.Administration.Controllers
 {
     [WheelsShopAuthorize(Roles = "Admin")]
-
+    [RouteArea("Administration")]
     public class AdminController : BaseController
     {
         private IAdminService service;
@@ -41,7 +38,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
                 this.service.AddNewTyre(tyre);
                 this.TempData["TyreAdded"] = "New tyre has been added successfully!!!";
             }
-            //ModelState.Clear();
+            ModelState.Clear();
             return this.View();
         }
 
@@ -75,15 +72,16 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("ChangeOrderStatus")]
         public ActionResult ChangeOrderStatus(int orderId)
         {
-            var order = this.service.GetOrderById(orderId);
-            //TODO message if there are no orders
+            var order = this.service.GetOrderById(orderId);            
             return this.View(order);
         }
 
         [HttpPost]
+        [Route("ChangeOrderStatus")]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeOrderStatus(OrderBindingModel model)
         {
+            //TODO if order status is changed to cart to add quantity for product stock
             if (ModelState.IsValid)
             {
                 this.service.ChangeOrderStatus(model);
@@ -94,8 +92,11 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("ViewAllOrders")]
         public ActionResult ViewAllOrders()
         {
-            IEnumerable<OrderViewModel> orders = this.service.GetAllOrders();
-            //TODO message if there are no orders
+            IEnumerable<OrderViewModel> orders = this.service.GetAllOrders();            
+            if(orders == null)
+            {
+                this.TempData["noOrdersFound"] = "There are no orders found!!!";
+            }
             return this.View(orders);
         }
 

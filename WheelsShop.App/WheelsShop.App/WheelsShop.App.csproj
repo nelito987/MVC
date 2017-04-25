@@ -220,11 +220,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Neli\Controllers\OggController.cs" />
-    <Compile Include="Areas\Neli\NeliAreaRegistration.cs" />
     <Compile Include="Attributes\WheelsShopAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -264,10 +261,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Areas\Neli\Views\web.config" />
-    <Content Include="Areas\Neli\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Neli\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Neli\Views\Ogg\Index.cshtml" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -352,9 +345,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Areas\Neli\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

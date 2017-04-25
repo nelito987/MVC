@@ -7,6 +7,7 @@ using WheelsShop.Data.UnitOfWork;
 using WheelsShop.Models.EntityModels;
 using System.Web.Mvc;
 using WheelsShop.Models.BindingModels;
+using System.Net;
 
 namespace WheelsShop.Services
 {
@@ -19,19 +20,27 @@ namespace WheelsShop.Services
 
         public IEnumerable<TyreViewModel> GetAllTyresVM()
         {
-            var tyres = this.Data.Products.Where(p => p is Tyre).ToList();
+            var tyres = this.Data.Products
+                .Where(p => p is Tyre && p.Stock > 0)
+                .OrderBy(p => p.Price)
+                .ToList();
             var tyresVm = Mapper.Map<IEnumerable<TyreViewModel>>(tyres);
             return tyresVm;
         }
 
         public IEnumerable<Tyre> GetAllTyres()
         {
-            return this.Data.Products.All().OfType<Tyre>().ToList();
+            var tyres = this.Data.Tyres                
+                .Where(p => p.Stock > 0)
+                .OrderBy(p => p.Price)
+                .ToList();
+
+            return tyres;
         }
 
         public IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model)
         {
-            var tyres = this.Data.Products.All().OfType<Tyre>();
+            var tyres = this.GetAllTyres();
 
             if(model.Brands != null)
             {
@@ -61,29 +70,29 @@ namespace WheelsShop.Services
 
         public SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres)
         {
-            IEnumerable<int> sizeDistinct = tyres.Select(t => t.Size).Distinct();
-            IEnumerable<int> widthDistinct = tyres.Select(t => t.Width).Distinct();
-            IEnumerable<int> heightDistinct = tyres.Select(t => t.Height).Distinct();
-            IEnumerable<string> seasonsDistinct = tyres.Select(t => t.Season.ToString()).Distinct();
-            IEnumerable<string> tyreBrands = tyres.Select(t => t.Brand).Distinct();
-            List<string> orders = new List<string>() {"Price", "Brand", "Size"};
-           
+            if(tyres == null)
+            {
+                new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Invalid search");               
+            }
+            IEnumerable<int> sizeDistinct = tyres.Where(t => t.Stock > 0).Select(t => t.Size).Distinct();
+            IEnumerable<int> widthDistinct = tyres.Where(t => t.Stock > 0).Select(t => t.Width).Distinct();
+            IEnumerable<int> heightDistinct = tyres.Where(t => t.Stock > 0).Select(t => t.Height).Distinct();
+            IEnumerable<string> seasonsDistinct = tyres.Where(t => t.Stock > 0).Select(t => t.Season.ToString()).Distinct();
+            IEnumerable<string> tyreBrands = tyres.Select(t => t.Brand).Distinct();           
+
             var sizes = new SelectList(sizeDistinct);
             var width = new SelectList(widthDistinct);
             var heights = new SelectList(heightDistinct);
             var seasons = new SelectList(seasonsDistinct);
             var brands = new SelectList(tyreBrands);
-            var order = new SelectList(orders);
             
-
             var vm = new SearchTyreViewModel()
             {
                 Sizes = sizes,
                 Widths = width,
                 Height = heights,
                 Seasons = seasons,
-                Brands = brands//,
-                //Order = order
+                Brands = brands
             };
 
             return vm;

@@ -85,20 +85,3 @@
         </div>
     </div>
 }
-
-@*//TODO
- [HttpPost]
-        public ActionResult Edit(JobCard model)
-        {
-            try
-            {
-                new JobCardService().Update(model);
-                var x = RedirectToAction("Index");
-                return RedirectToAction("Index");
-            }
-            catch (Exception)
-            {
-
-                return RedirectToAction("Edit", new {id = model.InstallationNumber});
-            }
-        }*@

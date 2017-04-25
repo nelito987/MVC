@@ -38,6 +38,7 @@
         </p>
         @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
             <div class="form-group">
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />

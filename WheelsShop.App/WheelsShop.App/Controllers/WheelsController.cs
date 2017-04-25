@@ -11,6 +11,7 @@ using WheelsShop.Services.Contracts;
 
 namespace WheelsShop.App.Controllers
 {
+    
     public class WheelsController : BaseController
     {
         private readonly IWheelsService service;
@@ -21,14 +22,13 @@ namespace WheelsShop.App.Controllers
             this.service = service;
         }
 
+        [Route("SearchWheel")]
         public ActionResult SearchWheel(SearchWheelBindingModel model)
         {
-            if (model != null && this.ModelState.IsValid)
-            {
+            
                 var result = this.service.GetSearchWheelInfo(model);
                 return View(result);
-            }
-            return this.View();
+           
         }       
 
         public PartialViewResult Search()

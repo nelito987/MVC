@@ -47,6 +47,7 @@
                 </tr>
                 @using (Html.BeginForm("ConfirmOrders", "Shop", FormMethod.Post))
                 {
+                    @Html.AntiForgeryToken()
                     foreach (var order in Model)
                     {
                         <input type="number" name="orderIds" value="@order.Id" hidden />
