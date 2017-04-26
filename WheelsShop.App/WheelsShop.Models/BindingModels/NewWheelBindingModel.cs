@@ -10,7 +10,7 @@ namespace WheelsShop.Models.BindingModels
         public string PCD { get; set; }
 
         [Required(ErrorMessage = "The {0} is required!")]
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Size must be a natural number")]
+        [Range(0, 100, ErrorMessage = "Stock must be a positive number")]
         public int Size { get; set; }
 
 
@@ -19,6 +19,8 @@ namespace WheelsShop.Models.BindingModels
         
         [Required(ErrorMessage = "The {0} is required!")]
         public string Model { get; set; }
+
+        public string Description { get; set; }
 
         [Required(ErrorMessage = "The {0} is required!")]
         [Range(0, double.MaxValue, ErrorMessage = "Price must be a positive number")]

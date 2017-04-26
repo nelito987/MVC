@@ -32,23 +32,29 @@ namespace WheelsShop.Services
             return productVm;
         }
 
-        public void AddToCart(int productId, string userId, int quantity)
+        public bool AddToCart(int productId, string userId, int quantity)
         {
             var user = this.Data.Users.Find(userId);
             Product product = this.Data.Products.Find(productId);
-
-            Order newOrder = new Order()
+            if(product.Stock >= quantity)
             {
-                User = user,
-                ProductId = productId,
-                Product = product,
-                Quantity = quantity,
-                Status = Status.Cart,
-                OrderDate = DateTime.Now
-            };
-            this.Data.Sales.Add(newOrder);
-            user.ProductsBought.Add(newOrder);
-            this.Data.SaveChanges();
+                Order newOrder = new Order()
+                {
+                    User = user,
+                    ProductId = productId,
+                    Product = product,
+                    Quantity = quantity,
+                    Status = Status.Cart,
+                    OrderDate = DateTime.Now
+                };
+                this.Data.Sales.Add(newOrder);
+                user.ProductsBought.Add(newOrder);
+                product.Stock -= quantity;
+                this.Data.SaveChanges();
+                return true;
+            }
+
+            return false;            
         }
 
         public IEnumerable<OrderViewModel> GetOrdersInCart(string userId)
@@ -73,7 +79,7 @@ namespace WheelsShop.Services
                 curOrder.User = this.Data.Users.Find(curOrder.User.Id);
 
                 //TODO validate if the quantity is enough
-                product.Stock -= curOrder.Quantity;
+                //product.Stock -= curOrder.Quantity;
                 this.Data.Sales.Update(curOrder);
 
             }
@@ -106,6 +112,12 @@ namespace WheelsShop.Services
             //currentUser.ProductsBought.Remove(orderToBeRemoved);
             this.Data.Sales.Remove(orderToBeRemoved);
             this.Data.SaveChanges();
+        }
+
+        public string GetProductDescriptionById(int id)
+        {
+            string description = this.Data.Products.Find(id).Description;
+            return description;
         }
     }
 }

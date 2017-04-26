@@ -29,12 +29,13 @@
                         <p><h3>Price: @wheel.Price</h3></p>
                     </div>
                     <div id="buttons">
-                        <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyWheels", "Shop", new { productId = @wheel.Id, name="productId", @class="btn btn-default" })'">Buy</button>
+                        <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyWheels", "Shop", new {area="", productId = @wheel.Id, name="productId", @class="btn btn-default" })'">Buy</button>
                         @if (User.IsInRole("Admin"))
                     {
 
                         using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
                         {
+                                @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <div>
                                         <input type="number" name="Id" value="@wheel.Id" hidden />
@@ -43,7 +44,7 @@
                                     </div>
                                 </div>
                             }
-                            <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {id = @wheel.Id, @class = "btn btn-default"})'">Edit</button>
+                            <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {area="Administration", id = @wheel.Id, @class = "btn btn-default"})'">Edit</button>
                         }
                     </div>
 

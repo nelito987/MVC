@@ -5,6 +5,14 @@
     background-color: #696969;
     color: #ff8000;
 }
+
+.background-image {
+        background-image: url('../Content/Images/oz_racing_ultraleggera_hlt_5h_matt_black_chevrolet_corvette.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
+        background-size: cover;
+    }
 #homePageImage {
     width: 300px;
     height: 300px;
@@ -129,4 +137,9 @@ td {
 #calculatorspeed, #calculatordifference, #calculatordiameter2, #calculatordiameter1{
     color:#ffc266;
     font-weight: bold;
+}
+
+.custom-file-input::before {
+   width: 100%;
+   border-radius: 8px;
 }

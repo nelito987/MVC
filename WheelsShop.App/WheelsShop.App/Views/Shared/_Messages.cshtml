@@ -28,3 +28,9 @@
     <div class="alert alert-success">@TempData["noOrdersFound"]</div>
 }
 
+@if (TempData.ContainsKey("notEnoughQuantity"))
+{
+    <div class="alert alert-success">@TempData["notEnoughQuantity"]</div>
+}
+
+

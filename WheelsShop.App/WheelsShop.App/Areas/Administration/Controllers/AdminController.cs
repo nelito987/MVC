@@ -32,14 +32,13 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("AddNewTyre")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNewTyre(NewTyreBindingModel tyre)
-        {
+        {                
             if (ModelState.IsValid)
             {
                 this.service.AddNewTyre(tyre);
                 this.TempData["TyreAdded"] = "New tyre has been added successfully!!!";
             }
-            ModelState.Clear();
-            return this.View();
+            return this.RedirectToAction("AddNewProduct");
         }
 
         [Route("AddNewWheel")]
@@ -58,8 +57,8 @@ namespace WheelsShop.App.Areas.Administration.Controllers
                 this.service.AddNewWheel(wheel);
                 this.TempData["WheelAdded"] = "New wheel has been added successfully!!!";
             }
-            ModelState.Clear();
-            return RedirectToAction("SearchWheel", "Wheels");
+            
+            return this.RedirectToAction("AddNewProduct");
         }
 
         [Route("AddNewProduct")]
@@ -72,7 +71,11 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("ChangeOrderStatus")]
         public ActionResult ChangeOrderStatus(int orderId)
         {
-            var order = this.service.GetOrderById(orderId);            
+            var order = this.service.GetOrderById(orderId); 
+            if(order == null)
+            {
+                ModelState.AddModelError("Order", "Order with this ID has not been found!");
+            }           
             return this.View(order);
         }
 
@@ -81,7 +84,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ChangeOrderStatus(OrderBindingModel model)
         {
-            //TODO if order status is changed to cart to add quantity for product stock
+            //TODO if order is deleted from cart to add the quantity back to stock
             if (ModelState.IsValid)
             {
                 this.service.ChangeOrderStatus(model);
@@ -105,10 +108,11 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteProduct(int id)
         {
+            //TODO validate            
             this.service.DeleteProduct(id);
             this.TempData["ProductDeleted"] = "Product has been deleted successfully!!!";
 
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [Route("EditProduct")]
@@ -116,17 +120,24 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         public ActionResult EditProduct(int id)
         {
             ProductViewModel product = this.service.GetEditedProduct(id);
+            if(product == null)
+            {
+                return this.HttpNotFound("The selected product was not found");
+            }
             return this.View(product);
         }
 
-        [Route("EditProduct/{id}")]
+        //[Route("EditProduct/{id}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProduct(EditProductBindingModel product)
         {
-            this.service.UpdateProduct(product);
-            this.TempData["ProductDeleted"] = "Product has been updated successfully!!!";
-            return this.RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                this.service.UpdateProduct(product);
+                this.TempData["ProductDeleted"] = "Product has been updated successfully!!!";
+            }            
+            return this.RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

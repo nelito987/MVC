@@ -28,7 +28,7 @@ namespace WheelsShop.App.App_Start
                 expression.CreateMap<Order, OrderViewModel>();
                 expression.CreateMap<NewTyreBindingModel, Tyre>().ForMember(t => t.ImageUrl, tv => tv.Ignore());                    
                 expression.CreateMap<NewWheelBindingModel, Wheel>().ForMember(t => t.ImageUrl, tv => tv.Ignore());
-                expression.CreateMap<User, UserViewModel>();
+                //expression.CreateMap<User, UserViewModel>();
             });
         }
     }

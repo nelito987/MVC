@@ -21,11 +21,23 @@ namespace WheelsShop.App.Controllers
             this.service = service;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public string GetDescription(int id)
+        {            
+            string description = this.service.GetProductDescriptionById(id);
+            return description;
+        }
+
         [Route("BuyTyres")]
         [AllowAnonymous]
         public ActionResult BuyTyres(int productId)
         {            
             var tyre = this.service.ViewProduct(productId);
+            if (tyre == null)
+            {
+                return this.HttpNotFound("Tyre can not be found!");
+            }
             return this.View(tyre);
         }
 
@@ -34,6 +46,10 @@ namespace WheelsShop.App.Controllers
         public ActionResult BuyWheels(int productId)
         {           
             WheelViewModel wheel = this.service.ViewWheel(productId);
+            if (wheel == null)
+            {
+                return this.HttpNotFound("Wheel with such id can not be found");
+            }
             return this.View(wheel);
         }
 
@@ -48,9 +64,22 @@ namespace WheelsShop.App.Controllers
             if (userId == null)
             {
                 new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Error with identification the user");
-            }            
-            this.service.AddToCart(productId, userId, quantity);
+            } 
+
+            if(quantity < 0)
+            {
+                ModelState.AddModelError("Stock", "Quantity can not be negative");
+            }     
+                  
+            var addToCart = this.service.AddToCart(productId, userId, quantity);
+
+            if(addToCart == false)
+            {
+                this.TempData["notEnoughQuantity"] = "The quantity on stock is not enough for your order!!! Order has not been added";
+            }
+
             return RedirectToAction("ViewCart");
+
         }
 
         [Route("ViewCart")]
@@ -61,7 +90,12 @@ namespace WheelsShop.App.Controllers
             {
                 new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Error with identification the user");
             }
-            var orders = this.service.GetOrdersInCart(userId);
+
+            var orders = this.service.GetOrdersInCart(userId);   
+            if(orders == null)
+            {
+                ModelState.AddModelError("Orders", "No orders for this user are found!");
+            }         
             return this.View(orders);
         }
 
@@ -70,13 +104,16 @@ namespace WheelsShop.App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ConfirmOrders(int[] orderIds)
         {
+            if (orderIds == null)
+            {
+                ModelState.AddModelError("Orders", "Orders are not found");
+            }
             this.service.ChangeOrderStatusToProcessing(orderIds);
             this.TempData["confirmedOrder"] = "Your order has been confirm successfully!!!";
             return this.RedirectToAction("ViewAllOrders");
         }
 
-        [Route("ViewAllOrders")]
-       
+        [Route("ViewAllOrders")]       
         public ActionResult ViewAllOrders()
         {
             var userId = User.Identity.GetUserId();

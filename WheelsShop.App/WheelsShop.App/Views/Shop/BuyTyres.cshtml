@@ -13,9 +13,11 @@
     <div class="col-md-4">
         <span>
             @Html.DisplayFor(m => @Model.Brand)
+            @Html.ValidationMessageFor(model => model.Brand)
         </span>
         <span>
             @Html.DisplayFor(m => @Model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
         </span>
         <span>
             @Html.DisplayFor(m => @Model.Width)/@Html.DisplayFor(m => @Model.Height) R @Html.DisplayFor(m => @Model.Size)
@@ -30,6 +32,13 @@
         <p>
             Available on stock: @Html.DisplayFor(m => @Model.Stock)
         </p>
+        <div>
+            <button class="btn-default" id="description" onclick="getDescription(@Model.Id)">
+                Description
+            </button>
+        </div>
+        <div id="description-result"></div>
+
         @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
@@ -39,14 +48,30 @@
                     <input type="number" name="productId" value="@Model.Id" hidden />
                     <p>                        
                         Quantity you want to buy: @Html.TextBox("Quantity", null, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.Stock)
                     </p>
                     <input type="submit" value="Add to cart" class="btn btn-default" />
                 </div>
             </div>
         }
+       
         <div class="col-sm-12">
             <input type="button" class="btn btn-default" value="Back" onclick="location.href='@Url.Action("SearchTyre", "Tyres")'" />
         </div>
     </div>
 </div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function getDescription(id) {
+    
+            $('#description-result').load("/Shop/GetDescription/" + id);
+        }
+    </script>
+}
 

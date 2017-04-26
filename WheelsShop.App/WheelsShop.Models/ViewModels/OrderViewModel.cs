@@ -9,8 +9,11 @@ namespace WheelsShop.Models.ViewModels
     {
         public int Id { get; set; }
         
+        [Required]
         public int ProductId { get; set; }
         public ProductViewModel Product { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Quantity must be a positive number")]
         public int Quantity { get; set; }
         
         public User User { get; set; }

@@ -21,9 +21,14 @@ namespace WheelsShop.Models.EntityModels
         [Required]
         public string Model { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:F2} BGN")]
+        [Range(0, 100000, ErrorMessage = "Price must be a positive number")]
         public decimal Price { get; set; }
         [Required]
+        [Range(0, 100000, ErrorMessage = "Stock must be a positive number")]
         public int Stock { get; set; }
+
+        public string Description { get; set; }
         
         public byte[] ImageUrl { get; set; }
 

@@ -16,15 +16,9 @@ namespace WheelsShop.App.Controllers
             : base(data)
         {
             this.service = service;
-        }
+        }     
+      
 
-        //[ActionName("Index")]
-        //public ActionResult Index()
-        //{
-        //    ViewBag.Message = "Tyres Index";
-        //    return View();
-        //}
-       
         public PartialViewResult Search()
         {
             var tyres = this.service.GetAllTyres();

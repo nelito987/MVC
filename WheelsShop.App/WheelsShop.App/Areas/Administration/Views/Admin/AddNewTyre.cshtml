@@ -1,12 +1,11 @@
 ﻿@using System.Web.Mvc.Html
-@using WheelsShop.Models.EntityModels
 @model WheelsShop.Models.BindingModels.NewTyreBindingModel
 @{
     ViewBag.Title = "AddNewTyre";
     Layout = null;
 }
 
-@using (Html.BeginForm("AddNewTyre", "Admin", FormMethod.Post, new { @class = "col-sm-12", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddNewTyre", "Admin", FormMethod.Post, new { area = "Administration", @class = "col-sm-12 background-image", enctype = "multipart/form-data" }))
 {
     <h2 class="col-md-offset-2">Add tyre</h2>
     @Html.AntiForgeryToken()
@@ -61,16 +60,16 @@
                 @Html.TextBoxFor(x => Model.Price, new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => Model.Price, "", new { @class = "text-danger" })
             </div>
-            
-            @*<div class="form-group">
-                @Html.LabelFor(m => Model.ImageUrl, new { @class = "col-md-2 control-label" })
-                <input type="file" name="ImageUrl" />
-            </div>*@
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Description, new { @class = "col-md-2 control-label" })
+                @Html.TextAreaFor(x => Model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => Model.Description, "", new { @class = "text-danger" })
+            </div>             
+           
 
             <div>
-                <label for="file">Upload Image:</label>
-                <input type="file" name="ImageUrl" id="file" style="width: 100%;" enctype="multipart/form-data" />
-                <input type="submit" value="Upload" class="submit" /> 
+                <label for="file" class="btn-default">Upload Image</label>
+                <input style="visibility:hidden;" type="file" name="ImageUrl" id="file"  enctype="multipart/form-data" value="Upload image"/>               
             </div>
            
 

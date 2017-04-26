@@ -30,6 +30,14 @@ namespace WheelsShop.Services
             this.Data.Products.Add(newTyre);
             this.Data.SaveChanges();            
         }
+        public void AddNewWheel(NewWheelBindingModel wheel)
+        {
+            byte[] file = this.FileUpload(wheel.ImageUrl);  
+            var newWheel = Mapper.Map<Wheel>(wheel);
+            newWheel.ImageUrl = file;
+            this.Data.Products.Add(newWheel);
+            this.Data.SaveChanges();
+        }
 
         private byte[] FileUpload(HttpPostedFileBase file)
         {
@@ -42,22 +50,11 @@ namespace WheelsShop.Services
                 MemoryStream ms = new MemoryStream();
                 file.InputStream.CopyTo(ms);
                 byte[] array = ms.GetBuffer();
-               
-                return ms.ToArray();
 
+                return ms.ToArray();
             }
 
             return null;
-            
-        }
-
-        public void AddNewWheel(NewWheelBindingModel wheel)
-        {
-            byte[] file = this.FileUpload(wheel.ImageUrl);  
-            var newWheel = Mapper.Map<Wheel>(wheel);
-            newWheel.ImageUrl = file;
-            this.Data.Products.Add(newWheel);
-            this.Data.SaveChanges();
         }
 
         public IEnumerable<OrderViewModel> GetAllOrders()
@@ -126,6 +123,7 @@ namespace WheelsShop.Services
                 tyre.Season = product.Season;
                 tyre.Width = product.Width;
                 tyre.Size = product.Size;
+                tyre.Description = product.Description;
 
                 if(product.ImageUrl != null)
                 {
@@ -143,6 +141,7 @@ namespace WheelsShop.Services
                 wheel.Price = product.Price;
                 wheel.Stock = product.Stock;
                 wheel.PCD = product.PCD;
+                wheel.Description = product.Description;
                 wheel.Size = product.Size;
 
                 if (product.ImageUrl != null)
