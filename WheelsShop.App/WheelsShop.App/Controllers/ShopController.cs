@@ -33,12 +33,12 @@ namespace WheelsShop.App.Controllers
         [AllowAnonymous]
         public ActionResult BuyTyres(int productId)
         {            
-            var tyre = this.service.ViewProduct(productId);
-            if (tyre == null)
-            {
+            //var tyre = this.service.ViewProduct(productId);
+            //if (tyre == null)
+            //{
                 return this.HttpNotFound("Tyre can not be found!");
-            }
-            return this.View(tyre);
+            //}
+            //return this.View(tyre);
         }
 
         [Route("BuyWheels")]
@@ -57,7 +57,7 @@ namespace WheelsShop.App.Controllers
         [Route("AddToCart")]
         [ValidateAntiForgeryToken]        
 
-        public ActionResult AddToCart(int productId, int quantity)
+        public ActionResult AddToCart(int productId, int stock)
         {
             var userId = User.Identity.GetUserId();
 
@@ -66,12 +66,12 @@ namespace WheelsShop.App.Controllers
                 new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Error with identification the user");
             } 
 
-            if(quantity < 0)
+            if(stock < 0)
             {
                 ModelState.AddModelError("Stock", "Quantity can not be negative");
             }     
                   
-            var addToCart = this.service.AddToCart(productId, userId, quantity);
+            var addToCart = this.service.AddToCart(productId, userId, stock);
 
             if(addToCart == false)
             {
@@ -83,6 +83,7 @@ namespace WheelsShop.App.Controllers
         }
 
         [Route("ViewCart")]
+        [OutputCache(Duration = 5)]
         public ActionResult ViewCart()
         {
             var userId = User.Identity.GetUserId();
@@ -113,7 +114,8 @@ namespace WheelsShop.App.Controllers
             return this.RedirectToAction("ViewAllOrders");
         }
 
-        [Route("ViewAllOrders")]       
+        [Route("ViewAllOrders")]      
+        [OutputCache(Duration = 5)] 
         public ActionResult ViewAllOrders()
         {
             var userId = User.Identity.GetUserId();
@@ -134,8 +136,8 @@ namespace WheelsShop.App.Controllers
             if (userId == null)
             {
                 new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Error with identification the user");
-            }
-            this.service.RemoveItemFromCart(userId, orderId);
+            }            
+            this.service.RemoveItemFromCart(orderId);
             return this.RedirectToAction("ViewCart");
         }
     }

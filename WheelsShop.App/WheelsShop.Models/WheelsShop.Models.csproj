@@ -128,7 +128,6 @@
     <Compile Include="ViewModels\SearchTyreViewModel.cs" />
     <Compile Include="ViewModels\SearchWheelViewModel.cs" />
     <Compile Include="ViewModels\TyreViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\WheelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

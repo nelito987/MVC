@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -9,7 +10,8 @@ using WheelsShop.Data.Migrations;
 namespace WheelsShop.App
 {
     public class MvcApplication : System.Web.HttpApplication
-    {
+    {      
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

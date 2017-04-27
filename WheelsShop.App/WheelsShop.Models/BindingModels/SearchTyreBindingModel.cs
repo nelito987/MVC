@@ -3,8 +3,7 @@
 namespace WheelsShop.Models.BindingModels
 {
     public class SearchTyreBindingModel
-    {
-        //TODO: only tyres on stock to be in the drop down        
+    {              
         [Range(0, 100, ErrorMessage = "Width must be a positive number")]
         public int Widths { get; set; }
 

@@ -12,8 +12,6 @@ namespace WheelsShop.Data.UnitOfWork
         IRepository<Tyre> Tyres { get; }
         IRepository<Order> Sales { get; }
 
-        void SaveChanges();
-
-        //TODO do I need IRepository<Product>
+        void SaveChanges();       
     }
 }

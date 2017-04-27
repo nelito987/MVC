@@ -7,7 +7,7 @@ namespace WheelsShop.Models.BindingModels
     public class NewTyreBindingModel
     {
         [Required(ErrorMessage = "The {0} is required!")]
-        [Range(0, 1000, ErrorMessage = "Width must be a positive number")]
+        [Range((typeof(int)), "0", "1000", ErrorMessage = "Width must be a positive number")]
         public int Width { get; set; }
 
         [Required(ErrorMessage = "The {0} is required!")]

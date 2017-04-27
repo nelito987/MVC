@@ -33,4 +33,10 @@
     <div class="alert alert-success">@TempData["notEnoughQuantity"]</div>
 }
 
+@if (TempData.ContainsKey("ProductNotAdded"))
+{
+    <div class="alert alert-success">@TempData["ProductNotAdded"]</div>
+}
+
+
 

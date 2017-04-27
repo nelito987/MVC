@@ -46,12 +46,14 @@
         @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
             <div class="form-group">
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />
-                    <p>
-                        @*//TODO validate if quantity is number*@
-                        Quantity you want to buy: @Html.TextBox("Quantity", null, new { @class = "form-control" })
+                    <p>                       
+                        Quantity you want to buy: 
+                        @Html.TextBoxFor(model => model.Stock, new { name = "quantity", htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Stock)
                     </p>
                     <input type="submit" value="Add to cart" class="btn btn-default" />
                 </div>
@@ -63,13 +65,14 @@
     </div>
 </div>
 
-<script>
-    function getDescription(id) {
-        // var url = '/Shop/Index/' + id;
-        //$.get(url, function(data) {
-        //    $('#description-result').html(data);
-        //});
 
-        $('#description-result').load("/Shop/GetDescription/" + id);
-    }
-</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function getDescription(id) {
+    
+            $('#description-result').load("/Shop/GetDescription/" + id);
+        }
+    </script>
+}

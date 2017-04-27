@@ -9,6 +9,7 @@ namespace WheelsShop.Models.EntityModels
 
         [Required]
         [Range(0, 100, ErrorMessage = "Size must be a positive number")]
-        public double Size { get; set; }
+        //size is not in the Product class, just because there could be more products in the future for which size does not apply
+        public int Size { get; set; }
     }
 }

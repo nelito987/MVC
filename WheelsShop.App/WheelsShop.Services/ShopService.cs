@@ -73,15 +73,10 @@ namespace WheelsShop.Services
             foreach (var orderId in orderIds)
             {
                 var curOrder = this.Data.Sales.Find(orderId);
-                //this.Data.Sales.Update(curOrder).Status = Status.Processing;
                 curOrder.Status = Status.Processing;
                 Product product = this.Data.Products.Find(curOrder.ProductId);
                 curOrder.User = this.Data.Users.Find(curOrder.User.Id);
-
-                //TODO validate if the quantity is enough
-                //product.Stock -= curOrder.Quantity;
                 this.Data.Sales.Update(curOrder);
-
             }
 
             try
@@ -105,11 +100,11 @@ namespace WheelsShop.Services
             return ordersVm;
         }
 
-        public void RemoveItemFromCart(string userId, int orderId)
-        {
-            //var currentUser = this.Data.Users.Find(userId);
+        public void RemoveItemFromCart(int orderId)
+        {           
             var orderToBeRemoved = this.Data.Sales.Find(orderId);
-            //currentUser.ProductsBought.Remove(orderToBeRemoved);
+            var product = orderToBeRemoved.Product;
+            product.Stock += orderToBeRemoved.Quantity;            
             this.Data.Sales.Remove(orderToBeRemoved);
             this.Data.SaveChanges();
         }

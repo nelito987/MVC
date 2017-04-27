@@ -39,15 +39,16 @@
         </div>
         <div id="description-result"></div>
 
-        @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
+        @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post, new { area = ""}))
         {
             @Html.AntiForgeryToken()
-
+            @Html.ValidationSummary()
             <div class="form-group">
                 <div>
                     <input type="number" name="productId" value="@Model.Id" hidden />
                     <p>                        
-                        Quantity you want to buy: @Html.TextBox("Quantity", null, new {@class = "form-control"})
+                        Quantity you want to buy: 
+                        @Html.TextBoxFor(model => model.Stock, new { name="quantity", htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Stock)
                     </p>
                     <input type="submit" value="Add to cart" class="btn btn-default" />

@@ -32,8 +32,9 @@
                         <tr>                          
                             @Html.Partial("_OrderRow", order)
                             <td>
-                                @using (Html.BeginForm("DeleteProductFromCart", "Shop", FormMethod.Post, new { orderId = @order.Id}))
+                                @using (Html.BeginForm("DeleteProductFromCart", "Shop", FormMethod.Post, new { area = "", orderId = @order.Id }))
                                 {
+                                    @Html.AntiForgeryToken()
                                     <input type="number" name="orderId" value="@order.Id" hidden />
                                     <input type="submit" value="Remove from cart" class="btn btn-default" />
                                 }                               
@@ -45,7 +46,7 @@
                 <tr>
                     <h2>Total: @totalSum BGN</h2>
                 </tr>
-                @using (Html.BeginForm("ConfirmOrders", "Shop", FormMethod.Post))
+                @using (Html.BeginForm("ConfirmOrders", "Shop", FormMethod.Post, new { area = "" }))
                 {
                     @Html.AntiForgeryToken()
                     foreach (var order in Model)
@@ -66,5 +67,5 @@ else
 }
 
 <div class="col-sm-12">
-    <input type="button" class="btn btn-default" value="Continue shopping" onclick="location.href='@Url.Action("Index", "Home")'" />
+    <input type="button" class="btn btn-default" value="Continue shopping" onclick="location.href='@Url.Action("Index", "Home", new { area = "" })'" />
 </div>

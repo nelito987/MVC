@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
-using WheelsShop.Models.EntityModels.Enums;
 
 namespace WheelsShop.Models.BindingModels
 {

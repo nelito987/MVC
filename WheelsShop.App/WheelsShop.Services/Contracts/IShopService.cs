@@ -10,7 +10,7 @@ namespace WheelsShop.Services.Contracts
         IEnumerable<OrderViewModel> GetOrdersInCart(string userId);
         void ChangeOrderStatusToProcessing(int[] orderIds);
         IEnumerable<OrderViewModel> GetAllOrdersForUser(string userId);
-        void RemoveItemFromCart(string userId, int orderId);
+        void RemoveItemFromCart(int orderId);
         WheelViewModel ViewWheel(int productId);
         string GetProductDescriptionById(int id);
     }

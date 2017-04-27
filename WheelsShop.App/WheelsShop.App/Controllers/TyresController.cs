@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 using WheelsShop.Data.UnitOfWork;
 using WheelsShop.Models.BindingModels;
@@ -35,6 +37,16 @@ namespace WheelsShop.App.Controllers
         {
              var result = this.service.GetSearchTyreInfo(model);
              return View(result);
-        }        
+        }    
+        
+        public ActionResult CError()
+        {
+            throw new ArgumentException("Message");
+        }
+
+        public ActionResult NotFound()
+        {
+            throw new HttpException();
+        }
     }
 }

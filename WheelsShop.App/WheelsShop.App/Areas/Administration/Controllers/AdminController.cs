@@ -38,6 +38,10 @@ namespace WheelsShop.App.Areas.Administration.Controllers
                 this.service.AddNewTyre(tyre);
                 this.TempData["TyreAdded"] = "New tyre has been added successfully!!!";
             }
+            else
+            {
+                this.TempData["ProductNotAdded"] = "Product has not been added, because of invalid input data!!!";
+            }
             return this.RedirectToAction("AddNewProduct");
         }
 
@@ -56,6 +60,10 @@ namespace WheelsShop.App.Areas.Administration.Controllers
             {
                 this.service.AddNewWheel(wheel);
                 this.TempData["WheelAdded"] = "New wheel has been added successfully!!!";
+            }
+            else
+            {
+                this.TempData["ProductNotAdded"] = "Product has not been added, because of invalid input data!!!";
             }
             
             return this.RedirectToAction("AddNewProduct");
@@ -83,8 +91,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("ChangeOrderStatus")]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeOrderStatus(OrderBindingModel model)
-        {
-            //TODO if order is deleted from cart to add the quantity back to stock
+        {            
             if (ModelState.IsValid)
             {
                 this.service.ChangeOrderStatus(model);
