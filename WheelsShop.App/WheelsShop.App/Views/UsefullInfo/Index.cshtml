@@ -4,9 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Calculator</h2>
-
-
 <style>
 body {
         background-image: url('../Content/Images/oz_racing_ultraleggera_hlt_5h_matt_black_chevrolet_corvette.jpg');
@@ -16,9 +13,17 @@ body {
         background-size: cover;
     }
 </style>
+<div>
+    <h3>
+        Don't you know which tyre size fits to your car? <br />
+        No problem calculate the proper tyre size using our tyre size calculator.
+    </h3>
+    <h4>Calculator: Using the calculator below you can find out with which tires sizes you can replace your current tyres.</h4>
+    <h4>Enter two different tyre dimentions to check if they can be replaced with each other</h4>
+</div>
 
 
-<div class="row calcInfo">
+<div class="row calcInfo calcInfoBold">
     <div class="col-md-12">
         <div class="col-md-2">
             @Html.Label("Width: ")
@@ -117,19 +122,19 @@ body {
                 diff2 = (100 - Percent);
             }
 
-            var diameter1 = '<!-- -->' + Math.round(firstDiameter) + ' мм';
-            var diameter2 = '<!-- -->' + Math.round(secondDiameter) + ' мм';
+            var diameter1 = '<!-- -->' + Math.round(firstDiameter) + ' mm';
+            var diameter2 = '<!-- -->' + Math.round(secondDiameter) + ' mm';
             var difference = '';
             if (Math.round(diff1) == 0) {
-                difference += '<!-- -->' + sign + String(Math.round(diff1)) + ' мм';
+                difference += '<!-- -->' + sign + String(Math.round(diff1)) + ' mm';
             }
             else if (Math.round(diff1) < -15 || Math.round(diff1) > 15) {
-                difference += '<!-- --><span style="color:#B30000;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(разликата е извън допустимите граници)</span>';
+                difference += '<!-- --><span style="color:#B30000;">' + sign + String(Math.round(diff1)) + ' mm</span>&nbsp;&nbsp;<span style="font-weight:bold;color:#B30000;">(The difference is outside the permissible limits)</span>';
             }
             else {
-                difference += '<!-- --><span style="color:#ffc266;">' + sign + String(Math.round(diff1)) + ' мм</span>&nbsp;&nbsp;<span style="font-weight:bold;color:orange;">(разликата е в допустимите граници)</span>';
+                difference += '<!-- --><span style="color:#ffc266;">' + sign + String(Math.round(diff1)) + ' mm</span>&nbsp;&nbsp;<span style="font-weight:bold;color:orange;">(The difference is in the permissible limits)</span>';
             }
-            var speed = '<!-- --><br />' + Math.round(diff2) + ' км/ч';
+            var speed = '<!-- --><br />' + Math.round(diff2) + ' km/h';
 
             var div1 = document.getElementById('calculatordiameter1');
             if (div1) {

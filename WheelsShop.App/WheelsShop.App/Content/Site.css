@@ -22,10 +22,9 @@
 }
 
 #homeBtn {
-    border: 2px solid darkgray;
+    border: 2px solid orange;
     border-radius: 10px;
     background: white;
-    color: ;
     font-size: 2em;
     font-weight: bold;
     font-style: italic;
@@ -66,11 +65,13 @@
     background-color: white;
     border: 2px solid orange;
     border-radius: 8px;
+   
 }
 
 .tyreImage{
     width: 300px;
     height: 300px;
+     margin: 5%;
 }
 
 .img-small {
@@ -114,12 +115,14 @@ td {
 }
 
 #allTyrePic {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
 }
-.userModel {
-    border: 1px solid #ffc266;
-    border-radius: 5px;
+.contactsMain {
+    border: 5px solid #ffc266;
+    border-radius: 8px;
+    background: #fadb88;
+    color: black;
 }
 
 .calcInfo{
@@ -129,6 +132,9 @@ td {
     margin: 15px;
     padding: 10px;
     color: gray;
+}
+.calcInfoBold{
+       border: 3px solid #ffc266;
 }
 
 .marginAdd{
@@ -142,4 +148,32 @@ td {
 .custom-file-input::before {
    width: 100%;
    border-radius: 8px;
+}
+
+.contactImg{
+    align-content: center;
+    border: 5px solid black;
+    margin: 40px;
+}
+
+#description{
+    font-style: italic;
+}
+
+#logoImage{
+    width: 250px;
+    height: 60px;
+    margin: 15px;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+#buyTyreBtn{
+    margin: 25px 0;
+}
+
+.btn-margin-15{
+    margin: -15px;
 }

@@ -32,13 +32,13 @@ namespace WheelsShop.App.Controllers
         [Route("BuyTyres")]
         [AllowAnonymous]
         public ActionResult BuyTyres(int productId)
-        {            
-            //var tyre = this.service.ViewProduct(productId);
-            //if (tyre == null)
-            //{
+        {
+            var tyre = this.service.ViewProduct(productId);
+            if (tyre == null)
+            {
                 return this.HttpNotFound("Tyre can not be found!");
-            //}
-            //return this.View(tyre);
+            }
+            return this.View(tyre);
         }
 
         [Route("BuyWheels")]

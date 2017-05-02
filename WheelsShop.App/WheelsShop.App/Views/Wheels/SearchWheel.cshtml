@@ -23,10 +23,10 @@
                     <div id="rightSide" class="col-md-6">
                         <p><h4>@wheel.Brand</h4></p>
                         <p>@wheel.Model</p>
-                        <p>Size: @wheel.Size</p>
-                        <p>PCD: @wheel.PCD</p>
+                        <p>@Html.DisplayNameFor(m => m.Size): @wheel.Size</p>
+                        <p>@Html.DisplayNameFor(m => m.PCD): @wheel.PCD</p>
 
-                        <p><h3>Price: @wheel.Price</h3></p>
+                        <p><h4 class="bold-text">Price: @wheel.Price BGN</h4></p>
                     </div>
                     <div id="buttons">
                         <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyWheels", "Shop", new {area="", productId = @wheel.Id, name="productId", @class="btn btn-default" })'">Buy</button>

@@ -5,22 +5,10 @@
 }
 
 
-
-@*<div class="row">
-    <div>Подреди по цена </div>
-    <div class="col-md-3">
-        @using (Html.BeginForm("SearchTyre", "Tyres", FormMethod.Get))
-            {
-            <input type="button" value="Order by brand" />
-        }
-    </div>
-</div>*@
-
 <div class="row">   
     @if (Model == null || Model.Count() == 0)
     {
-        <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>
-        //@Html.Action("SearchTyre");
+        <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>        
     }
     else
     {

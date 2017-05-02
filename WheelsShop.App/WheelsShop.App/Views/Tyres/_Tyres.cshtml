@@ -5,19 +5,14 @@
         {
             <div class="col-md-5" id="tyreForm">
                 <div id="leftSide" class="col-md-6">
-                @*<img id="allTyrePic" src="@tyreVm.ImageUrl" />*@
                     <img src="data:image;base64,@System.Convert.ToBase64String(tyreVm.ImageUrl)" id="allTyrePic" /> 
                 </div>
                 <div id="rightSide" class="col-md-6">
                     <p><h4>@tyreVm.Brand</h4></p>
-                    <p>@tyreVm.Model</p>
+                    <p>@Html.DisplayNameFor(m => m.Model): @tyreVm.Model</p>
                     <p>Size: @tyreVm.Width/@tyreVm.Height R @tyreVm.Size</p>
-
-
-                    <p>
-                        @Html.DisplayNameFor(m => m.Season)
-                        @tyreVm.Season</p>
-                    <p><h3>@Html.DisplayNameFor(m => m.Price): @tyreVm.Price</h3></p>
+                    <p> @Html.DisplayNameFor(m => m.Season): @tyreVm.Season</p>
+                    <p><h4 class="bold-text">@Html.DisplayNameFor(m => m.Price): @tyreVm.Price BGN</h4></p>
                 </div>
                 <div id="buttons">
                     <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyTyres", "Shop", new {area="", productId = @tyreVm.Id, name="productId", @class="btn btn-default" })'">Buy</button>
@@ -35,7 +30,10 @@
                                 </div>
                             </div>
                         }
-                        <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {area="Administration" ,id = @tyreVm.Id, @class = "btn btn-default"})'">Edit</button>
+                        <button class="btn btn-success" type="button" 
+                                onclick="location.href = '@Url.Action("EditProduct", "Admin", 
+                                                         new {area="Administration" ,id = @tyreVm.Id, @class = "btn btn-default"})'">Edit
+                        </button>
                     }
                 </div>
 

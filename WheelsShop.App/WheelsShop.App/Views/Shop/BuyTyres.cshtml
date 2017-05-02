@@ -4,38 +4,32 @@
     ViewBag.Title = "Buy";
 }
 
-
-
 <div class="row buyTyre">
     <div class="col-md-4">      
-        <img id="allTyrePic" class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
+        <img class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
     </div>
-    <div class="col-md-4">
-        <span>
+    <div class="col-md-8">
+        <h4>
             @Html.DisplayFor(m => @Model.Brand)
             @Html.ValidationMessageFor(model => model.Brand)
-        </span>
-        <span>
+        
             @Html.DisplayFor(m => @Model.Model)
             @Html.ValidationMessageFor(model => model.Model)
-        </span>
-        <span>
+        
             @Html.DisplayFor(m => @Model.Width)/@Html.DisplayFor(m => @Model.Height) R @Html.DisplayFor(m => @Model.Size)
-        </span>
-        <p>
+        </h4>
+        <h4>
             @Html.DisplayFor(m => @Model.Season)
-        </p>
-        <p><h2>
-            @Html.DisplayFor(m => @Model.Price)
-            </h2>
-        </p>
-        <p>
+        </h4>
+        <h3>
+            @Html.DisplayFor(m => @Model.Price) BGN
+        </h3>
+        
+        <h4>
             Available on stock: @Html.DisplayFor(m => @Model.Stock)
-        </p>
+        </h4>
         <div>
-            <button class="btn-default" id="description" onclick="getDescription(@Model.Id)">
-                Description
-            </button>
+            <button class="btn btn-warning" id="description" onclick="getDescription(@Model.Id)">Description </button>
         </div>
         <div id="description-result"></div>
 
@@ -56,8 +50,8 @@
             </div>
         }
        
-        <div class="col-sm-12">
-            <input type="button" class="btn btn-default" value="Back" onclick="location.href='@Url.Action("SearchTyre", "Tyres")'" />
+        <div class="col-sm-12 btn-margin-15" >
+            <input type="button" class="btn btn-warning" value="Back" onclick="location.href='@Url.Action("SearchTyre", "Tyres")'" />
         </div>
     </div>
 </div>

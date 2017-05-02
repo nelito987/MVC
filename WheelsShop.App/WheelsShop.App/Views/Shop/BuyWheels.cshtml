@@ -4,44 +4,41 @@
     ViewBag.Title = "BuyWheels";
 }
 
-@*TODO: check css classes and refactor razor*@
 <div class="row buyTyre">
     <div class="col-md-4">
-        <img id="allTyrePic" class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
+        <img class="tyreImage" src="data:image;base64,@System.Convert.ToBase64String(Model.ImageUrl)" />
     </div>
-    <div class="col-md-4">
-        <span>
+    <div class="col-md-8">
+        <h4>
             @Html.DisplayNameFor(model => model.Brand)
             @Html.DisplayFor(m => @Model.Brand)
-        </span>
-        <span>
+        
             @Html.DisplayNameFor(model => model.Model)
             @Html.DisplayFor(m => @Model.Model)
-        </span>
-        <span>
-            @Html.DisplayNameFor(model => model.Size)
+        </h4>
+        <h4>
+            @Html.DisplayNameFor(model => model.Size):
             @Html.DisplayFor(m => @Model.Size)
-        </span>
-        <p>
-            @Html.DisplayNameFor(model => model.PCD)
+       
+            @Html.DisplayNameFor(model => model.PCD):
             @Html.DisplayFor(m => @Model.PCD)
-        </p>
-        <p>
-            <h2>
-                @Html.DisplayNameFor(model => model.Price)
-                @Html.DisplayFor(m => @Model.Price)
-            </h2>
-        </p>
+        </h4>
+       
+        <h4 class="bold-text">
+            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayFor(m => @Model.Price) BGN
+        </h4>
+       
         <p>
             Available on stock: @Html.DisplayFor(m => @Model.Stock)
         </p>
 
         <div>
-            <button class="btn-default" id="description" onclick="getDescription(@Model.Id)">
+            <button class="btn btn-warning" id="description" onclick="getDescription(@Model.Id)">
                 Description
             </button>
         </div>
-        <div id="description-result"></div>
+        <div id="description-result" class="col-md-12"></div>
                 
         @using (Html.BeginForm("AddToCart", "Shop", FormMethod.Post))
         {
@@ -59,8 +56,8 @@
                 </div>
             </div>
         }
-        <div class="col-sm-12">
-            <input type="button" class="btn btn-default" value="Back" onclick="location.href='@Url.Action("SearchWheel", "Wheels")'" />
+        <div class="col-sm-12 btn-margin-15">
+            <input type="button" class="btn btn-warning" value="Back" onclick="location.href='@Url.Action("SearchWheel", "Wheels")'" />
         </div>
     </div>
 </div>

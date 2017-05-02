@@ -5,7 +5,7 @@
 }
 @if (Model.Any())
 {
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="row col-md-12">
                 <table>
                     <tr>
@@ -36,7 +36,7 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     <input type="number" name="orderId" value="@order.Id" hidden />
-                                    <input type="submit" value="Remove from cart" class="btn btn-default" />
+                                    <input type="submit" value="Remove from cart" class="btn btn-warning" />
                                 }                               
                             </td>
                         </tr>
