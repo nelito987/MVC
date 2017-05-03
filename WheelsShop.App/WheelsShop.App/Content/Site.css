@@ -65,6 +65,7 @@
     background-color: white;
     border: 2px solid orange;
     border-radius: 8px;
+    padding: 25px 0;
    
 }
 
@@ -174,6 +175,7 @@ td {
 
 #buyTyreBtn{
     margin: 25px 0;
+    
 }
 
 .btn-margin-15{

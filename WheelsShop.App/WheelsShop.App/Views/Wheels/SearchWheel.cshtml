@@ -4,12 +4,13 @@
     ViewBag.Title = "Search wheels";
 }
 
-@{ Html.RenderAction("Search");}
 
+@{ Html.RenderAction("Search");}
 <div class="row">
+
     @if (Model == null || Model.Count() == 0)
     {
-        <div class="alert alert-success">Wheels on this size are not on stock at the moment!!! </div>
+        <div class="alert alert-success col-md-12">Wheels on this size are not on stock at the moment!!! </div>
     }
     else
     {
@@ -17,34 +18,36 @@
             @foreach (var wheel in Model)
             {
                 <div class="col-md-5" id="tyreForm">
-                    <div id="leftSide" class="col-md-6">                       
-                        <img src="data:image;base64,@System.Convert.ToBase64String(wheel.ImageUrl)" id="allTyrePic" />
+                    <div id="leftSide" class="col-md-6">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(wheel.ImageUrl)" id="allTyrePic"/>
                     </div>
                     <div id="rightSide" class="col-md-6">
-                        <p><h4>@wheel.Brand</h4></p>
+                        <p><h4>@wheel.Brand</h4>
+                        </p>
                         <p>@wheel.Model</p>
                         <p>@Html.DisplayNameFor(m => m.Size): @wheel.Size</p>
                         <p>@Html.DisplayNameFor(m => m.PCD): @wheel.PCD</p>
 
-                        <p><h4 class="bold-text">Price: @wheel.Price BGN</h4></p>
+                        <p><h4 class="bold-text">Price: @wheel.Price BGN</h4>
+                        </p>
                     </div>
                     <div id="buttons">
-                        <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("BuyWheels", "Shop", new {area="", productId = @wheel.Id, name="productId", @class="btn btn-default" })'">Buy</button>
+                        <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("BuyWheels", "Shop", new {area = "", productId = @wheel.Id, name = "productId", @class = "btn btn-default"})'">Buy</button>
                         @if (User.IsInRole("Admin"))
-                    {
-
-                        using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
                         {
+
+                            using (Html.BeginForm("DeleteProduct", "Admin", FormMethod.Post))
+                            {
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <div>
-                                        <input type="number" name="Id" value="@wheel.Id" hidden />
-                                        <input type="submit" value="Delete" class="btn btn-danger" />
+                                        <input type="number" name="Id" value="@wheel.Id" hidden/>
+                                        <input type="submit" value="Delete" class="btn btn-danger"/>
 
                                     </div>
                                 </div>
                             }
-                            <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {area="Administration", id = @wheel.Id, @class = "btn btn-default"})'">Edit</button>
+                            <button class="btn btn-success" type="button" onclick="location.href = '@Url.Action("EditProduct", "Admin", new {area = "Administration", id = @wheel.Id, @class = "btn btn-default"})'">Edit</button>
                         }
                     </div>
 
