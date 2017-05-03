@@ -12,6 +12,7 @@ namespace WheelsShop.Models.BindingModels
 
         [DisplayFormat(DataFormatString = "{0:F2} BGN")]
         [Range(0, 100000, ErrorMessage = "Price must be a positive number")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
         [Range(0, 100000, ErrorMessage = "Stock must be a positive number")]

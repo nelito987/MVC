@@ -1378,8 +1378,8 @@ $.extend( $.validator, {
 		},
 
 		// http://jqueryvalidation.org/number-method/
-		number: function( value, element ) {
-			return this.optional( element ) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test( value );
+		number: function (value, element) {
+		    return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
 		},
 
 		// http://jqueryvalidation.org/digits-method/
@@ -1416,8 +1416,9 @@ $.extend( $.validator, {
 		},
 
 		// http://jqueryvalidation.org/range-method/
-		range: function( value, element, param ) {
-			return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
+		range: function (value, element, param) {
+		    var globalizedValue = value.replace(",", ".");
+		    return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
 		},
 
 		// http://jqueryvalidation.org/step-method/

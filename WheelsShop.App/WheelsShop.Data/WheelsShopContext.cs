@@ -34,9 +34,7 @@ namespace WheelsShop.Data
             //    .WillCascadeOnDelete(false);
             //base.OnModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
-        }
-
-        public System.Data.Entity.DbSet<WheelsShop.Models.ViewModels.WheelViewModel> WheelViewModels { get; set; }
+        }        
     }
 
 }

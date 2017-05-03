@@ -115,7 +115,9 @@ td {
 }
 
 #allTyrePic {
-    width: 200px;
+    /*min-width: 170px;
+    min-height: 170px;*/
+    max-width: 200px;
     height: 200px;
 }
 .contactsMain {
