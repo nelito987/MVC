@@ -5,17 +5,17 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="col-md-1">Order Number</th>
-                    <th class="col-md-1">Order Date</th>
-                    <th class="col-md-1">Product ID</th>
-                    <th class="col-md-1">Brand</th>
-                    <th class="col-md-1">Model</th>
-                    <th class="col-md-1">Size</th>
-                    <th class="col-md-1">Ordered Quantity</th>
-                    <th class="col-md-1">Price per piece</th>
-                    <th class="col-md-1">Total price</th>
-                    <th class="col-md-1">Order status</th>
-                    <th class="col-md-1">Image</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Order number", "ViewAllOrders", new { sortOrder = ViewBag.OrderNumberSortParam, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Order Date", "ViewAllOrders", new { sortOrder = ViewBag.OrderDate, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Product Id", "ViewAllOrders", new { sortOrder = ViewBag.ProductId, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Brand", "ViewAllOrders", new { sortOrder = ViewBag.BrandSortParam, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Model", "ViewAllOrders", new { sortOrder = ViewBag.ModelParam, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Size", "ViewAllOrders", new { sortOrder = ViewBag.SizeParam, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Ordered Quantity", "ViewAllOrders", new { sortOrder = ViewBag.Quantity, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Price per piece", "ViewAllOrders", new { sortOrder = ViewBag.Price, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Total price", "ViewAllOrders", new { sortOrder = ViewBag.TotalPrice, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">@Html.ActionLink("Status", "ViewAllOrders", new { sortOrder = ViewBag.Status, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th class="col-md-1 allorders-sort-btn">Image</th>
                 </tr>
             </thead>
             @foreach (var order in @Model)

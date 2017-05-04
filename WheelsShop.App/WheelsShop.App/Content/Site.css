@@ -195,3 +195,24 @@ td {
     border-radius: 8px;
     padding: 5px;
 }
+
+li[class="active"] > a{
+    background: orange;
+    background-color: orange;
+    border: 1px solid orange;
+    color: black;
+}
+
+.sort-btn > a{
+    color: orange;   
+    margin: 5px;
+    padding: 10px;
+}
+.allorders-sort-btn > a{
+    color: orange;  
+}
+
+#map{
+    width: 450px;
+    height: 450px;
+}

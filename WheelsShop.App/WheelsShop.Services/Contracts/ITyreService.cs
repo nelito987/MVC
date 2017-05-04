@@ -10,6 +10,6 @@ namespace WheelsShop.Services.Contracts
         IEnumerable<TyreViewModel> GetAllTyresVM();
         IEnumerable<Tyre> GetAllTyres();
         SearchTyreViewModel LoadDataToViewBag(IEnumerable<Tyre> tyres);
-        IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model);
+        IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model, int? page);
     }
 }

@@ -14,5 +14,6 @@ namespace WheelsShop.Services.Contracts
         void DeleteProduct(int id);
         ProductViewModel GetEditedProduct(int id);
         void UpdateProduct(EditProductBindingModel product);
+        IEnumerable<OrderViewModel> SortBySelectedOrder(IEnumerable<OrderViewModel> orders, string sortOrder);
     }
 }

@@ -1,4 +1,8 @@
-﻿@model IEnumerable<WheelsShop.Models.ViewModels.TyreViewModel>
+﻿@*@model IEnumerable<WheelsShop.Models.ViewModels.TyreViewModel>*@
+@model PagedList.IPagedList<WheelsShop.Models.ViewModels.TyreViewModel>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Search tyres";
@@ -8,12 +12,33 @@
 <div class="row">   
     @if (Model == null || Model.Count() == 0)
     {
-        <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>        
+        <div class="alert alert-success">Tyres on this size are not on stock at the moment!!! </div>
     }
     else
     {
         { Html.RenderAction("Search"); }
-        @Html.Partial("_Tyres")
+        <div class="row">
+           
+
+            <div class="col-md-offset-6">
+                <span>Order by:</span>
+                <div class="btn sort-btn">
+                    @Html.ActionLink("Price", "SearchTyre", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                </div>
+                <div class="btn sort-btn">
+                    @Html.ActionLink("Brand", "SearchTyre", new { sortOrder = ViewBag.BrandSortParam, currentFilter = ViewBag.CurrentFilter })
+                </div>
+            </div>
+            @Html.Partial("_Tyres")
+
+            <div class="col-md-12">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("SearchTyre",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </div>
+        </div>
+       
     }   
 </div>
 

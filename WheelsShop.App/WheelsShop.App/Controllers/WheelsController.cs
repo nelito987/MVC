@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,11 +24,28 @@ namespace WheelsShop.App.Controllers
         }
 
         [Route("SearchWheel")]
-        public ActionResult SearchWheel(SearchWheelBindingModel model)
+        public ActionResult SearchWheel(SearchWheelBindingModel model,string sortOrder, int? page)
         {
-            
-                var result = this.service.GetSearchWheelInfo(model);
-                return View(result);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.BrandSortParam = sortOrder == "Brand" ? "brand_desc" : "Brand";
+           
+
+            var result = this.service.GetSearchWheelInfo(model);
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    result = result.OrderByDescending(s => s.Price);
+                    break;
+                case "Brand":
+                    result = result.OrderBy(s => s.Brand);
+                    break;
+                case "brand_desc":
+                    result = result.OrderByDescending(s => s.Brand);
+                    break;
+            }
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(result.ToPagedList(pageNumber, pageSize));          
            
         }       
 

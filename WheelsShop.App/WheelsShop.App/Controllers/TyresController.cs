@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WheelsShop.Data.UnitOfWork;
@@ -33,10 +35,28 @@ namespace WheelsShop.App.Controllers
         }
 
         [Route("SearchTyre")]
-        public ActionResult SearchTyre(SearchTyreBindingModel model)
+        public ActionResult SearchTyre(SearchTyreBindingModel model, string sortOrder, int? page)
         {
-             var result = this.service.GetSearchTyreInfo(model);
-             return View(result);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.BrandSortParam = sortOrder == "Brand" ? "brand_desc" : "Brand";
+            var result = this.service.GetSearchTyreInfo(model, page);
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    result = result.OrderByDescending(s => s.Price);
+                    break;
+                case "Brand":
+                    result = result.OrderBy(s => s.Brand);
+                    break;
+                case "brand_desc":
+                    result = result.OrderByDescending(s => s.Brand);
+                    break;
+            }
+            
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(result.ToPagedList(pageNumber, pageSize));
         }  
     }
 }

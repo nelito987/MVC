@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Web.Mvc;
 using WheelsShop.App.Attributes;
@@ -101,13 +103,29 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         }
 
         [Route("ViewAllOrders")]
-        public ActionResult ViewAllOrders()
+        public ActionResult ViewAllOrders(string sortOrder)
         {
             IEnumerable<OrderViewModel> orders = this.service.GetAllOrders();            
             if(orders == null)
             {
                 this.TempData["noOrdersFound"] = "There are no orders found!!!";
             }
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.BrandSortParam = sortOrder == "Brand" ? "brand_desc" : "Brand";
+            ViewBag.OrderNumberSortParam = sortOrder == "OrderNumber" ? "orderNumber_desc" : "OrderNumber";
+            ViewBag.OrderDate = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ProductId = sortOrder == "ProductId" ? "productId_desc" : "ProductId";
+            ViewBag.ModelParam = sortOrder == "Model" ? "model_desc" : "Model";
+            ViewBag.SizeParam = sortOrder == "Size" ? "size_desc" : "Size";
+            ViewBag.Quantity = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
+            ViewBag.Price = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewBag.TotalPrice = sortOrder == "TotalPrice" ? "totalPrice_desc" : "TotalPrice";
+            ViewBag.Status = sortOrder == "Status" ? "status_desc" : "Status";
+
+            orders = this.service.SortBySelectedOrder(orders, sortOrder);
+
+           
             return this.View(orders);
         }
 

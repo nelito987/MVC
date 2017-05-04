@@ -152,6 +152,79 @@ namespace WheelsShop.Services
                 this.Data.Products.Update(wheel);
             }
             this.Data.SaveChanges();            
+        }       
+
+        public IEnumerable<OrderViewModel> SortBySelectedOrder(IEnumerable<OrderViewModel> orders, string sortOrder)
+        { 
+            switch (sortOrder)
+            {
+                
+                case "Brand":
+                    orders = orders.OrderBy(s => s.Product.Brand);
+                    break;
+                case "brand_desc":
+                    orders = orders.OrderByDescending(s => s.Product.Brand);
+                    break;
+                case "Date":
+                    orders = orders.OrderBy(s => s.OrderDate);
+                    break;
+                case "date_desc":
+                    orders = orders.OrderByDescending(s => s.OrderDate);
+                    break;
+                case "ProductId":
+                    orders = orders.OrderBy(s => s.ProductId);
+                    break;
+                case "productId_desc":
+                    orders = orders.OrderByDescending(s => s.ProductId);
+                    break;
+                case "Model":
+                    orders = orders.OrderBy(s => s.Product.Model);
+                    break;
+                case "model_desc":
+                    orders = orders.OrderByDescending(s => s.Product.Model);
+                    break;
+                case "Size":
+                    orders = orders.OrderBy(s => s.Product.Size);
+                    break;
+                case "size_desc":
+                    orders = orders.OrderByDescending(s => s.Product.Size);
+                    break;
+                case "Quantity":
+                    orders = orders.OrderBy(s => s.Quantity);
+                    break;
+                case "quantity_desc":
+                    orders = orders.OrderByDescending(s => s.Quantity);
+                    break;
+                case "Price":
+                    orders = orders.OrderBy(s => s.Product.Price);
+                    break;
+                case "price_desc":
+                    orders = orders.OrderByDescending(s => s.Product.Price);
+                    break;
+                case "TotalPrice":
+                    orders = orders.OrderBy(s => s.Product.Price*s.Quantity);
+                    break;
+                case "totalPrice_desc":
+                    orders = orders.OrderByDescending(s => s.Product.Price * s.Quantity);
+                    break;
+                case "Status":
+                    orders = orders.OrderBy(s => s.Status);
+                    break;
+                case "status_desc":
+                    orders = orders.OrderByDescending(s => s.Status);
+                    break;                
+                case "orderNumber_desc":
+                    orders = orders.OrderByDescending(s => s.Id);
+                    break;
+                case "OrderNumber":
+                    orders = orders.OrderBy(s => s.Id);
+                    break;
+                default:
+                    orders = orders.OrderBy(s => s.Id);
+                    break;
+            }
+
+            return orders;
         }
     }
 }

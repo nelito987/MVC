@@ -264,3 +264,7 @@ C:\Users\neli\Documents\WheelsShop.App\WheelsShop.App\bin\Microsoft.Owin.Securit
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.App\obj\Debug\WheelsShop.App.csprojResolveAssemblyReference.cache
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.App\obj\Debug\WheelsShop.App.dll
 C:\Users\neli\Documents\WheelsShop.App\WheelsShop.App\obj\Debug\WheelsShop.App.pdb
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App\bin\PagedList.dll
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App\bin\PagedList.Mvc.dll
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App\bin\PagedList.xml
+C:\Users\neli\Documents\GitHub\MVC\WheelsShop.App\WheelsShop.App\bin\PagedList.Mvc.xml

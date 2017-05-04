@@ -38,7 +38,7 @@ namespace WheelsShop.Services
             return tyres;
         }
 
-        public IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model)
+        public IEnumerable<TyreViewModel> GetSearchTyreInfo(SearchTyreBindingModel model, int? page)
         {
             var tyres = this.GetAllTyres();
 
