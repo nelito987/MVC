@@ -151,10 +151,7 @@ namespace WheelsShop.Services
 
                 this.Data.Products.Update(wheel);
             }
-            this.Data.SaveChanges();
-            //TODO Double check the inheritanse - do a need a db set for tyres an wheels?
+            this.Data.SaveChanges();            
         }
-
-        
     }
 }

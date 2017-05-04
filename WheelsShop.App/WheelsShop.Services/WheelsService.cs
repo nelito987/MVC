@@ -53,8 +53,7 @@ namespace WheelsShop.Services
         }
 
         public SearchWheelViewModel LoadDataToViewBag(IEnumerable<WheelViewModel> wheels)
-        {
-            //TODO change double to int
+        {            
             SearchWheelViewModel vm = null;
 
             if (wheels != null)

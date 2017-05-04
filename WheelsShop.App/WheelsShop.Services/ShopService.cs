@@ -67,9 +67,7 @@ namespace WheelsShop.Services
         }
 
         public void ChangeOrderStatusToProcessing(int[] orderIds)
-        {
-            //TODO validate if ordersId is null
-
+        { 
             foreach (var orderId in orderIds)
             {
                 var curOrder = this.Data.Sales.Find(orderId);

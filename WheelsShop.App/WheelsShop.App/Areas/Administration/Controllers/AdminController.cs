@@ -22,8 +22,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         {
             this.service = service;
         }
-
-        //TODO : child attr
+        
         [Route("AddNewTyre")]
         public ActionResult AddNewTyre()
         {
@@ -116,8 +115,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
         [Route("DeleteProduct")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteProduct(int id)
-        {
-            //TODO validate            
+        {                      
             this.service.DeleteProduct(id);
             this.TempData["ProductDeleted"] = "Product has been deleted successfully!!!";
 
@@ -136,7 +134,7 @@ namespace WheelsShop.App.Areas.Administration.Controllers
             return this.View(product);
         }
 
-        //[Route("EditProduct/{id}")]
+        [Route("EditProduct/{id}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProduct(EditProductBindingModel product)

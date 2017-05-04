@@ -22,8 +22,7 @@ namespace WheelsShop.App.Controllers
 
         [Route("Index")]
         public ActionResult Index()
-        {
-            //TODO extract in private property
+        {            
             IEnumerable<int> sizeDistinct = sizesList;
             IEnumerable<int> widthDistinct = widthList;
             IEnumerable<int> heightDistinct = heightList;
