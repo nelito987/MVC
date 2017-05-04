@@ -2,7 +2,9 @@
     ViewBag.Title = "Contact";
 }
 
-<div class="col-md-12 contactsMain">   
+<div class="row col-md-12 contactsMain"> 
+    
+      
     <div id="description">
         <h2>Wheels shop</h2>
         <img class="contactImg" src="../../Content/Images/home.jpg" />
@@ -34,15 +36,50 @@
 
     
     <address>
-        Address: 
-        Sofia<br />
-        1 Henrih Ibsen str. <br/>
-        <abbr title="Phone">P:</abbr>
-        +359 889 534 525
+        <div>
+            Address:
+            Sofia<br />
+            1 Henrih Ibsen str. <br />
+            <abbr title="Phone">P:</abbr>
+            +359 889 534 525
+        </div>        
+        <div id="map" style="display:inline; margin-left:20%;"></div>
     </address>
 
     <address>
         <strong>Sales dpt.:</strong>   <a href="mailto:sales@wheels-shop.com">sales@wheels-shop.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@wheels-shop.com">Marketing@wheels-shop.com</a>
     </address>
+    
+    
 </div>
+
+
+
+@section Scripts {
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWT6_p4OTU0KvAovb2Nrdrr0JvsPtoXl8&callback=initMap">
+    </script>
+    <script>
+        var map, infoWindow;
+        function initMap() {
+            var HmLat = 42.658282;
+            var HmLng = 23.313512;
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: HmLat, lng: HmLng },
+                zoom: 18
+            });
+
+            infoWindow = new google.maps.InfoWindow;
+
+            var marker = new google.maps.Marker
+            ({
+                position: new google.maps.LatLng(HmLat, HmLng),
+                map: map,
+                title: 'Our shop is located here!'
+            });
+        }
+
+    </script>
+}
