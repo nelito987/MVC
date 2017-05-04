@@ -143,6 +143,14 @@ td {
 .marginAdd{
     margin: 15px 30px;
 }
+
+.margin-bottom-50{
+    margin-bottom: 50px;
+}
+
+.padding-top-7{
+    padding-top: 7px;
+}
 #calculatorspeed, #calculatordifference, #calculatordiameter2, #calculatordiameter1{
     color:#ffc266;
     font-weight: bold;
@@ -180,4 +188,10 @@ td {
 
 .btn-margin-15{
     margin: -15px;
+}
+
+.productTextArea, textarea{    
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px;
 }

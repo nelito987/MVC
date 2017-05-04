@@ -57,8 +57,10 @@
 
                 <div class="form-group">
                     @Html.Label("Season", "Season", new { @class = "col-md-2 control-label" })
-                    @Html.DropDownList("Season", EnumHelper.GetSelectList(typeof(WheelsShop.Models.EntityModels.Enums.Season)), "Select Season", new { @class = "form-control col-md-10" })
-                    @Html.ValidationMessageFor(x => Model.Season)
+                    <div class="col-md-10">
+                        @Html.DropDownList("Season", EnumHelper.GetSelectList(typeof(WheelsShop.Models.EntityModels.Enums.Season)), "Select Season", new { @class = "form-control col-md-10" })
+                        @Html.ValidationMessageFor(x => Model.Season)
+                    </div>                       
                 </div>
 
             }
@@ -92,27 +94,23 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control productTextArea" } })
                     @Html.ValidationMessageFor(model => model.Description)
                 </div>
             </div>
 
-            <div class="form-group">
-            @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "btn btn-default btn-file col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="ImageUrl" hidden/>
-                @Html.ValidationMessageFor(model => model.ImageUrl)
-            </div>
-                
-
-
+            <div class="form-group">  
+                <div class="col-md-8">   
+                    <label for="file" class="btn btn-default">Change Image</label>
+                    <input style="visibility:hidden;" type="file" name="ImageUrl" id="file" enctype="multipart/form-data" value="Change image" />
+                </div>               
             </div>
 
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value="Save"/>
+                <input type="submit" class="btn btn-warning" value="Save"/>
             </div>
         </div>
     </div>

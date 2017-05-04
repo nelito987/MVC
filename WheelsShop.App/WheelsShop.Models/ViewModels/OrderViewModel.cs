@@ -7,9 +7,11 @@ namespace WheelsShop.Models.ViewModels
 {
     public class OrderViewModel
     {
+        [Display(Name = "Order ID")]
         public int Id { get; set; }
         
         [Required]
+        [Display(Name = "Product ID")]
         public int ProductId { get; set; }
         public ProductViewModel Product { get; set; }
 
